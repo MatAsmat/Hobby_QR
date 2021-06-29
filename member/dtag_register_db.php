@@ -108,6 +108,9 @@ include('../condb.php');
     '$newname'
 	)";
     $result2 = mysqli_query($condb, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+
+	$sql3 = "UPDATE tbl_qrcode SET QRStatus='Yes' WHERE QrCodeName='$Ref_QrCodeID'";
+	$result3 = mysqli_query($condb, $sql3) or die ("Error in query: $sql3 " . mysqli_error());
 	}//close chk duplicat Username
 
     mysqli_close($condb);
