@@ -156,7 +156,7 @@
 					<section class="container-template">
 						<div id="card">
 							<figure class="front">
-								<img src="../images/template/Template Card-01.png" alt="">
+								<img src="../images/template/Template Card-01.png">
 								<!-- <div>
 									<h3>Asmat</h3>
 									<p>062-335-5987</p>

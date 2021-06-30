@@ -36,20 +36,20 @@
                 <h5 class="widget-user-desc text-right">Judy</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle" src="../../images/about-1.jpg" alt="User Avatar">
+                <img class="img-circle" src="../testimg/catprofile.jpg" alt="User Avatar">
               </div>
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="description-block">
-                    <img src="../../images/template/Template Card-01.png" alt="" width="250px">
+                    <img src="../testimg/cat1.png" alt="" width="250px">
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
                   <div class="col-sm-6">
                     <div class="description-block">
-                    <img src="../../images/template/Template Card-04.png" alt="" width="250px">
+                    <img src="../testimg/cat2.png" alt="" width="250px">
                     </div>
                     <!-- /.description-block -->
                   </div>

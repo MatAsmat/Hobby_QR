@@ -222,14 +222,35 @@ li {
 
 
                         <li class="nav-header">จัดการข้อมูล</li>
-                        <li class="nav-item">
-                            <a href="./table_qrcode.php" class="nav-link">
-                                <i class="nav-icon fas fa-qrcode"></i>
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-qrcode"></i>
                                 <p>
-                                    QR Code Generator
+                                QR Code Generator
+                                    <i class="fas fa-angle-left right"></i>
+                                    <!-- <span class="badge badge-success right">2</span> -->
                                 </p>
                             </a>
-                        </li>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./table_qr_dtag.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon text-success"></i>
+                                        <p>DTag</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./table_qr_ctag.php" class="nav-link">
+                                        <i class="nav-icon far fa-circle text-success"></i>
+                                        <p>CTag</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./table_qr_ttag.php" class="nav-link">
+                                        <i class="nav-icon far fa-circle text-success"></i>
+                                        <p>TTag</p>
+                                    </a>
+                                </li>
+                            </ul>
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tag"></i>

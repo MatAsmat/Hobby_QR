@@ -44,39 +44,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" class="nav-link dropdown-toggle">ดูข้อมูล</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="info_supplies.php" class="dropdown-item">อุปกรณ์ในการเลี้ยงสุนัข</a></li>
-                                <li><a href="info_vaccine.php" class="dropdown-item">ตารางการให้วัคซีนของสุนัข</a></li>
-                                <li><a href="info_neuter.php" class="dropdown-item">ข้อมูลการทำหมันสุนัข</a></li>
-                                <li><a href="info_communicate.php" class="dropdown-item">การสื่อสารกับสุนัข</a></li>
-                                <li><a href="info_body.php" class="dropdown-item">กายวิภาคของสุนัข</a></li>
-                                <li><a href="info_takecare.php" class="dropdown-item">ข้อควรระวังในการเลี้ยงสุนัข</a></li>
-                                <li><a href="info_sickness.php" class="dropdown-item">ข้อสังเกตสุนัขเมื่อป่วย</a></li>
-                                <li><a href="info_diseases.php" class="dropdown-item">โรคต่างๆของสุนัข</a></li>
+                                <li><a href="info_topten.php" class="dropdown-item">ข้อมูลต้นไม้ยอดนิยม 10 อันดับ</a></li>
+                                <li><a href="info_structure.php" class="dropdown-item">กายวิภาคของต้นไม้</a></li>
 
                                 <li class="dropdown-divider"></li>
 
                                 <li class="dropdown-submenu dropdown-hover">
                                     <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false"
-                                        class="dropdown-item dropdown-toggle">ข้อมูลสุนัขตามพันธุ์</a>
+                                        class="dropdown-item dropdown-toggle">ข้อมูลต้นไม้ตามพันธุ์</a>
                                     <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
                                         <li>
-                                            <a tabindex="-1" href="table_pay_money.php" class="dropdown-item">ข้อมูลทั่วไปและลักษณะนิสัย</a>
+                                            <a tabindex="-1" href="#" class="dropdown-item">การดูแลเบื้องต้น</a>
                                         </li>
                                         <li>
-                                            <a tabindex="-1" href="table_get_money.php" class="dropdown-item">บุคลิก</a>
+                                            <a tabindex="-1" href="#" class="dropdown-item">อาการผิดปกติ/โรค/ศัตรูพืช และวิธีการรักษาเบื้องต้น</a>
                                         </li>
                                         <li>
-                                            <a tabindex="-1" href="table_get_money.php" class="dropdown-item">ข้อมูลการดูแล</a>
+                                            <a tabindex="-1" href="#" class="dropdown-item">คำเตือน และคำแนะนำเพิ่มเติม</a>
                                         </li>
                                         <li>
-                                            <a tabindex="-1" href="table_get_money.php" class="dropdown-item">ผู้เลี้ยงที่เหมาะ</a>
+                                            <a tabindex="-1" href="#" class="dropdown-item">สัดส่วนการใช้เครื่องปลูกและปุ๋ย</a>
                                         </li>
                                         <li>
-                                            <a tabindex="-1" href="table_get_money.php" class="dropdown-item">ภาวะปัญหาสุขภาพ</a>
-                                        </li>
-                                        <li>
-                                            <a tabindex="-1" href="table_get_money.php" class="dropdown-item">ความต้องการด้านสารอาหาร</a>
+                                            <a tabindex="-1" href="#" class="dropdown-item">การขยายพันธุ์/การเพาะปลูก</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -86,13 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" class="nav-link dropdown-toggle">จัดการข้อมูล</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="table_body_weight.php" class="dropdown-item">ตารางน้ำหนักสัตว์เลี้ยง</a></li>
-                                <li><a href="table_vaccine.php" class="dropdown-item">ตารางประวัติการฉีดวัคซีน</a></li>
-                                <li><a href="table_flea_treatments.php" class="dropdown-item">ตารางประวัติกำจัดเห็บหมัด</a></li>
-                                <li><a href="table_worming.php" class="dropdown-item">ตารางป้องกันพยาธิหนอนหัวใจ</a></li>
-                                <li><a href="table_medicine.php" class="dropdown-item">ตารางยาอาหารเสริม</a></li>
-                                <li><a href="table_visit.php" class="dropdown-item">ตารางพบคุณหมอ</a></li>
-                                <li><a href="table_health_note.php" class="dropdown-item">ตารางสุขภาพทั่วไป</a></li>
+                                <li><a href="table_medicine.php" class="dropdown-item">ตารางรดต้นไม้</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -118,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                      <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <li class="nav-item">
-          <a class="nav-link"  href="#" role="button">
+          <a class="nav-link"  href="../../logout.php" role="button">
               <i class="fas fa-home"></i> ออกจากระบบ</a>
         </li>
       </ul>

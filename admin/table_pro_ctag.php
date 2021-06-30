@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-header">
                     <!-- <a class="btn btn-secondary btn-sm" href="../file/code_board.php" title="PDF [new window]" target="_blank"><i class="fas fa-print"> พิมพ์รายงาน</i></a> -->
-                        <a class="float-right btn btn-success btn-sm" href="./create_board.php">
+                        <a class="float-right btn btn-success btn-sm" href="./create_pro_ctag.php">
                         <i class="fas fa-plus-circle"></i>
                             </i>
                             เพิ่มข้อมูล

@@ -1,18 +1,19 @@
 <?php 
 include('../condb.php'); 
 $qrID=$_GET['qrID'];
-echo 'qrID: '.$qrID;
+// echo 'qrID: '.$qrID;
 
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
-echo ' qrStatus: '.$qrStatus[1];
+// echo ' qrStatus: '.$qrStatus[1];
 
 if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
 if($qrStatus[1] == 'Yes')
 {   
     echo "<script>";
     // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
+    // domain/member/dtag_register.php?qrID=QrCodeName
     echo "window.location = 'profile.php'";
     echo "</script>";
 }
@@ -405,7 +406,7 @@ $result2 = mysqli_query($condb, $query2);
                                 <!-- <input type="hidden" name="Ref_QrCodeID" value=".$qrID"> -->
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID";?>'/> 
                                 <input type="hidden" name="Ref_OwnerID" value="3">
-                                <!-- <input type="hidden" name="Ref_OwnerID" value="  <?php echo $row['OwnerID'];?>"> -->
+                                <!-- <input type="hidden" name="Ref_OwnerID" value='<?php echo "$ownID";?>'/>  -->
                               
                                     <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
                                 </div>

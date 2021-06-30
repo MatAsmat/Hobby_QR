@@ -36,20 +36,20 @@
                 <h5 class="widget-user-desc text-right">Judy</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle" src="../../images/about-1.jpg" alt="User Avatar">
+                <img class="img-circle" src="../testimg/plantprofile.jpg" alt="User Avatar">
               </div>
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="description-block">
-                    <img src="../../images/template/Template Card-01.png" alt="" width="250px">
+                    <img src="../testimg/plant1.png" alt="" width="250px">
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
                   <div class="col-sm-6">
                     <div class="description-block">
-                    <img src="../../images/template/Template Card-04.png" alt="" width="250px">
+                    <img src="../testimg/plant1.png" alt="" width="250px">
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -79,7 +79,7 @@
             </div>
             <div class="card card-success card-outline">
             <div class="card-header">
-                <h5 class="card-title m-0">ข้อมูลสัตว์เลี้ยง</h5>
+                <h5 class="card-title m-0">ข้อมูลต้มไม้</h5>
               </div>
               <div class="card-body">
                             <h2 class="text-muted text-md"><b>ชื่อ-นามสกุล: </b>

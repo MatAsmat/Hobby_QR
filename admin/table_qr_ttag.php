@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-header">
                     <!-- <a class="btn btn-secondary btn-sm" href="../file/code_board.php" title="PDF [new window]" target="_blank"><i class="fas fa-print"> พิมพ์รายงาน</i></a> -->
-                        <a class="float-right btn btn-success btn-sm" href="./create_qrcode.php">
+                        <a class="float-right btn btn-success btn-sm" href="./create_qr_ttag.php">
                         <i class="fas fa-plus-circle"></i>
                             </i>
                             เพิ่มข้อมูล
@@ -41,7 +41,7 @@
                             $query = "
                             SELECT * FROM tbl_qrcode as q 
                             INNER JOIN tbl_products as d ON q.Ref_ProductID = d.ProductID 
-                            ORDER BY QrCodeID DESC" or die("Error:" . mysqli_error());
+                            WHERE ProductCategory = 'TTag' ORDER BY QrCodeID DESC" or die("Error:" . mysqli_error());
                             $result = mysqli_query($condb, $query); 
                                 echo "<table  id='example1' class='table table-bordered table-striped'>";
                                     echo "
@@ -63,7 +63,7 @@
                                         echo "<td align='center'>".$item.'.'. "</td>";
                                         echo "<td align='center'>" .'QR'.$row["QrCodeID"] . "</td> "; 
                                         echo "<td align='center'>" .$row["QrCodeName"] . "</td> ";
-                                        echo "<td align='center'>"."<img class='table-avatar' width='150px' alt='image' src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=.".$row['QrCodeName']."'>"."</td>";
+                                        echo "<td align='center'>"."<img class='table-avatar' width='150px' alt='image' src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://test.matterdevs.com/member/ttag_register.php?qrID=".$row['QrCodeName']."'>"."</td>";
                                         echo "<td align='center'>"."<img class='table-avatar' width='300px' alt='image' src='./image/products/".$row['ProductImage']."'>"."</td>";
                                         echo "<td align='center'>" .$row["QRStatus"] . "</td> "; 
                                     }

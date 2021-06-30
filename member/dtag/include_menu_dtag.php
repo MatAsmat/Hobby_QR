@@ -15,7 +15,6 @@ $sql = "
 SELECT * 
 FROM tbl_dog as d 
 INNER JOIN tbl_owner as o ON d.Ref_OwnerID=o.OwnerID 
-INNER JOIN tbl_qrcode as q ON d.Ref_QrCodeID=q.QrCodeID
 INNER JOIN tbl_dog_breed as b ON d.Ref_DogBreedID=b.DogBreedID 
 INNER JOIN tbl_templates as t ON d.Ref_TemplateID=t.TemplateID 
 WHERE OwnerID=$OwnerID";
