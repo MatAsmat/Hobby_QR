@@ -38,7 +38,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php
-                            $query = "SELECT * FROM tbl_products ORDER BY ProductID DESC " or die("Error:" . mysqli_error());
+                            $query = "SELECT * FROM tbl_products WHERE ProductCategory = 'DTag' ORDER BY ProductID DESC " or die("Error:" . mysqli_error());
                             $result = mysqli_query($condb, $query); 
                                 echo "<table  id='example1' class='table table-bordered table-striped'>";
                                     echo "

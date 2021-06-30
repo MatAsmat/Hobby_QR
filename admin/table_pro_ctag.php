@@ -37,7 +37,11 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      <table  id='example1' class='table table-bordered table-striped projects'>
+                    <?php
+                            $query = "SELECT * FROM tbl_products WHERE ProductCategory = 'CTag' ORDER BY ProductID DESC " or die("Error:" . mysqli_error());
+                            $result = mysqli_query($condb, $query); 
+                                echo "<table  id='example1' class='table table-bordered table-striped'>";
+                                    echo "
                                         <thead>
                                             <tr align='center'>
                                             <th>ลำดับ</th>
@@ -45,53 +49,42 @@
                                             <th>รูปสินค้า</th>
                                             <th>ชื่อสินค้า</th>
                                             <th>ราคา/บาท</th>
+                                            <th>วันที่ลงสินค้า</th>
                                             <th>จัดการ</th>
                                             </tr>
                                         </thead>
-                                   <tr>
-                                            <td>1</td>
-                                            <td>PD_CT0001</td>
-                                            <td><img src="../images/gallery-1.jpg" alt="" width="250px"></td>
-                                            <td>mini cat collar</td>
-                                            <td>250</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='read_board.php?ID=$row[0]' class='btn btn-primary btn-sm'> <i class='fas fa-eye'>
-                                            </i></a>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            <a href='delete_board_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
-                                            </i></a></td>
-                                    </tr>
-                                    <tr>
-                                            <td>2</td>
-                                            <td>PD_CT0002</td>
-                                            <td><img src="../images/gallery-3.jpg" alt="" width="250px"></td>
-                                            <td>mini cat collar</td>
-                                            <td>250</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='read_board.php?ID=$row[0]' class='btn btn-primary btn-sm'> <i class='fas fa-eye'>
-                                            </i></a>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            <a href='delete_board_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
-                                            </i></a></td>
-                                    </tr>
-                                    <tr>
-                                            <td>3</td>
-                                            <td>PD_CT0003</td>
-                                            <td><img src="../images/gallery-4.jpg" alt="" width="250px"></td>
-                                            <td>mini cat collar</td>
-                                            <td>250</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='read_board.php?ID=$row[0]' class='btn btn-primary btn-sm'> <i class='fas fa-eye'>
-                                            </i></a>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            <a href='delete_board_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
-                                            </i></a></td>
-                                    </tr>
-                                        
-                               </table>
+                                    ";
+                                    $item = 0;
+                                    while($row = mysqli_fetch_array($result)) { 
+                                        $item +=1;
+                                        echo "<tr>";
+                                        echo "<td align='center'>".$item.'.'. "</td>";
+                                        echo "<td align='center'>" .'PD_DT'.$row["ProductID"] . "</td> "; 
+                                        echo "<td align='center'>"."<img class='table-avatar' width='300px' alt='image' src='./image/products/".$row['ProductImage']."'>"."</td>";
+                                        echo "<td>" .$row["ProductName"] . "</td> "; 
+                                        echo "<td align='center'>" .$row["ProductPrice"] . "</td> "; 
+                                        echo "<td align='center'>" .$row["ProductCreateDate"] . "</td> "; 
+                                        echo "<td class='project-actions text-center'>
+                                        <a href='update_pro_dtag.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
+                                        </i></a>
+                                        <a href='delete_pro_dtag_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
+                                        </i></a></td> ";
+                                    }
+                                    echo "
+                                        <tfoot>
+                                        <tr align='center'>
+                                            <th>ลำดับ</th>
+                                            <th>รหัส</th>
+                                            <th>รูปสินค้า</th>
+                                            <th>ชื่อสินค้า</th>
+                                            <th>ราคา/บาท</th>
+                                            <th>จัดการ</th>
+                                            </tr>
+                                        </tfoot>
+                                    ";
+                                echo "</table>";
+                            mysqli_close($condb);
+                        ?>
                     </div>
                     <!-- /.card-body -->
                 </div>
