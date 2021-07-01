@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-header">
                     <!-- <a class="btn btn-secondary btn-sm" href="../file/code_board.php" title="PDF [new window]" target="_blank"><i class="fas fa-print"> พิมพ์รายงาน</i></a> -->
-                        <a class="float-right btn btn-success btn-sm" href="./create_board.php">
+                        <a class="float-right btn btn-success btn-sm" href="./create_tem_ctag.php">
                         <i class="fas fa-plus-circle"></i>
                             </i>
                             เพิ่มข้อมูล
@@ -37,65 +37,54 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      <table  id='example1' class='table table-bordered table-striped projects'>
+                    <?php
+                            $query = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'CTag' ORDER BY TemplateID DESC " or die("Error:" . mysqli_error());
+                            $result = mysqli_query($condb, $query); 
+                                echo "<table  id='example1' class='table table-bordered table-striped'>";
+                                    echo "
                                         <thead>
                                             <tr align='center'>
                                             <th>ลำดับ</th>
                                             <th>รหัส</th>
-                                            <th>นามบัตรด้านหน้า</th>
-                                            <th>นามบัตรด้านหลัง</th>
-                                            <th>ชื่อ</th>
-                                            <th>ราคา/บาท</th>
+                                            <th>รูปนามบัตรด้านหน้า</th>
+                                            <th>รูปนามบัตรด้านหลัง</th>
+                                            <th>ชื่อนามบัตร</th>
+                                            <th>วันที่ลงนามบัตร</th>
                                             <th>จัดการ</th>
                                             </tr>
                                         </thead>
-                                   <tr>
-                                            <td>1</td>
-                                            <td>TP_CT0001</td>
-                                            <td><img src="../images/template/Template Card-01.png" alt="" width="250px"></td>
-                                            <td><img src="../images/template/Template Card-04.png" alt="" width="250px"></td>
-                                            <td>tree name</td>
-                                            <td>250</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='read_board.php?ID=$row[0]' class='btn btn-primary btn-sm'> <i class='fas fa-eye'>
-                                            </i></a>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            <a href='delete_board_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
-                                            </i></a></td>
-                                    </tr>
-                                    <tr>
-                                            <td>2</td>
-                                            <td>TP_CT0002</td>
-                                            <td><img src="../images/template/Template Card-02.png" alt="" width="250px"></td>
-                                            <td><img src="../images/template/Template Card-05.png" alt="" width="250px"></td>
-                                            <td>tree name</td>
-                                            <td>250</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='read_board.php?ID=$row[0]' class='btn btn-primary btn-sm'> <i class='fas fa-eye'>
-                                            </i></a>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            <a href='delete_board_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
-                                            </i></a></td>
-                                    </tr>
-                                    <tr>
-                                            <td>3</td>
-                                            <td>TP_CT0003</td>
-                                            <td><img src="../images/template/Template Card-03.png" alt="" width="250px"></td>
-                                            <td><img src="../images/template/Template Card-06.png" alt="" width="250px"></td>
-                                            <td>tree name</td>
-                                            <td>250</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='read_board.php?ID=$row[0]' class='btn btn-primary btn-sm'> <i class='fas fa-eye'>
-                                            </i></a>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            <a href='delete_board_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
-                                            </i></a></td>
-                                    </tr>
-                                        
-                               </table>
+                                    ";
+                                    $item = 0;
+                                    while($row = mysqli_fetch_array($result)) { 
+                                        $item +=1;
+                                        echo "<tr>";
+                                        echo "<td align='center'>".$item.'.'. "</td>";
+                                        echo "<td align='center'>" .'TP_DT'.$row["TemplateID"] . "</td> "; 
+                                        echo "<td align='center'>"."<img class='table-avatar' width='300px' alt='image' src='./image/templates/".$row['TemplateFrontImageSample']."'>"."</td>";
+                                        echo "<td align='center'>"."<img class='table-avatar' width='300px' alt='image' src='./image/templates/".$row['TemplateBackImageSample']."'>"."</td>";
+                                        echo "<td>" .$row["TemplateName"] . "</td> "; 
+                                        echo "<td align='center'>" .$row["TemplateCreateDate"] . "</td> "; 
+                                        echo "<td class='project-actions text-center'>
+                                        <a href='update_tem_dtag.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
+                                        </i></a>
+                                      </td> ";
+                                    }
+                                    echo "
+                                        <tfoot>
+                                        <tr align='center'>
+                                            <th>ลำดับ</th>
+                                            <th>รหัส</th>
+                                            <th>รูปนามบัตรด้านหน้า</th>
+                                            <th>รูปนามบัตรด้านหลัง</th>
+                                            <th>ชื่อนามบัตร</th>
+                                            <th>วันที่ลงนามบัตร</th>
+                                            <th>จัดการ</th>
+                                            </tr>
+                                        </tfoot>
+                                    ";
+                                echo "</table>";
+                            mysqli_close($condb);
+                        ?>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -112,6 +101,6 @@
 <!-- page script -->
 <script>
 $(document).ready(function() {
-    $('a[href^="./table_pro_ttag.php"]').addClass('nav-item has-treeview menu-open nav-link active ');
+    $('a[href^="./table_tem_ctag.php"]').addClass('nav-item has-treeview menu-open nav-link active ');
 });
 </script>

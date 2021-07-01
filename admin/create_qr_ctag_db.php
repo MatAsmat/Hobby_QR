@@ -42,12 +42,12 @@ $Ref_ProductID = $_POST["Ref_ProductID"];
 	if($result){
 	echo "<script type='text/javascript'>";
 	echo "alert('เพิ่มข้อมูลสำเร็จ');";
-	echo "window.location = 'table_qrcode.php'; ";
+	echo "window.location = 'table_qr_ctag.php'; ";
 	echo "</script>";
 	}else{
 	echo "<script type='text/javascript'>";
 	//echo "alert('Error!!');";
-	echo "window.location = 'table_qrcode.php'; ";
+	echo "window.location = 'table_qr_ctag.php'; ";
 	echo "</script>";
 }
 ?>

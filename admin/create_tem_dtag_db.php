@@ -5,11 +5,11 @@ include('../condb.php');
 	$TemplateName = $_POST["TemplateName"];
 	$TemplatePrice = $_POST["TemplatePrice"];
 	$TemplateCategory = $_POST["TemplateCategory"];
-	$TemplateFrontImage2 = $_POST["TemplateFrontImage2"];
-	$TemplateBackImage2 = $_POST["TemplateBackImage2"];
-	$TemplateFrontImageSample2 = $_POST["TemplateFrontImageSample2"];
-	$TemplateBackImageSample2 = $_POST["TemplateBackImageSample2"];
-	$Ref_DogBreedID = $_POST["Ref_DogBreedID"];
+	$TemplateFrontImage = $_POST["TemplateFrontImage"];
+	$TemplateBackImage = $_POST["TemplateBackImage"];
+	$TemplateFrontImageSample = $_POST["TemplateFrontImageSample"];
+	$TemplateBackImageSample = $_POST["TemplateBackImageSample"];
+	$Ref_BreedID = $_POST["Ref_BreedID"];
 
 
     $date = date("Ymd_His");
@@ -70,7 +70,7 @@ include('../condb.php');
 	TemplateBackImage,
 	TemplateFrontImageSample,
 	TemplateBackImageSample,
-	Ref_DogBreedID
+	Ref_BreedID
 	)
 	VALUES
 	(
@@ -81,7 +81,7 @@ include('../condb.php');
 	'$newname2',
 	'$newname3',
 	'$newname4',
-	'$Ref_DogBreedID'
+	'$Ref_BreedID'
 	)";
 
 	$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());

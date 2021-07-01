@@ -11,6 +11,20 @@ WHERE ProductCategory = 'DTag'"
 or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);  
 
+$query2 = "
+SELECT * 
+FROM tbl_products
+WHERE ProductCategory = 'CTag'"
+or die("Error:" . mysqli_error());
+$result2 = mysqli_query($condb, $query2);  
+
+$query3 = "
+SELECT * 
+FROM tbl_products
+WHERE ProductCategory = 'TTag'"
+or die("Error:" . mysqli_error());
+$result3 = mysqli_query($condb, $query3);  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -190,141 +204,24 @@ $result = mysqli_query($condb, $query);
     	</div>
     </section>
     <section class="ftco-section">
-			<div class="container">
+    <div class="container">
 				<div class="row">
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+          <?php while($row = mysqli_fetch_array($result2)) { ?>
+             <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(admin/image/products/<?php echo $row['ProductImage'];?>);">
+            	<a href="admin/image/products/<?php echo $row['ProductImage'];?>" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="fa fa-expand"></span>
 	    				</a>
             	<div class="desc w-100 px-4">
 	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
+	              	<span><?php echo $row['ProductName'];?></span>
+	              	<h2><?php echo $row['ProductPrice'];?></h2>
 	              </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
-            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
+            <?php } ?>
         </div>
-        <!-- <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
 			</div>
 		</section>
     <section class="ftco-counter" id="ttag">
@@ -344,141 +241,24 @@ $result = mysqli_query($condb, $query);
     	</div>
     </section>
     <section class="ftco-section">
-			<div class="container">
+    <div class="container">
 				<div class="row">
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant.jpg);">
-            	<a href="images/plant.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+          <?php while($row = mysqli_fetch_array($result3)) { ?>
+             <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(admin/image/products/<?php echo $row['ProductImage'];?>);">
+            	<a href="admin/image/products/<?php echo $row['ProductImage'];?>" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="fa fa-expand"></span>
 	    				</a>
             	<div class="desc w-100 px-4">
 	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
+	              	<span><?php echo $row['ProductName'];?></span>
+	              	<h2><?php echo $row['ProductPrice'];?></h2>
 	              </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant2.jpg);">
-            	<a href="images/plant2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant2.jpg);">
-            	<a href="images/plant2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant2.jpg);">
-            	<a href="images/plant2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant2.jpg);">
-            	<a href="images/plant2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant.jpg);">
-            	<a href="images/plant.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant2.jpg);">
-            	<a href="images/plant2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant.jpg);">
-            	<a href="images/plant.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/plant2.jpg);">
-            	<a href="images/plant2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="fa fa-expand"></span>
-	    				</a>
-            	<div class="desc w-100 px-4">
-	              <div class="text w-100 mb-3">
-	              	<span>Name Product</span>
-	              	<h2>99 บาท</h2>
-	              </div>
-              </div>
-            </div>
-          </div>
+            <?php } ?>
         </div>
-        <!-- <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
 			</div>
 		</section>
 

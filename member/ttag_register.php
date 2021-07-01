@@ -1,8 +1,38 @@
+<?php 
+include('../condb.php'); 
+$qrID=$_GET['qrID'];
+// echo 'qrID: '.$qrID;
+
+$checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
+$qrResults =  mysqli_query($condb, $checkQR);
+$qrStatus = mysqli_fetch_row($qrResults);
+// echo ' qrStatus: '.$qrStatus[1];
+
+if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
+if($qrStatus[1] == 'Yes')
+{   
+    echo "<script>";
+    // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
+    // domain/member/dtag_register.php?qrID=QrCodeName
+    echo "window.location = 'profile_ttag.php'";
+    echo "</script>";
+}
+
+
+
+
+$query = "SELECT * FROM tbl_tree_breed" or die("Error:" . mysqli_error());
+$result = mysqli_query($condb, $query);
+
+$query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'TTag' " or die("Error:" . mysqli_error());
+$result2 = mysqli_query($condb, $query2);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Member Register TTag Page</title>
+    <title>Member Register DTag Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap"
@@ -94,22 +124,22 @@
     </nav>
     <!-- END nav -->
     <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img"
-        style="background-image: url(../images/plant2.jpg);">
+        style="background-image: url(../images/dog/dog1.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row d-md-flex justify-content-end">
                 <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-                    <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
-                    <form method="post" id="register_form">
+                    <!-- <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2> -->
+                    <!-- <form method="post" id="register_form">
                         <ul class="nav nav-tabs">
                          <li class="nav-item">
                           <a class="nav-link active_tab1" style="border:1px solid #ccc" id="list_login_details">ข้อมูลเจ้าของ</a>
                          </li>
                          <li class="nav-item">
-                          <a class="nav-link inactive_tab1" id="list_personal_details" style="border:1px solid #ccc">ข้อมูลต้นไม้</a>
+                          <a class="nav-link inactive_tab1" id="list_personal_details" style="border:1px solid #ccc">ข้อมูลสุนัข</a>
                          </li>
                          <li class="nav-item">
-                          <a class="nav-link inactive_tab1" id="list_contact_details" style="border:1px solid #ccc">เลือกนามบัตร</a>
+                          <a class="nav-link inactive_tab1" id="list_contact_details" style="border:1px solid #ccc">นามบัตร</a>
                          </li>
                         </ul>
                         <div class="tab-content" style="margin-top:16px;">
@@ -118,48 +148,18 @@
                            <div class="panel-heading">ข้อมูลเจ้าของ</div>
                            <div class="panel-body">
                             <div class="form-group">
-                             <label>Qrcode No.</label>
-                             <input type="text" name="qrcode" id="qrcode" class="form-control" value="qrcode number" disabled/>
-                             <span id="error_qrcode" class="text-danger"></span>
+                             <label>Enter Email Address</label>
+                             <input type="text" name="email" id="email" class="form-control" />
+                             <span id="error_email" class="text-danger"></span>
                             </div>
-                            <!-- <div class="form-group">
-                                <label>Enter Email Address</label>
-                                <input type="text" name="email" id="email" class="form-control" />
-                                <span id="error_email" class="text-danger"></span>
-                               </div> -->
-                               <div class="form-group">
-                                <label>Username(ชื่อผู้ใช้)</label>
-                                <input type="text" name="email" id="username" class="form-control" />
-                                <span id="error_username" class="text-danger"></span>
-                               </div>
                             <div class="form-group">
-                             <label>Password(รหัสผ่าน)</label>
+                             <label>Enter Password</label>
                              <input type="password" name="password" id="password" class="form-control" />
                              <span id="error_password" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label>Firstname(ชื่อจริง)</label>
-                                <input type="text" name="firstname" id="firstname" class="form-control" />
-                                <span id="text" class="text-danger"></span>
-                               </div>
-                               <div class="form-group">
-                                <label>Lastname(นามสกุลจริง)</label>
-                                <input type="text" name="lastname" id="lastname" class="form-control" />
-                                <span id="error_password" class="text-danger"></span>
-                               </div>
-                               <div class="form-group">
-                                <label>Telephone(เบอร์โทรศัพท์)</label>
-                                <input type="text" name="telephone" id="telephone" class="form-control" />
-                                <span id="error_password" class="text-danger"></span>
-                               </div>
-                               <div class="form-group">
-                                <label>Line(ไลน์)</label>
-                                <input type="text" name="telephone" id="telephone" class="form-control" />
-                                <span id="error_password" class="text-danger"></span>
-                               </div>
                             <br />
                             <div align="center">
-                             <button type="button" name="btn_login_details" id="btn_login_details" class="btn btn-success btn-lg">Next</button>
+                             <button type="button" name="btn_login_details" id="btn_login_details" class="btn btn-info btn-lg">Next</button>
                             </div>
                             <br />
                            </div>
@@ -167,7 +167,7 @@
                          </div>
                          <div class="tab-pane fade" id="personal_details">
                           <div class="panel panel-default">
-                           <div class="panel-heading">Fill Personal Details</div>
+                           <div class="panel-heading">ข้อมูลสุนัข</div>
                            <div class="panel-body">
                             <div class="form-group">
                              <label>Enter First Name</label>
@@ -191,7 +191,7 @@
                             <br />
                             <div align="center">
                              <button type="button" name="previous_btn_personal_details" id="previous_btn_personal_details" class="btn btn-default btn-lg">Previous</button>
-                             <button type="button" name="btn_personal_details" id="btn_personal_details" class="btn btn-success btn-lg">Next</button>
+                             <button type="button" name="btn_personal_details" id="btn_personal_details" class="btn btn-info btn-lg">Next</button>
                             </div>
                             <br />
                            </div>
@@ -199,7 +199,7 @@
                          </div>
                          <div class="tab-pane fade" id="contact_details">
                           <div class="panel panel-default">
-                           <div class="panel-heading">Fill Contact Details</div>
+                           <div class="panel-heading">นามบัตร</div>
                            <div class="panel-body">
                             <div class="form-group">
                              <label>Enter Address</label>
@@ -221,70 +221,121 @@
                           </div>
                          </div>
                         </div>
-                       </form>
-                    <!-- <form action="#" class="appointment">
+                       </form> -->
+                       <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
+                    <form role="form" action="ttag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">
+                    <h4 style="color:#fff">* ข้อมูลเจ้าของ</h4>
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Username" class="form-control" placeholder="ชื่อผู้ใช้ (Username)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Password" class="form-control" placeholder="รหัสผ่าน (Password)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="FirstName" class="form-control" placeholder="ชื่อจริง (First Name)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="LastName" class="form-control" placeholder="นามสกุลจริง (Last Name)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Email" class="form-control" placeholder="อีเมล (Email)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Telephone" class="form-control" placeholder="เบอร์โทรศัพท์ (Telephone)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Line" class="form-control" placeholder="ไลน์ (Line)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="Facebook" class="form-control" placeholder="เฟซบุ๊ก (Facebook)">
+                                </div>
+                            </div>
+                        </div>
+                        <h4 style="color:#fff">* ข้อมูลต้นไม้</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="TreeName" class="form-control" placeholder="ชื่อต้นไม้ (Name)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="file" name="TreePhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*">
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">เลือกพันธ์</option>
-                                                <option value="">ชิวาวา</option>
-                                                <option value="">ปอมเมอเรเนียน</option>
-                                                <option value="">ชิสุ</option>
-                                                <option value="">ยอร์คเชียร์เทอร์เรียร์</option>
-                                                <option value="">บีเกิล</option>
-                                                <option value="">ปั๊ก</option>
-                                                <option value="">บูลค็อก</option>
-                                                <option value="">โกลเด็นรีทรีฟเวอร์</option>
-                                                <option value="">ไซบีเรียนฮัสกี้</option>
-                                                <option value="">ลาบรุเดอร์รีทรีฟเวอร์</option>
+                                            <select name="Ref_TreeBreedID" id="" class="form-control">
+                                            <option value="">เลือกพันธุ์ต้นไม้</option>
+                                            <?php foreach($result as $results){ ?>
+                                        <option value="<?php echo $results["TreeBreedID"];?>">
+                                            <?php echo $results["TreeBreedName"];?>
+                                        </option>
+                                        <?php } ?>
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Vehicle number">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="fa fa-calendar"></span></div>
-                                        <input type="text" class="form-control appointment_date" placeholder="Date">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="fa fa-clock-o"></span></div>
-                                        <input type="text" class="form-control appointment_time" placeholder="Time">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
+                            </div>  <h4 style="color:#fff">* นามบัตรต้นไม้</h4>
+                        <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-field">
+                                        <div class="select-wrap">
+                                            <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                            <select name="Ref_TemplateID" id="" class="form-control">
+                                            <option value="Ref_TemplateID">เลือกนามบัตรต้นไม้</option>
+                                            <?php foreach($result2 as $results2){ ?>
+                                        <option value="<?php echo $results2["TemplateID"];?>">
+                                            <?php echo $results2["TemplateName"];?>
+                                        </option>
+                                        <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                        </div>
+                            
+                            <!-- <div class="col-md-12">
                                 <div class="form-group">
                                     <textarea name="" id="" cols="30" rows="7" class="form-control"
                                         placeholder="Message"></textarea>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-12">
                                 <div class="form-group">
+                                <input type="hidden" name="TagType" value="Ttag">
+                                <!-- <input type="hidden" name="Ref_QrCodeID" value=".$qrID"> -->
+                                <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID";?>'/> 
+                                <input type="hidden" name="Ref_OwnerID" value="1">
+                                <!-- <input type="hidden" name="Ref_OwnerID" value='<?php echo "$ownID";?>'/>  -->
+                              
                                     <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
                                 </div>
                             </div>
                         </div>
-                    </form> -->
+                    </form>
                 </div>
             </div>
         </div>

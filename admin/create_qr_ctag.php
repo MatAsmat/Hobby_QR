@@ -40,7 +40,7 @@ $result = mysqli_query($condb, $query);
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                <form role="form" action="create_qrcode_db.php" method="post" name="pgenerate"  class="form-horizontal">
+                <form role="form" action="create_qr_ctag_db.php" method="post" name="pgenerate"  class="form-horizontal">
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group">

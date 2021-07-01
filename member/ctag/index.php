@@ -65,16 +65,16 @@
                 <h5 class="card-title m-0">ข้อมูลเจ้าของ</h5>
               </div>
               <div class="card-body">
-                            <h2 class="text-muted text-md"><b>ชื่อผู้ใช้: </b> aaaaaaaaaaaaa</h2>
+                            <h2 class="text-muted text-md"><b>ชื่อผู้ใช้: </b> nick</h2>
                             <h2 class="text-muted text-md"><b>ชื่อ-นามสกุล: </b>
-                            aaaaaaaaaaaaa </h2>
+                            name </h2>
                             <ul class="ml-4 mb-0 fa-ul text-muted">
                                 <li class="middle"><span class="fa-li"><i class="fas fa-phone-square-alt"></i></span>
-                                    เบอร์โทรศัพท์: aaaaaaaaaaaaa</li>
+                                    เบอร์โทรศัพท์: +66123456789</li>
                                     <li class="middle"><span class="fa-li"><i class="fab fa-facebook-square"></i></i></span>
-                                    เฟสบุ๊ค: aaaaaaaaaaaaa</li>
+                                    เฟสบุ๊ค: nick name</li>
                                     <li class="middle"><span class="fa-li"><i class="fab fa-line"></i></span>
-                                    ไลน์: aaaaaaaaaaaaa</li>
+                                    ไลน์: nick</li>
               </div>
             </div>
             <div class="card card-success card-outline">
@@ -83,20 +83,20 @@
               </div>
               <div class="card-body">
                             <h2 class="text-muted text-md"><b>ชื่อ-นามสกุล: </b>
-                            aaaaaaaaaaaaa </h2>
+                            Judy </h2>
                             <ul class="ml-4 mb-0 fa-ul text-muted">
                                 <li class="middle"><span class="fa-li"><i class="fas fa-birthday-cake"></i></i></span>
-                                    วัน เดือน ปีเกิด: aaaaaaaaaaaaa</li>
+                                    วัน เดือน ปีเกิด: 15/08/20</li>
                                     <li class="middle"><span class="fa-li"><i class="fas fa-arrow-circle-right"></i></span>
-                                    พันธุ์: aaaaaaaaaaaaa</li>
+                                    พันธุ์: สก๊อตทิช โฟลด์ (Scottish fold)</li>
                                     <li class="middle"><span class="fa-li"><i class="fas fa-arrow-circle-right"></i></span>
-                                    เพศ: aaaaaaaaaaaaa</li>
+                                    เพศ: ผู้</li>
                                     <li class="middle"><span class="fa-li"><i class="fas fa-arrow-circle-right"></i></span>
-                                    กรุ๊ปเลือด: aaaaaaaaaaaaa</li>
+                                    กรุ๊ปเลือด: A</li>
                                     <li class="middle"><span class="fa-li"><i class="fas fa-arrow-circle-right"></i></span>
-                                    สีตัว: aaaaaaaaaaaaa</li>
+                                    สีตัว: ขาว</li>
                                     <li class="middle"><span class="fa-li"><i class="fas fa-arrow-circle-right"></i></span>
-                                    ลักษณะนิสัย: aaaaaaaaaaaaa</li>
+                                    ลักษณะนิสัย: ร่าเริง แจ่มใส</li>
                             </ul>
               </div>
             </div>

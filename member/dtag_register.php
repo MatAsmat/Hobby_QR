@@ -14,7 +14,7 @@ if($qrStatus[1] == 'Yes')
     echo "<script>";
     // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
     // domain/member/dtag_register.php?qrID=QrCodeName
-    echo "window.location = 'profile.php'";
+    echo "window.location = 'profile_dtag.php'";
     echo "</script>";
 }
 
@@ -24,7 +24,7 @@ if($qrStatus[1] == 'Yes')
 $query = "SELECT * FROM tbl_dog_breed" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
 
-$query2 = "SELECT * FROM tbl_templates" or die("Error:" . mysqli_error());
+$query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'DTag' " or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
 
 ?>
@@ -405,7 +405,7 @@ $result2 = mysqli_query($condb, $query2);
                                 <input type="hidden" name="TagType" value="Dtag">
                                 <!-- <input type="hidden" name="Ref_QrCodeID" value=".$qrID"> -->
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID";?>'/> 
-                                <input type="hidden" name="Ref_OwnerID" value="3">
+                                <input type="hidden" name="Ref_OwnerID" value="1">
                                 <!-- <input type="hidden" name="Ref_OwnerID" value='<?php echo "$ownID";?>'/>  -->
                               
                                     <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">

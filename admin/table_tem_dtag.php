@@ -38,7 +38,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php
-                            $query = "SELECT * FROM tbl_templates ORDER BY TemplateID DESC " or die("Error:" . mysqli_error());
+                            $query = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'DTag' ORDER BY TemplateID DESC " or die("Error:" . mysqli_error());
                             $result = mysqli_query($condb, $query); 
                                 echo "<table  id='example1' class='table table-bordered table-striped'>";
                                     echo "
@@ -101,6 +101,6 @@
 <!-- page script -->
 <script>
 $(document).ready(function() {
-    $('a[href^="./table_pro_ttag.php"]').addClass('nav-item has-treeview menu-open nav-link active ');
+    $('a[href^="./table_tem_dtag.php"]').addClass('nav-item has-treeview menu-open nav-link active ');
 });
 </script>

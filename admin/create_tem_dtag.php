@@ -113,7 +113,7 @@ $result = mysqli_query($condb, $query);
                             <div class="col-sm-4">
                             <div class="form-group">
                             <label>ประเภทพันธุ์</label>
-                                    <select name="Ref_DogBreedID" class="form-control" required>
+                                    <select name="Ref_BreedID" class="form-control" required>
                                         <option value="">--เลือกข้อมูล--</option>
                                         <?php foreach($result as $results){ ?>
                                         <option value="<?php echo $results["DogBreedID"];?>">

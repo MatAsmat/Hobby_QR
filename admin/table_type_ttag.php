@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-header">
                     <!-- <a class="btn btn-secondary btn-sm" href="../file/code_board.php" title="PDF [new window]" target="_blank"><i class="fas fa-print"> พิมพ์รายงาน</i></a> -->
-                        <a class="float-right btn btn-success btn-sm" href="./create_board.php">
+                        <a class="float-right btn btn-success btn-sm" href="./create_type_ttag.php">
                         <i class="fas fa-plus-circle"></i>
                             </i>
                             เพิ่มข้อมูล
@@ -37,44 +37,55 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <table  id='example1' class='table table-bordered table-striped projects'>
+                    <?php
+                            $query = "SELECT * FROM tbl_tree_breed ORDER BY TreeBreedID asc" or die("Error:" . mysqli_error());
+                            $result = mysqli_query($condb, $query); 
+                                echo "<table  id='example1' class='table table-bordered table-striped'>";
+                                    echo "
                                         <thead>
-                                            <tr align='center'>
-                                            <th>ลำดับ</th>
-                                            <th>รหัส</th>
-                                            <th>ชื่อพันธุ์</th>
-                                            <th>จัดการ</th>
-                                            </tr>
+                                        <tr align='center'>
+                                        <th width='5%'>ลำดับ</th>
+                                        <th width='10%'>รหัส</th>
+                                        <th width='15%'>ชื่อพันธุ์</th>
+                                        <th width='60%'>วิธีดูแล</th>
+                                        <th width='10%'>แก้ไข</th>
+                                        </tr>
                                         </thead>
-                                   <tr>
-                                            <td>1</td>
-                                            <td>TY_TT01</td>
-                                            <td>ต้นพลูด่าง</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            </td>
-                                    </tr>
-                                    <tr>
-                                            <td>2</td>
-                                            <td>TY_TT02</td>
-                                            <td>ต้นยางอินเดียดำ/ด่างขาว</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            </td>
-                                    </tr>
-                                    <tr>
-                                            <td>3</td>
-                                            <td>TY_TT03</td>
-                                            <td>ต้นไทรใบสัก</td>
-                                            <td class='project-actions text-center'>
-                                            <a href='update_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i></a>
-                                            </td>
-                                    </tr>
-                                    
-                               </table>
+                                    ";
+                                    $item = 0;
+                                        while($row = mysqli_fetch_array($result)) { 
+                                            $item +=1;
+                                            echo "<tr>";
+                                            echo "<td align='center'>".$item.'.'. "</td>";
+                                            echo "<td align='center'>" .'TY_DT'.$row["TreeBreedID"] . "</td> "; 
+                                            echo "<td>" .$row["TreeBreedName"] .  "</td> "; 
+                                            echo "<td>" .$row["TreeBreedCare"] .  "</td> "; 
+                                            //แก้ไขข้อมูล
+                                            echo "<td class='project-actions text-center'>
+                                            <a href='update_type_dtag.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
+                                            </i> แก้ไข</a></td> ";
+                                            
+                                            //ลบข้อมูล
+                                            // echo "<td class='project-actions text-center'>
+                                            // <a href='delete_position_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
+                                            // </i> ลบ</a></td> ";
+                                            // echo "</tr>";
+                                        }
+                                    echo "
+                                        <tfoot>
+                                        <tr align='center'>
+                                        <th width='5%'>ลำดับ</th>
+                                        <th width='10%'>รหัส</th>
+                                        <th width='15%'>ชื่อพันธุ์</th>
+                                        <th width='60%'>วิธีดูแล</th>
+                                        <th width='10%'>แก้ไข</th>
+                                        </tr>
+                                        </tfoot>
+                                    ";
+                                echo "</table>";
+                            //5. close condb
+                            mysqli_close($condb);
+                        ?>
                     </div>
                     <!-- /.card-body -->
                 </div>
