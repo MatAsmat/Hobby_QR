@@ -221,11 +221,11 @@
                         <div class="modal-body">
                         <div class="form-group">
                                 <label>ชนิดป้องกัน</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             <div class="form-group">
                                 <label>ชื่อเลขผลิต</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             <div class="form-group">
                                 <label>วันที่ฉีด</label>
@@ -257,11 +257,11 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>ชนิดป้องกัน</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             <div class="form-group">
                                 <label>ชื่อเลขผลิต</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             <div class="form-group">
                                 <label>วันที่ฉีด</label>
@@ -422,6 +422,442 @@
                             <th scope="row">3</th>
                             <td>Larry</td>
                             <td><button type="button" class="btn btn-primary editbtn3">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+        <br>
+       <!-- ======================================================= -->
+       <div class="modal fade" id="editInfo4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลป้องกันพยาธิหนอนหัวใจ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>วันที่ป้องกัน</label>
+                                <input type="date" name="" class="form-control">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">แก้ไข</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addInfo4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลป้องกันพยาธิหนอนหัวใจ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>วันที่ป้องกัน</label>
+                                <input type="date" name="" class="form-control">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success">บันทึก</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+            <div class="card-body">
+            <h2>ตารางข้อมูลป้องกันพยาธิหนอนหัวใจ</h2>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addInfo4">เพิ่มข้อมูล</button>
+            </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table thead-dark">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">วันที่ป้องกัน</th>
+                            <th scope="col">แก้ไข</th>
+                            <th scope="col">ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td><button type="button" class="btn btn-primary editbtn4">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Otto</td>
+                            <td><button type="button" class="btn btn-primary editbtn4">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td><button type="button" class="btn btn-primary editbtn4">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+        <br>
+       <!-- ======================================================= -->
+       <div class="modal fade" id="editInfo5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลรายละเอียดยา</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>วันที่</label>
+                                <input type="date" name="" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>ชนิดยา</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>วิธีใช้</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>ระยะเวลา</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">แก้ไข</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addInfo5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลรายละเอียดยา</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                        <div class="form-group">
+                                <label>วันที่</label>
+                                <input type="date" name="" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>ชนิดยา</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>วิธีใช้</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>ระยะเวลา</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success">บันทึก</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+            <div class="card-body">
+            <h2>ตารางข้อมูลรายละเอียดยา</h2>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addInfo5">เพิ่มข้อมูล</button>
+            </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table thead-dark">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">วันที่</th>
+                            <th scope="col">ชนิดยา</th>
+                            <th scope="col">วิธีใช้</th>
+                            <th scope="col">ระยะเวลา</th>
+                            <th scope="col">แก้ไข</th>
+                            <th scope="col">ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Mark</td>
+                            <td>Mark</td>
+                            <td>Mark</td>
+                            <td><button type="button" class="btn btn-primary editbtn5">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                            <td><button type="button" class="btn btn-primary editbtn5">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>Larry</td>
+                            <td>Larry</td>
+                            <td>Larry</td>
+                            <td><button type="button" class="btn btn-primary editbtn5">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+        <br>
+       <!-- ======================================================= -->
+       <div class="modal fade" id="editInfo6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลพบคุณหมอ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>ชื่อโรงพยาบาล</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>อาการป่วย</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>รายละเอียดการรักษา</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">แก้ไข</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addInfo6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลพบคุณหมอ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>ชื่อโรงพยาบาล</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>อาการป่วย</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            <div class="form-group">
+                                <label>รายละเอียดการรักษา</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success">บันทึก</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+            <div class="card-body">
+            <h2>ตารางข้อมูลพบคุณหมอ</h2>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addInfo6">เพิ่มข้อมูล</button>
+            </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table thead-dark">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ชื่อโรงพยาบาล</th>
+                            <th scope="col">อาการป่วย</th>
+                            <th scope="col">รายละเอียดการรักษา</th>
+                            <th scope="col">แก้ไข</th>
+                            <th scope="col">ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Mark</td>
+                            <td>Mark</td>
+                            <td><button type="button" class="btn btn-primary editbtn6">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                            <td><button type="button" class="btn btn-primary editbtn6">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>Larry</td>
+                            <td>Larry</td>
+                            <td><button type="button" class="btn btn-primary editbtn6">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+        <br>
+       <!-- ======================================================= -->
+       <div class="modal fade" id="editInfo7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลสุขภาพทั่วไป</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>ปัญหาสุขภาพประจำตัว</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">แก้ไข</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addInfo7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลสุขภาพทั่วไป</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>ปัญหาสุขภาพประจำตัว</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success">บันทึก</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+            <div class="card-body">
+            <h2>ตารางข้อมูลสุขภาพทั่วไป</h2>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addInfo7">เพิ่มข้อมูล</button>
+            </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table thead-dark">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ปัญหาสุขภาพประจำตัว</th>
+                            <th scope="col">แก้ไข</th>
+                            <th scope="col">ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td><button type="button" class="btn btn-primary editbtn7">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Otto</td>
+                            <td><button type="button" class="btn btn-primary editbtn7">Edit</button></td>
+                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td><button type="button" class="btn btn-primary editbtn7">Edit</button></td>
                             <td> <button type="button" class="btn btn-danger">Delete</button></td>
                             </tr>
                         </tbody>
