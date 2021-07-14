@@ -5,7 +5,11 @@ include('../condb.php');
 	$TemplateName = $_POST["TemplateName"];
 	$TemplatePrice = $_POST["TemplatePrice"];
 	$TemplateCategory = $_POST["TemplateCategory"];
-	$Ref_DogBreedID = $_POST["Ref_DogBreedID"];
+	$Ref_BreedID = $_POST["Ref_BreedID"];
+	$TemplateFrontImage2 = $_POST["TemplateFrontImage2"];
+	$TemplateBackImage2 = $_POST["TemplateBackImage2"];
+	$TemplateFrontImageSample2 = $_POST["TemplateFrontImageSample2"];
+	$TemplateBackImageSample2 = $_POST["TemplateBackImageSample2"];
 	$TemplateID = $_POST["TemplateID"];
 
     $date = date("Ymd_His");
@@ -71,7 +75,7 @@ TemplateFrontImage='$newname',
 TemplateBackImage='$newname2',
 TemplateFrontImageSample='$newname3',
 TemplateBackImageSample='$newname4',
-Ref_DogBreedID='$Ref_DogBreedID'
+Ref_BreedID='$Ref_BreedID'
 WHERE TemplateID=$TemplateID
 ";
 

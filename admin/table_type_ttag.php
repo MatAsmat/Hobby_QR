@@ -62,7 +62,7 @@
                                             echo "<td>" .$row["TreeBreedCare"] .  "</td> "; 
                                             //แก้ไขข้อมูล
                                             echo "<td class='project-actions text-center'>
-                                            <a href='update_type_dtag.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
+                                            <a href='update_type_ttag.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
                                             </i> แก้ไข</a></td> ";
                                             
                                             //ลบข้อมูล

@@ -67,8 +67,7 @@
                                         echo "<td class='project-actions text-center'>
                                         <a href='update_pro_dtag.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
                                         </i></a>
-                                        <a href='delete_pro_dtag_db.php?ID=$row[0]' onclick=\"return confirm('ยืนยันการลบ?')\" class='btn btn-danger btn-sm'> <i class='fas fa-trash'>
-                                        </i></a></td> ";
+                                        </td> ";
                                     }
                                     echo "
                                         <tfoot>

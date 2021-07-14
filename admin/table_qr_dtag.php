@@ -63,7 +63,7 @@
                                         echo "<td align='center'>".$item.'.'. "</td>";
                                         echo "<td align='center'>" .'QR'.$row["QrCodeID"] . "</td> "; 
                                         echo "<td align='center'>" .$row["QrCodeName"] . "</td> ";
-                                        echo "<td align='center'>"."<img class='table-avatar' width='150px' alt='image' src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://test.matterdevs.com/member/dtag_register.php?qrID=".$row['QrCodeName']."'>"."</td>";
+                                        echo "<td align='center'>"."<img class='table-avatar' width='150px' alt='image' src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://hobbyqr.com/member/dtag_register.php?qrID=".$row['QrCodeName']."'>"."</td>";
                                         echo "<td align='center'>"."<img class='table-avatar' width='300px' alt='image' src='./image/products/".$row['ProductImage']."'>"."</td>";
                                         echo "<td align='center'>" .$row["QRStatus"] . "</td> "; 
                                     }
@@ -99,7 +99,7 @@
 <script>
 $(document).ready(function() {
 
-    $('a[href^="./table_member.php"]').addClass('nav-item has-treeview menu-open nav-link active');
+    $('a[href^="./table_qr_dtag.php"]').addClass('nav-item has-treeview menu-open nav-link active');
 
 });
 </script>

@@ -310,12 +310,9 @@ $result2 = mysqli_query($condb, $query2);
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <input type="hidden" name="TagType" value="Ctag">
-                                <!-- <input type="hidden" name="Ref_QrCodeID" value=".$qrID"> -->
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID";?>'/> 
-                                <input type="hidden" name="Ref_OwnerID" value="2">
-                                <!-- <input type="hidden" name="Ref_OwnerID" value='<?php echo "$ownID";?>'/>  -->
-                              
-                                    <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
+                                <input type="hidden" name="Ref_OwnerID" value='<?php echo "$ownID";?>'/> 
+                                <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
                                 </div>
                             </div>
                         </div>
@@ -324,8 +321,6 @@ $result2 = mysqli_query($condb, $query2);
             </div>
         </div>
     </section>
-   
-
 
     <footer class="footer">
         <div class="container">
@@ -341,7 +336,6 @@ $result2 = mysqli_query($condb, $query2);
             </div>
         </div>
     </footer>
-
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">

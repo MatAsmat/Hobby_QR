@@ -5,10 +5,6 @@ include('../condb.php');
 	$TemplateName = $_POST["TemplateName"];
 	$TemplatePrice = $_POST["TemplatePrice"];
 	$TemplateCategory = $_POST["TemplateCategory"];
-	$TemplateFrontImage = $_POST["TemplateFrontImage"];
-	$TemplateBackImage = $_POST["TemplateBackImage"];
-	$TemplateFrontImageSample = $_POST["TemplateFrontImageSample"];
-	$TemplateBackImageSample = $_POST["TemplateBackImageSample"];
 	$Ref_BreedID = $_POST["Ref_BreedID"];
 
 

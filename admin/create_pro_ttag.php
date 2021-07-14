@@ -37,7 +37,7 @@ include('./include_menu.php');
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                <form role="form" action="create_pro_dtag_db.php" method="post" name="form1"  onsubmit="return checkForm();" class="form-horizontal" enctype="multipart/form-data">
+                <form role="form" action="create_pro_ttag_db.php" method="post" name="form1"  onsubmit="return checkForm();" class="form-horizontal" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->

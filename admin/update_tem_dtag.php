@@ -5,16 +5,16 @@ $ID = $_GET['ID'];
 $sql = "
 SELECT * 
 FROM tbl_templates as t 
-INNER JOIN tbl_dog_breed as b ON t.Ref_DogBreedID=b.DogBreedID
+INNER JOIN tbl_dog_breed as b ON t.Ref_BreedID=b.DogBreedID
 WHERE t.TemplateID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);
 
-$Ref_DogBreedID = $row['Ref_DogBreedID'];
+$Ref_BreedID = $row['Ref_BreedID'];
 
 $query = "SELECT * FROM tbl_dog_breed 
-WHERE DogBreedID!=$Ref_DogBreedID" or die("Error:" . mysqli_error());
+WHERE DogBreedID!=$Ref_BreedID" or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query);
 ?>
 <br><br>
@@ -138,9 +138,9 @@ $result2 = mysqli_query($condb, $query);
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label>เขตคณะกรรมการ</label>
-                                    <select name="Ref_DogBreedID" class="form-control">
-                                        <option value="<?php echo $row['Ref_DogBreedID'];?>">-<?php echo $row['DogBreedName'];?>-
+                                    <label>ประเภทพันธุ์</label>
+                                    <select name="Ref_BreedID" class="form-control">
+                                        <option value="<?php echo $row['Ref_BreedID'];?>">-<?php echo $row['DogBreedName'];?>-
                                         </option>
                                         <option value="">--เลือกข้อมูล--</option>
                                         <?php foreach($result2 as $results2){ ?>
