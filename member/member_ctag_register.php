@@ -1,12 +1,14 @@
-<?php 
-include('../condb.php'); 
-$qrID=$_GET['qrID'];
-// echo 'qrID: '.$qrID;
+<?php
+include('../condb.php');
+$qrID = $_GET['qrID'];
+echo 'qrID: ' . $qrID;
+$ownerID = $_GET['ownerID'];
+echo '$ownerID: ' . $ownerID;
 
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
-// echo ' qrStatus: '.$qrStatus[1];
+echo ' qrStatus: ' . $qrStatus[1];
 
 if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
 if($qrStatus[1] == 'Yes')
@@ -126,12 +128,13 @@ $result3 = mysqli_query($condb, $query3);
         </div>
     </nav>
     <!-- END nav -->
-    <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url(../images/cat/cat1.jpg);">
+    <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img"
+        style="background-image: url(../images/cat/cat1.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row d-md-flex justify-content-end">
                 <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-                       <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
+                       <!-- <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
                     <form role="form" action="ctag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">
                     <h4 style="color:#fff">* ข้อมูลเจ้าของ</h4>
                         <div class="row">
@@ -182,7 +185,8 @@ $result3 = mysqli_query($condb, $query3);
                                     <a href="./register_login.php?qrID=<?php echo "$qrID"; ?>">หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                        <form role="form" action="member_ctag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">    
                         <h4 style="color:#fff">* ข้อมูลแมว</h4>
                         <div class="row">
                             <div class="col-md-6">
@@ -320,8 +324,7 @@ $result3 = mysqli_query($condb, $query3);
                                 <div class="form-group">
                                 <input type="hidden" name="TagType" value="Ctag">
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID"; ?>' />
-                                <input type="hidden" name="OwnerID" value="" id="input1" />
-                                <input type="hidden" name="Ref_OwnerID" value="" id="input2" />
+                                <input type="hidden" name="Ref_OwnerID" value="<?php echo "$ownerID"; ?>">
                                 <input type="submit" id="button" value="Send message" class="btn btn-primary py-3 px-4">
                                 </div>
                             </div>

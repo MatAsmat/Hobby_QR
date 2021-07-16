@@ -14,7 +14,7 @@ if($qrStatus[1] == 'Yes')
     echo "<script>";
     // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
     // domain/member/dtag_register.php?qrID=QrCodeName
-    echo "window.location = 'profile_ttag.php'";
+    echo "window.location = 'profile.php'";
     echo "</script>";
 }
 
@@ -27,6 +27,8 @@ $result = mysqli_query($condb, $query);
 $query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'TTag' " or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
 
+$query3 = "SELECT * FROM tbl_dog" or die("Error:" . mysqli_error());
+$result3 = mysqli_query($condb, $query3);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,7 +126,7 @@ $result2 = mysqli_query($condb, $query2);
     </nav>
     <!-- END nav -->
     <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img"
-        style="background-image: url(../images/dog/dog1.jpg);">
+        style="background-image: url(../images/plant2.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row d-md-flex justify-content-end">
@@ -267,6 +269,13 @@ $result2 = mysqli_query($condb, $query2);
                                 </div>
                             </div>
                         </div>
+                        <div class="container">
+                            <div >
+                                <div>
+                                    <a href="./register_login.php?qrID=<?php echo "$qrID"; ?>">หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</a>
+                                </div>
+                            </div>
+                        </div>
                         <h4 style="color:#fff">* ข้อมูลต้นไม้</h4>
                         <div class="row">
                             <div class="col-md-6">
@@ -326,12 +335,10 @@ $result2 = mysqli_query($condb, $query2);
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <input type="hidden" name="TagType" value="Ttag">
-                                <!-- <input type="hidden" name="Ref_QrCodeID" value=".$qrID"> -->
-                                <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID";?>'/> 
-                                <input type="hidden" name="Ref_OwnerID" value="1">
-                                <!-- <input type="hidden" name="Ref_OwnerID" value='<?php echo "$ownID";?>'/>  -->
-                              
-                                    <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
+                                <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID"; ?>' />
+                                <input type="hidden" name="OwnerID" value="" id="input1" />
+                                <input type="hidden" name="Ref_OwnerID" value="" id="input2" />
+                                <input type="submit" id="button" value="Send message" class="btn btn-primary py-3 px-4">
                                 </div>
                             </div>
                         </div>
@@ -391,6 +398,18 @@ $result2 = mysqli_query($condb, $query2);
 </body>
 
 </html>
+
+<script type="text/javascript">
+    var gRandLength = 7;
+
+    $(document).ready(function() {   
+        $('#button').click(function() {   
+        var num = Math.floor(1 + (Math.random() * Math.pow(10, gRandLength)));
+        $('#input1').val(num);
+        $('#input2').val(num);
+        });
+    });
+</script>
 
 <script>
     $(document).ready(function(){

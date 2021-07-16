@@ -1,19 +1,21 @@
-<?php 
-include('../condb.php'); 
-$qrID=$_GET['qrID'];
-// echo 'qrID: '.$qrID;
+<?php
+include('../condb.php');
+$qrID = $_GET['qrID'];
+echo 'qrID: ' . $qrID;
+$ownerID = $_GET['ownerID'];
+echo '$ownerID: ' . $ownerID;
 
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
-// echo ' qrStatus: '.$qrStatus[1];
+echo ' qrStatus: ' . $qrStatus[1];
 
 if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
 if($qrStatus[1] == 'Yes')
 {   
     echo "<script>";
     // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
-    // domain/member/ctag_register.php?qrID=QrCodeName
+    // domain/member/dtag_register.php?qrID=QrCodeName
     echo "window.location = 'profile.php'";
     echo "</script>";
 }
@@ -21,15 +23,14 @@ if($qrStatus[1] == 'Yes')
 
 
 
-$query = "SELECT * FROM tbl_cat_breed" or die("Error:" . mysqli_error());
+$query = "SELECT * FROM tbl_tree_breed" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
 
-$query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'CTag'" or die("Error:" . mysqli_error());
+$query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'TTag' " or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
 
 $query3 = "SELECT * FROM tbl_dog" or die("Error:" . mysqli_error());
 $result3 = mysqli_query($condb, $query3);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,13 +127,107 @@ $result3 = mysqli_query($condb, $query3);
         </div>
     </nav>
     <!-- END nav -->
-    <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url(../images/cat/cat1.jpg);">
+    <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img"
+        style="background-image: url(../images/plant2.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row d-md-flex justify-content-end">
                 <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-                       <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
-                    <form role="form" action="ctag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">
+                    <!-- <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2> -->
+                    <!-- <form method="post" id="register_form">
+                        <ul class="nav nav-tabs">
+                         <li class="nav-item">
+                          <a class="nav-link active_tab1" style="border:1px solid #ccc" id="list_login_details">ข้อมูลเจ้าของ</a>
+                         </li>
+                         <li class="nav-item">
+                          <a class="nav-link inactive_tab1" id="list_personal_details" style="border:1px solid #ccc">ข้อมูลสุนัข</a>
+                         </li>
+                         <li class="nav-item">
+                          <a class="nav-link inactive_tab1" id="list_contact_details" style="border:1px solid #ccc">นามบัตร</a>
+                         </li>
+                        </ul>
+                        <div class="tab-content" style="margin-top:16px;">
+                         <div class="tab-pane active" id="login_details">
+                          <div class="panel panel-default">
+                           <div class="panel-heading">ข้อมูลเจ้าของ</div>
+                           <div class="panel-body">
+                            <div class="form-group">
+                             <label>Enter Email Address</label>
+                             <input type="text" name="email" id="email" class="form-control" />
+                             <span id="error_email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                             <label>Enter Password</label>
+                             <input type="password" name="password" id="password" class="form-control" />
+                             <span id="error_password" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div align="center">
+                             <button type="button" name="btn_login_details" id="btn_login_details" class="btn btn-info btn-lg">Next</button>
+                            </div>
+                            <br />
+                           </div>
+                          </div>
+                         </div>
+                         <div class="tab-pane fade" id="personal_details">
+                          <div class="panel panel-default">
+                           <div class="panel-heading">ข้อมูลสุนัข</div>
+                           <div class="panel-body">
+                            <div class="form-group">
+                             <label>Enter First Name</label>
+                             <input type="text" name="first_name" id="first_name" class="form-control" />
+                             <span id="error_first_name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                             <label>Enter Last Name</label>
+                             <input type="text" name="last_name" id="last_name" class="form-control" />
+                             <span id="error_last_name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                             <label>Gender</label>
+                             <label class="radio-inline">
+                              <input type="radio" name="gender" value="male" checked> Male
+                             </label>
+                             <label class="radio-inline">
+                              <input type="radio" name="gender" value="female"> Female
+                             </label>
+                            </div>
+                            <br />
+                            <div align="center">
+                             <button type="button" name="previous_btn_personal_details" id="previous_btn_personal_details" class="btn btn-default btn-lg">Previous</button>
+                             <button type="button" name="btn_personal_details" id="btn_personal_details" class="btn btn-info btn-lg">Next</button>
+                            </div>
+                            <br />
+                           </div>
+                          </div>
+                         </div>
+                         <div class="tab-pane fade" id="contact_details">
+                          <div class="panel panel-default">
+                           <div class="panel-heading">นามบัตร</div>
+                           <div class="panel-body">
+                            <div class="form-group">
+                             <label>Enter Address</label>
+                             <textarea name="address" id="address" class="form-control"></textarea>
+                             <span id="error_address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                             <label>Enter Mobile No.</label>
+                             <input type="text" name="mobile_no" id="mobile_no" class="form-control" />
+                             <span id="error_mobile_no" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div align="center">
+                             <button type="button" name="previous_btn_contact_details" id="previous_btn_contact_details" class="btn btn-default btn-lg">Previous</button>
+                             <button type="button" name="btn_contact_details" id="btn_contact_details" class="btn btn-success btn-lg">Register</button>
+                            </div>
+                            <br />
+                           </div>
+                          </div>
+                         </div>
+                        </div>
+                       </form> -->
+                       <!-- <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
+                    <form role="form" action="ttag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">
                     <h4 style="color:#fff">* ข้อมูลเจ้าของ</h4>
                         <div class="row">
                             <div class="col-md-6">
@@ -182,94 +277,18 @@ $result3 = mysqli_query($condb, $query3);
                                     <a href="./register_login.php?qrID=<?php echo "$qrID"; ?>">หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</a>
                                 </div>
                             </div>
-                        </div>
-                        <h4 style="color:#fff">* ข้อมูลแมว</h4>
+                        </div> -->
+                        <form role="form" action="member_ttag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">    
+                        <h4 style="color:#fff">* ข้อมูลต้นไม้</h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="CatName" class="form-control" placeholder="ชื่อแมว (Name)">
+                                    <input type="text" name="TreeName" class="form-control" placeholder="ชื่อต้นไม้ (Name)">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="file" name="CatPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="fa fa-calendar"></span></div>
-                                        <input type="date" name="CatBirthdate" class="form-control appointment_date" placeholder="วันเกิด (ฺBirthdate)">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="CatGender" id="" class="form-control">
-                                                <option value="">เลือกเพศ (Gender)</option>
-                                                <option value="ผู้">ผู้</option>
-                                                <option value="เมีย">เมีย</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="CatBlood" id="" class="form-control">
-                                                <option value="">เลือกกรุ๊ปเลือด (Blood)</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="AB">AB</option>
-                                                <option value="O">O</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="CatCoatColor" class="form-control" placeholder="สี (Coat Color)">
-                                </div>
-                            </div>
-                            <!-- <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="fa fa-clock-o"></span></div>
-                                        <input type="text" class="form-control appointment_time" placeholder="Time">
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="CatPersonality" id="" class="form-control">
-                                                <option value="">เลือกลักษณะนิสัย (Personality)</option>
-                                                <option value="ใจดี (Friendly)">ใจดี (Friendly)</option>
-                                                <option value="ขี้อ้อนชอบคนตามใจ (Eager to Please)">ขี้อ้อนชอบคนตามใจ (Eager to Please)</option>
-                                                <option value="ขี้เล่น (Playful)">ขี้เล่น (Playful)</option>
-                                                <option value="ตื่นเต้น/กระวนกระวาย (Nervous/Anxious)">ตื่นเต้น/กระวนกระวาย (Nervous/Anxious)</option>
-                                                <option value="หวงของ หวงเจ้าของ (Bossy)">หวงของ หวงเจ้าของ (Bossy)</option>
-                                                <option value="ดื้อ (Stubborn)">ดื้อ (Stubborn)</option>
-                                                <option value="ดุก้าวร้าว ไม่สุงสิงกับใคร (Aggressive)">ดุก้าวร้าว ไม่สุงสิงกับใคร (Aggressive)</option>
-                                                <option value="ขี้อาย/เรียบร้อย (Shy/Timid)">ขี้อาย/เรียบร้อย (Shy/Timid)</option>
-                                                <option value="เอาแน่เอานอนไม่ได้ แล้วแต่อารมณ์ (Unpredictable)">เอาแน่เอานอนไม่ได้ แล้วแต่อารมณ์ (Unpredictable)</option>
-                                                <option value="คึกคัก ร่าเริง (Alert)">คึกคัก ร่าเริง (Alert)</option>
-                                                <option value="ตกใจง่ายขี้กลัว (Easily Frightened)">ตกใจง่ายขี้กลัว (Easily Frightened)</option>
-                                                <option value="เข้าได้ง่ายกับทุกคน (Good with Everyone)">เข้าได้ง่ายกับทุกคน (Good with Everyone)</option>
-                                                <option value="ชอบกินมากที่สุด (Food Lover)">ชอบกินมากที่สุด (Food Lover)</option>
-                                                <option value="ขี้เซาที่สุด (Sleepyhead)">ขี้เซาที่สุด (Sleepyhead)</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <input type="file" name="TreePhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*">
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -277,11 +296,11 @@ $result3 = mysqli_query($condb, $query3);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_CatBreedID" id="" class="form-control">
-                                            <option value="">เลือกพันธุ์แมว</option>
+                                            <select name="Ref_TreeBreedID" id="" class="form-control">
+                                            <option value="">เลือกพันธุ์ต้นไม้</option>
                                             <?php foreach($result as $results){ ?>
-                                        <option value="<?php echo $results["CatBreedID"];?>">
-                                            <?php echo $results["CatBreedName"];?>
+                                        <option value="<?php echo $results["TreeBreedID"];?>">
+                                            <?php echo $results["TreeBreedName"];?>
                                         </option>
                                         <?php } ?>
                                             </select>
@@ -289,7 +308,7 @@ $result3 = mysqli_query($condb, $query3);
                                     </div>
                                     </div>
                                     </div>
-                            </div>  <h4 style="color:#fff">* นามบัตรแมว</h4>
+                            </div>  <h4 style="color:#fff">* นามบัตรต้นไม้</h4>
                         <div class="row">
                         <div class="col-md-12">
                                 <div class="form-group">
@@ -297,7 +316,7 @@ $result3 = mysqli_query($condb, $query3);
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                             <select name="Ref_TemplateID" id="" class="form-control">
-                                            <option value="Ref_TemplateID">เลือกนามบัตรแมว</option>
+                                            <option value="Ref_TemplateID">เลือกนามบัตรต้นไม้</option>
                                             <?php foreach($result2 as $results2){ ?>
                                         <option value="<?php echo $results2["TemplateID"];?>">
                                             <?php echo $results2["TemplateName"];?>
@@ -318,10 +337,9 @@ $result3 = mysqli_query($condb, $query3);
                             </div> -->
                             <div class="col-md-12">
                                 <div class="form-group">
-                                <input type="hidden" name="TagType" value="Ctag">
+                                <input type="hidden" name="TagType" value="Ttag">
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID"; ?>' />
-                                <input type="hidden" name="OwnerID" value="" id="input1" />
-                                <input type="hidden" name="Ref_OwnerID" value="" id="input2" />
+                                <input type="hidden" name="Ref_OwnerID" value="<?php echo "$ownerID"; ?>">
                                 <input type="submit" id="button" value="Send message" class="btn btn-primary py-3 px-4">
                                 </div>
                             </div>
@@ -331,6 +349,8 @@ $result3 = mysqli_query($condb, $query3);
             </div>
         </div>
     </section>
+   
+
 
     <footer class="footer">
         <div class="container">
@@ -346,6 +366,7 @@ $result3 = mysqli_query($condb, $query3);
             </div>
         </div>
     </footer>
+
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">

@@ -2,18 +2,6 @@
 <?php
 include('../condb.php'); 
 	
-	$OwnerID = $_POST["OwnerID"];
-	$Username = $_POST["Username"];
-	$Password = md5($_POST["Password"]);
-	$FirstName = $_POST["FirstName"];
-	$LastName = $_POST["LastName"];
-	$Email = $_POST["Email"];
-	$Telephone = $_POST["Telephone"];
-	$Line = $_POST["Line"];
-	$Facebook = $_POST["Facebook"];
-	$TagType = $_POST["TagType"];
-    // ===========================
-
 	$TreeName = $_POST["TreeName"];
 	$Ref_TreeBreedID = $_POST["Ref_TreeBreedID"];
 	$Ref_TemplateID = $_POST["Ref_TemplateID"];
@@ -31,51 +19,6 @@ include('../condb.php');
 		$path_link="./profileimg/ttag/".$newname;
 		move_uploaded_file($_FILES['TreePhoto']['tmp_name'],$path_copy);  
 	}
-
-    $check = "
-	SELECT Username 
-	FROM tbl_owner  
-	WHERE Username = '$Username' 
-	";
-    $results = mysqli_query($condb, $check) or die(mysqli_error());
-    $num=mysqli_num_rows($results);
-
-    if($num > 0)
-    {
-	    echo "<script>";
-	    echo "alert(' ข้อมูลซ้ำ กรุณาเพิ่มใหม่อีกครั้ง !');";
-	    echo "window.history.back();";
-	    echo "</script>";
-    }else{
-
-	$sql = "INSERT INTO tbl_owner
-	(
-	OwnerID,
-	Username,
-	Password,
-	FirstName,
-	LastName,
-	Email,
-	Telephone,
-	Line,
-	Facebook,
-	TagType
-
-	)
-	VALUES
-	(
-	'$OwnerID',
-	'$Username',
-	'$Password',
-	'$FirstName',
-	'$LastName',
-	'$Email',
-	'$Telephone',
-	'$Line',
-	'$Facebook',
-	'$TagType'
-	)";
-    $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 
     $sql2 = "INSERT INTO tbl_tree
 	(
@@ -99,7 +42,7 @@ include('../condb.php');
 
 	$sql3 = "UPDATE tbl_qrcode SET QRStatus='Yes' WHERE QrCodeName='$Ref_QrCodeID'";
 	$result3 = mysqli_query($condb, $sql3) or die ("Error in query: $sql3 " . mysqli_error());
-	}//close chk duplicat Username
+	//close chk duplicat Username
 
     mysqli_close($condb);
 	

@@ -20,7 +20,7 @@
             <ul>
 
             <li>
-                    <a href="index.php" ><span class="las la-igloo"></span>
+                    <a href="../index.php" ><span class="las la-igloo"></span>
                         <span>หน้าหลัก</span></a>
                 </li>
                 <li>

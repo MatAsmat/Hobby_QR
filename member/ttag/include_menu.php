@@ -20,12 +20,12 @@
             <ul>
 
             <li>
-                    <a href="index.php" ><span class="las la-igloo"></span>
-                        <span>หน้าหลัก</span></a>
+                <a href="../index.php" ><span class="las la-igloo"></span>
+                    <span>หน้าหลัก</span></a>
                 </li>
                 <li>
                 <a class="active"><span class="las la-seedling"></span>
-                        <span>ดูข้อมูลสุนัขทั่วไป</span></a>
+                        <span>ดูข้อมูลต้นไม้ทั่วไป</span></a>
                 </li>
                
                 <li>

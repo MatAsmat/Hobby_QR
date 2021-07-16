@@ -2,6 +2,8 @@
 include('../condb.php');
 $qrID = $_GET['qrID'];
 echo 'qrID: ' . $qrID;
+$ownerID = $_GET['ownerID'];
+echo '$ownerID: ' . $ownerID;
 
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
@@ -17,14 +19,13 @@ if ($qrStatus[1] == 'Yes') {
 }
 
 
+
+
 $query = "SELECT * FROM tbl_dog_breed" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
 
 $query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'DTag'" or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
-
-$query3 = "SELECT * FROM tbl_dog" or die("Error:" . mysqli_error());
-$result3 = mysqli_query($condb, $query3);
 
 ?>
 <!DOCTYPE html>
@@ -212,59 +213,8 @@ $result3 = mysqli_query($condb, $query3);
                           </div>
                          </div>
                         </div>
-                       </form> -->
-                    <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
-                    <form role="form" action="dtag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">
-                        <h4 style="color:#fff">* ข้อมูลเจ้าของ</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="Username" class="form-control" placeholder="ชื่อผู้ใช้ (Username)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="Password" class="form-control" placeholder="รหัสผ่าน (Password)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="FirstName" class="form-control" placeholder="ชื่อจริง (First Name)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="LastName" class="form-control" placeholder="นามสกุลจริง (Last Name)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="Email" class="form-control" placeholder="อีเมล (Email)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="Telephone" class="form-control" placeholder="เบอร์โทรศัพท์ (Telephone)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="Line" class="form-control" placeholder="ไลน์ (Line)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="Facebook" class="form-control" placeholder="เฟซบุ๊ก (Facebook)">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div >
-                                <div>
-                                    <a href="./register_login.php?qrID=<?php echo "$qrID"; ?>">หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</a>
-                                </div>
-                            </div>
-                        </div>
+                       </form> --> 
+                       <form role="form" action="member_dtag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">    
                         <h4 style="color:#fff">* ข้อมูลสุนัข</h4>
                         <div class="row">
                             <div class="col-md-6">
@@ -402,19 +352,18 @@ $result3 = mysqli_query($condb, $query3);
                         <div class="col-md-12">
                             <div class="form-group">
                                 <input type="hidden" name="TagType" value="Dtag">
-                                <!-- <input type='hidden' name='qrID' value='<?php echo "$qrID"; ?>' /> -->
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID"; ?>' />
-                                <input type="hidden" name="OwnerID" value="" id="input1" />
-                                <input type="hidden" name="Ref_OwnerID" value="" id="input2" />
-                                <input type="submit" id="button" value="Send message" class="btn btn-primary py-3 px-4">
+                                <input type="hidden" name="Ref_OwnerID" value="<?php echo "$ownerID"; ?>">
+                                <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
                             </div>
                         </div>
-                    </div>
+                </div>
                 </form>
             </div>
         </div>
-    </div>
-</section>
+        </div>
+        </form>  
+    </section>
 
 
 
@@ -465,169 +414,7 @@ $result3 = mysqli_query($condb, $query3);
 
 </html>
 
-<script type="text/javascript">
-    var gRandLength = 7;
-
-    $(document).ready(function() {   
-        $('#button').click(function() {   
-        var num = Math.floor(1 + (Math.random() * Math.pow(10, gRandLength)));
-        $('#input1').val(num);
-        $('#input2').val(num);
-        });
-    });
-</script>
-
 <script>
-    $(document).ready(function() {
+  
 
-        $('#btn_login_details').click(function() {
-
-            var error_email = '';
-            var error_password = '';
-            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-            if ($.trim($('#email').val()).length == 0) {
-                error_email = 'Email is required';
-                $('#error_email').text(error_email);
-                $('#email').addClass('has-error');
-            } else {
-                if (!filter.test($('#email').val())) {
-                    error_email = 'Invalid Email';
-                    $('#error_email').text(error_email);
-                    $('#email').addClass('has-error');
-                } else {
-                    error_email = '';
-                    $('#error_email').text(error_email);
-                    $('#email').removeClass('has-error');
-                }
-            }
-
-            if ($.trim($('#password').val()).length == 0) {
-                error_password = 'Password is required';
-                $('#error_password').text(error_password);
-                $('#password').addClass('has-error');
-            } else {
-                error_password = '';
-                $('#error_password').text(error_password);
-                $('#password').removeClass('has-error');
-            }
-
-            if (error_email != '' || error_password != '') {
-                return false;
-            } else {
-                $('#list_login_details').removeClass('active active_tab1');
-                $('#list_login_details').removeAttr('href data-toggle');
-                $('#login_details').removeClass('active');
-                $('#list_login_details').addClass('inactive_tab1');
-                $('#list_personal_details').removeClass('inactive_tab1');
-                $('#list_personal_details').addClass('active_tab1 active');
-                $('#list_personal_details').attr('href', '#personal_details');
-                $('#list_personal_details').attr('data-toggle', 'tab');
-                $('#personal_details').addClass('active in');
-            }
-        });
-
-        $('#previous_btn_personal_details').click(function() {
-            $('#list_personal_details').removeClass('active active_tab1');
-            $('#list_personal_details').removeAttr('href data-toggle');
-            $('#personal_details').removeClass('active in');
-            $('#list_personal_details').addClass('inactive_tab1');
-            $('#list_login_details').removeClass('inactive_tab1');
-            $('#list_login_details').addClass('active_tab1 active');
-            $('#list_login_details').attr('href', '#login_details');
-            $('#list_login_details').attr('data-toggle', 'tab');
-            $('#login_details').addClass('active in');
-        });
-
-        $('#btn_personal_details').click(function() {
-            var error_first_name = '';
-            var error_last_name = '';
-
-            if ($.trim($('#first_name').val()).length == 0) {
-                error_first_name = 'First Name is required';
-                $('#error_first_name').text(error_first_name);
-                $('#first_name').addClass('has-error');
-            } else {
-                error_first_name = '';
-                $('#error_first_name').text(error_first_name);
-                $('#first_name').removeClass('has-error');
-            }
-
-            if ($.trim($('#last_name').val()).length == 0) {
-                error_last_name = 'Last Name is required';
-                $('#error_last_name').text(error_last_name);
-                $('#last_name').addClass('has-error');
-            } else {
-                error_last_name = '';
-                $('#error_last_name').text(error_last_name);
-                $('#last_name').removeClass('has-error');
-            }
-
-            if (error_first_name != '' || error_last_name != '') {
-                return false;
-            } else {
-                $('#list_personal_details').removeClass('active active_tab1');
-                $('#list_personal_details').removeAttr('href data-toggle');
-                $('#personal_details').removeClass('active');
-                $('#list_personal_details').addClass('inactive_tab1');
-                $('#list_contact_details').removeClass('inactive_tab1');
-                $('#list_contact_details').addClass('active_tab1 active');
-                $('#list_contact_details').attr('href', '#contact_details');
-                $('#list_contact_details').attr('data-toggle', 'tab');
-                $('#contact_details').addClass('active in');
-            }
-        });
-
-        $('#previous_btn_contact_details').click(function() {
-            $('#list_contact_details').removeClass('active active_tab1');
-            $('#list_contact_details').removeAttr('href data-toggle');
-            $('#contact_details').removeClass('active in');
-            $('#list_contact_details').addClass('inactive_tab1');
-            $('#list_personal_details').removeClass('inactive_tab1');
-            $('#list_personal_details').addClass('active_tab1 active');
-            $('#list_personal_details').attr('href', '#personal_details');
-            $('#list_personal_details').attr('data-toggle', 'tab');
-            $('#personal_details').addClass('active in');
-        });
-
-        $('#btn_contact_details').click(function() {
-            var error_address = '';
-            var error_mobile_no = '';
-            var mobile_validation = /^\d{10}$/;
-            if ($.trim($('#address').val()).length == 0) {
-                error_address = 'Address is required';
-                $('#error_address').text(error_address);
-                $('#address').addClass('has-error');
-            } else {
-                error_address = '';
-                $('#error_address').text(error_address);
-                $('#address').removeClass('has-error');
-            }
-
-            if ($.trim($('#mobile_no').val()).length == 0) {
-                error_mobile_no = 'Mobile Number is required';
-                $('#error_mobile_no').text(error_mobile_no);
-                $('#mobile_no').addClass('has-error');
-            } else {
-                if (!mobile_validation.test($('#mobile_no').val())) {
-                    error_mobile_no = 'Invalid Mobile Number';
-                    $('#error_mobile_no').text(error_mobile_no);
-                    $('#mobile_no').addClass('has-error');
-                } else {
-                    error_mobile_no = '';
-                    $('#error_mobile_no').text(error_mobile_no);
-                    $('#mobile_no').removeClass('has-error');
-                }
-            }
-            if (error_address != '' || error_mobile_no != '') {
-                return false;
-            } else {
-                $('#btn_contact_details').attr("disabled", "disabled");
-                $(document).css('cursor', 'prgress');
-                $("#register_form").submit();
-            }
-
-        });
-
-    });
 </script>
