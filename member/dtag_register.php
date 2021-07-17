@@ -478,6 +478,8 @@ $result3 = mysqli_query($condb, $query3);
 </script>
 
 <script>
+
+    
     $(document).ready(function() {
 
         $('#btn_login_details').click(function() {

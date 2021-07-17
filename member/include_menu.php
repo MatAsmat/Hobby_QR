@@ -1,3 +1,28 @@
+<?php 
+session_start();
+
+include('../../condb.php');
+
+$OwnerID = $_SESSION['OwnerID'];
+$TagType = $_SESSION['TagType'];
+
+if($TagType!='Dtag'){
+	Header("Location: ../../logout.php");
+}
+
+
+$sql = "
+SELECT * 
+FROM tbl_dog as d 
+INNER JOIN tbl_owner as o ON d.Ref_OwnerID=o.OwnerID 
+INNER JOIN tbl_dog_breed as b ON d.Ref_DogBreedID=b.DogBreedID 
+INNER JOIN tbl_templates as t ON d.Ref_TemplateID=t.TemplateID 
+WHERE OwnerID=$OwnerID";
+$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
+$row = mysqli_fetch_array($result);
+extract($row);
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +49,7 @@
                         <span>หน้าหลัก</span></a>
                 </li>
                 <li>
-                <a class="active"><span class="las la-cat"></span>
+                <a class="active"><span class="las la-dog"></span>
                         <span>ดูข้อมูลสุนัขทั่วไป</span></a>
                 </li>
                

@@ -17,16 +17,16 @@ include('include_menu.php');
                             <div class="profile">
                                 <div class="profile-info">
                                 <a href="profile_tag.php">
-                                    <img src="../assets/img/profile/avatar.jpg" width="250px" height="250px" alt="">
+                                    <img src="../profileimg/dtag/<?php echo $row['DogPhoto'];?>" width="250px" height="250px" alt="">
                                     </a>
                                 </div>
                                 <div>
-                                    <h3> <span class="las la-user-circle"></span> ชื่อผู้ใช้: aa</h3>
-                                    <h3> <span class="las la-address-book"></span> ชื่อ-นามสกุล: John Doe</h3>
-                                    <p> <span class="las la-inbox"></span> Testemail@gmail.com</p>
-                                    <p> <span class="las la-mobile"></span> 0123456</p>
-                                    <p> <span class="lab la-line"></span> Testline</p>
-                                    <p> <span class="lab la-facebook-square"></span> Testfacebook</p>
+                                <h3> <span class="las la-user-circle"></span> <?php echo $Username;?></h3>
+                                    <h3> <span class="las la-address-book"> <?php echo $FirstName.'  '.$LastName;?></h3>
+                                    <p> <span class="las la-inbox"></span> <?php echo $Email;?></p>
+                                    <p> <span class="las la-mobile"></span> <?php echo $Telephone;?></p>
+                                    <p> <span class="lab la-line"></span> <?php echo $Line;?></p>
+                                    <p> <span class="lab la-facebook-square"></span> <?php echo $Facebook;?></p>
                                 </div>
                                
                             </div>
@@ -40,71 +40,29 @@ include('include_menu.php');
                             </span></button>
                         </div>
                         <div class="card-body">
-                            <div class="customer">
-                                <div class="info">
-                                <a href="profile_tag.php">
-                                    <img src="../assets/img/profile/prodog1.jpg" width="80px" height="80px" alt="">
-                                </a>
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                <a href="profile_tag.php">
-                                    <span class="las la-eye"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="customer">
-                                <div class="info">
-                                <a href="profile_tag.php">
-                                    <img src="../assets/img/profile/procat1.jpg" width="80px" height="80px" alt="">
-                                    </a>
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                <a href="profile_tag.php">
-                                    <span class="las la-eye"></span>
-                                </a>
-                                </div>
-                            </div>
-                            <div class="customer">
-                                <div class="info">
-                                <a href="profile_tag.php">
-                                    <img src="../assets/img/profile/proplant1.jpg" width="80px" height="80px" alt="">
-                                </a>
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                <a href="profile_tag.php">
-                                    <span class="las la-eye"></span>
-                            </a>
-                                </div>
-                            </div>
-                            <div class="customer">
-                                <div class="info">
-                                <a href="profile_tag.php">
-                                    <img src="../assets/img/profile/prodog2.jpg" width="80px" height="80px" alt="">
-                                    </a>
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                <a href="profile_tag.php">
-                                    <span class="las la-eye"></span>
-                                 </a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php 
+                            $query = " SELECT * FROM tbl_owner as o
+                            INNER JOIN tbl_dog as d ON d.Ref_OwnerID = o.OwnerID
+                            INNER JOIN tbl_dog_breed b ON d.Ref_DogBreedId = b.DogBreedID " or die("Error:" . mysqli_error());
+                            $result = mysqli_query($condb, $query); 
+                            while($row = mysqli_fetch_array($result)) { 
+                                echo "<div class='customer'>";
+                                    echo "<div class='info'>";
+                                        echo "<a href='profile_tag.php?ID=$row[0]'>"."<img  width='80px' height='80px' alt='imagetag' src='../profileimg/dtag/".$row['DogPhoto']."'>" ."</a>";
+                                        echo "<div>
+                                                <h4>".$row['DogName']."</h4>
+                                                <small>".$row['DogBreedName']."</small>
+                                            </div>
+                                        ";
+                                    echo "</div>";
+                                    echo "<div class='contact'>
+                                    <span class='las la-eye'></span>
+                                    </div> ";
+                                    echo "</div>";
+                            }
+                            mysqli_close($condb);
+                         ?>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,14 @@
-<?php
-include('include_menu.php');
+<?php  
+include('./include_menu.php'); 
+
+$ID = $_GET['ID'];
+$sql = "
+SELECT * FROM tbl_dog as d
+WHERE d.DogID=$ID";
+$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
+$row = mysqli_fetch_array($result);
+extract($row);
+
 ?>
     <div class="main-content">
         <?php
@@ -19,11 +28,11 @@ include('include_menu.php');
                                         <img src="../assets/img/profile/prodog1.jpg" width="250px" height="250px" alt="">
                                     </div>
                                     <div>
-                                        <h3><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: meow</h3>
-                                        <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : เปอร์เซีย</p>
-                                        <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-                                        <p><span class="las la-chevron-circle-right"></span> นิสัย : Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum earum id eos voluptate voluptatum placeat in sit sapiente officiis error.</p>
-                                        <p><span class="las la-chevron-circle-right"></span> ข้อควรระวัง : Lorem ipsum dolor sit amet.</p>
+                                        <h3><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: <?php echo $DogName;?></h3>
+                                        <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : <?php echo $DogBreedName;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : <?php echo $DogBreedCharacter;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> นิสัย : <?php echo $DogBreedPersonality;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> ข้อควรระวัง : <?php echo $DogBreedNutrients;?></p>
                                     </div>
                             </div>
                          </div>

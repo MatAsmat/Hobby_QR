@@ -21,12 +21,12 @@ include('include_menu.php');
                                     </a>
                                 </div>
                                 <div>
-                                    <h3> <span class="las la-user-circle"></span> ชื่อผู้ใช้: aa</h3>
-                                    <h3> <span class="las la-address-book"></span> ชื่อ-นามสกุล: John Doe</h3>
-                                    <p> <span class="las la-inbox"></span> Testemail@gmail.com</p>
-                                    <p> <span class="las la-mobile"></span> 0123456</p>
-                                    <p> <span class="lab la-line"></span> Testline</p>
-                                    <p> <span class="lab la-facebook-square"></span> Testfacebook</p>
+                                    <h3> <span class="las la-user-circle"></span><?php echo $Username;?></h3>
+                                    <h3> <span class="las la-address-book"><?php echo $FirstName.'  '.$LastName;?></h3>
+                                    <p> <span class="las la-inbox"></span> <?php echo $Email;?></p>
+                                    <p> <span class="las la-mobile"></span> <?php echo $Telephone;?></p>
+                                    <p> <span class="lab la-line"></span> <?php echo $Line;?></p>
+                                    <p> <span class="lab la-facebook-square"></span>  <?php echo $Facebook;?></p>
                                 </div>
                                
                             </div>
