@@ -1,19 +1,13 @@
 <?php
   session_start();
     if(isset($_SESSION['OwnerID'] )){
-          if ($_SESSION['TagType'] == 'Dtag') {
-                header("Location: dtag/index.php");
-            }
-          if ($_SESSION['TagType'] == 'Ctag') {
-                header("Location: ctag/index.php");
-            }
-          if ($_SESSION['TagType'] == 'Ttag') {
-                header("Location: ttag/index.php");
+          if ($_SESSION['Level'] == 'member') {
+                header("Location: ./index.php");
             } else {
           echo "<script>alert('User หรือ Password ไม่ถูกต้อง');</script>";
         }
     exit();
-}
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

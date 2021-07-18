@@ -337,7 +337,6 @@ $result3 = mysqli_query($condb, $query3);
                             </div> -->
                             <div class="col-md-12">
                                 <div class="form-group">
-                                <input type="hidden" name="TagType" value="Ttag">
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID"; ?>' />
                                 <input type="hidden" name="Ref_OwnerID" value="<?php echo "$ownerID"; ?>">
                                 <input type="submit" id="button" value="Send message" class="btn btn-primary py-3 px-4">

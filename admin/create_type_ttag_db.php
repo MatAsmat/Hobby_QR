@@ -4,6 +4,10 @@ include('../condb.php');
 
 $TreeBreedName = $_POST["TreeBreedName"];
 $TreeBreedCare = $_POST["TreeBreedCare"];
+$TreeBreedDisease = $_POST["TreeBreedDisease"];
+$TreeBreedWarning = $_POST["TreeBreedWarning"];
+$TreeBreedFertilize = $_POST["TreeBreedFertilize"];
+$TreeBreedPropagation = $_POST["TreeBreedPropagation"];
 
 	$check = "
 	SELECT  TreeBreedName 
@@ -24,12 +28,20 @@ $TreeBreedCare = $_POST["TreeBreedCare"];
 	$sql = "INSERT INTO tbl_tree_breed
 	(
 	TreeBreedName,
-	TreeBreedCare
+	TreeBreedCare,
+	TreeBreedDisease,
+	TreeBreedWarning,
+	TreeBreedFertilize,
+	TreeBreedPropagation
 	)
 	VALUES
 	(
 	'$TreeBreedName',
-	'$TreeBreedCare'
+	'$TreeBreedCare',
+	'$TreeBreedDisease',
+	'$TreeBreedWarning',
+	'$TreeBreedFertilize',
+	'$TreeBreedPropagation'
 	)";
 
 	$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());

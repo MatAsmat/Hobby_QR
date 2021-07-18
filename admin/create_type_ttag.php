@@ -48,8 +48,32 @@ include('./include_menu.php');
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>วิธีดูแล</label>
+                                    <label>การดูแลเบื้องต้น</label>
                                     <textarea name="TreeBreedCare" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>อาการผิดปกติ/โรค/ศัตรู และวิธีการรักษาเบื้องต้น</label>
+                                    <textarea name="TreeBreedDisease" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>คำเตือน และคำแนะนำเพิ่มเติม</label>
+                                    <textarea name="TreeBreedWarning" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>สัดส่วนการใช้เครื่องปลูกและปุ๋ย</label>
+                                    <textarea name="TreeBreedFertilize" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>การขยายพันธุ์ / การเพาะปลูก</label>
+                                    <textarea name="TreeBreedPropagation" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
                 </div>

@@ -17,24 +17,22 @@ session_start();
                       $row = mysqli_fetch_array($result);
 
                       $_SESSION["OwnerID"] = $row["OwnerID"];
-                      $_SESSION["TagType"] = $row["TagType"];
+                      $_SESSION["Level"] = $row["Level"];
 
-                      if($_SESSION["TagType"]=="Dtag"){ 
-                        Header("Location: dtag/index.php");
+                      if($_SESSION["Level"]=="member"){ 
+                        Header("Location: ./index.php");
+
                       }
-                      if($_SESSION["TagType"]=="Ctag"){
-                       Header("Location: ctag/index.php");
-                      }
-                      if($_SESSION["TagType"]=="Ttag"){
-                        Header("Location: ttag/index.php");
-                       }
                   }else{
                     echo "<script>";
                         echo "alert(\" username หรือ  password ไม่ถูกต้อง\");"; 
                         echo "window.history.back()";
                     echo "</script>";
+
                   }
         }else{
-             Header("Location: index.php");
+
+             Header("Location: ../index.php"); 
+
         }
 ?>

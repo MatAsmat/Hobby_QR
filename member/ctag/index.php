@@ -16,9 +16,7 @@ include('include_menu.php');
                         <div class="card-body">
                             <div class="profile">
                                 <div class="profile-info">
-                                <a href="profile_tag.php">
                                     <img src="../assets/img/profile/avatar.jpg" width="250px" height="250px" alt="">
-                                    </a>
                                 </div>
                                 <div>
                                     <h3> <span class="las la-user-circle"></span> ชื่อผู้ใช้: aa</h3>

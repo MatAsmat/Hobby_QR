@@ -1,3 +1,25 @@
+<?php 
+session_start();
+
+include('../../condb.php');
+
+$OwnerID = $_SESSION['OwnerID'];
+$Level = $_SESSION['Level'];
+
+if($Level!='member'){
+	Header("Location: ../../logout.php");
+}
+
+
+$sql = "
+SELECT * 
+FROM tbl_owner as o
+WHERE o.OwnerID=$OwnerID";
+$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
+$row = mysqli_fetch_array($result);
+extract($row);
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +57,42 @@
                 <li>
                     <a href="info_potted_plant.php"><span class="las la-bookmark"></span>
                         <span>ข้อมูลการปลูกต้นไม้กระถาง</span></a>
+                </li>
+                <li>
+                    <a href="info_pot_plant.php"><span class="las la-bookmark"></span>
+                        <span>กระถางหรือภาชนะปลูก</span></a>
+                </li>
+                <li>
+                    <a href="info_pot_shape.php"><span class="las la-bookmark"></span>
+                        <span>รูปทรงกระถางต้นไม้</span></a>
+                </li>
+                <li>
+                    <a href="info_how_to_plant.php"><span class="las la-bookmark"></span>
+                        <span>วิธีการปลูก</span></a>
+                </li>
+                <li>
+                    <a href="info_fertilizing.php"><span class="las la-bookmark"></span>
+                        <span>การให้ปุ๋ย</span></a>
+                </li>
+                <li>
+                    <a href="info_watering.php"><span class="las la-bookmark"></span>
+                        <span>การให้น้ำ</span></a>
+                </li>
+                <li>
+                    <a href="info_soil_planter.php"><span class="las la-bookmark"></span>
+                        <span>ดินหรือเครื่องปลูก</span></a>
+                </li>
+                <li>
+                    <a href="info_tree_care.php"><span class="las la-bookmark"></span>
+                        <span>การดูแลรักษาโดยทั่วไป</span></a>
+                </li>
+                <li>
+                    <a href="info_preventing.php"><span class="las la-bookmark"></span>
+                        <span>การป้องกันและกำจัดศัตรูพืช</span></a>
+                </li>
+                <li>
+                    <a href="info_benefits_plant.php"><span class="las la-bookmark"></span>
+                        <span>ประโยชน์ของไม้กระถาง</span></a>
                 </li>
                 <li>
                     <a href="../../logout.php"><span class="las la-home"></span>

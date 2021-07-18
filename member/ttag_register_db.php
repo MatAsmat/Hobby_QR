@@ -11,7 +11,19 @@ include('../condb.php');
 	$Telephone = $_POST["Telephone"];
 	$Line = $_POST["Line"];
 	$Facebook = $_POST["Facebook"];
-	$TagType = $_POST["TagType"];
+	$Level = $_POST["Level"];
+	$date1 = date("Ymd_His");
+	$numrand = (mt_rand());
+	$OwnerPhoto = (isset($_POST['OwnerPhoto']) ? $_POST['OwnerPhoto'] : '');
+	$upload=$_FILES['OwnerPhoto']['name'];
+	if($upload !='') { 
+		$path="./profileimg/owner/";
+		$type = strrchr($_FILES['OwnerPhoto']['name'],".");
+		$newname =$numrand.$date1.$type;
+		$path_copy=$path.$newname;
+		$path_link="./profileimg/owner/".$newname;
+		move_uploaded_file($_FILES['OwnerPhoto']['tmp_name'],$path_copy);  
+	}
     // ===========================
 
 	$TreeName = $_POST["TreeName"];
@@ -19,17 +31,17 @@ include('../condb.php');
 	$Ref_TemplateID = $_POST["Ref_TemplateID"];
 	$Ref_QrCodeID = $_POST["Ref_QrCodeID"];
 	$Ref_OwnerID = $_POST["Ref_OwnerID"];
-	$date1 = date("Ymd_His");
-	$numrand = (mt_rand());
+	$date2 = date("Ymd_His");
+	$numrand2 = (mt_rand());
 	$TreePhoto = (isset($_POST['TreePhoto']) ? $_POST['TreePhoto'] : '');
-	$upload=$_FILES['TreePhoto']['name'];
-	if($upload !='') { 
-		$path="./profileimg/ttag/";
-		$type = strrchr($_FILES['TreePhoto']['name'],".");
-		$newname =$numrand.$date1.$type;
-		$path_copy=$path.$newname;
-		$path_link="./profileimg/ttag/".$newname;
-		move_uploaded_file($_FILES['TreePhoto']['tmp_name'],$path_copy);  
+	$upload2=$_FILES['TreePhoto']['name'];
+	if($upload2 !='') { 
+		$path2="./profileimg/ttag/";
+		$type2 = strrchr($_FILES['TreePhoto']['name'],".");
+		$newname2 =$numrand2.$date2.$type;
+		$path_copy2=$path2.$newname2;
+		$path_link2="./profileimg/ttag/".$newname2;
+		move_uploaded_file($_FILES['TreePhoto']['tmp_name'],$path_copy2);  
 	}
 
     $check = "
@@ -59,7 +71,8 @@ include('../condb.php');
 	Telephone,
 	Line,
 	Facebook,
-	TagType
+	Level,
+	OwnerPhoto
 
 	)
 	VALUES
@@ -73,7 +86,8 @@ include('../condb.php');
 	'$Telephone',
 	'$Line',
 	'$Facebook',
-	'$TagType'
+	'$Level',
+	'$newname'
 	)";
     $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 
@@ -93,7 +107,7 @@ include('../condb.php');
 	'$Ref_TemplateID',
 	'$Ref_QrCodeID',
 	'$Ref_OwnerID',
-    '$newname'
+    '$newname2'
 	)";
     $result2 = mysqli_query($condb, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
 

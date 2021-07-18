@@ -1,23 +1,20 @@
 <?php 
 session_start();
 
-include('../../condb.php');
+include('../condb.php');
 
 $OwnerID = $_SESSION['OwnerID'];
-$TagType = $_SESSION['TagType'];
+$Level = $_SESSION['Level'];
 
-if($TagType!='Dtag'){
-	Header("Location: ../../logout.php");
+if($Level!='member'){
+	Header("Location: ../logout.php");
 }
 
 
 $sql = "
 SELECT * 
-FROM tbl_dog as d 
-INNER JOIN tbl_owner as o ON d.Ref_OwnerID=o.OwnerID 
-INNER JOIN tbl_dog_breed as b ON d.Ref_DogBreedID=b.DogBreedID 
-INNER JOIN tbl_templates as t ON d.Ref_TemplateID=t.TemplateID 
-WHERE OwnerID=$OwnerID";
+FROM tbl_owner as o
+WHERE o.OwnerID=$OwnerID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);
@@ -49,11 +46,11 @@ extract($row);
                         <span>หน้าหลัก</span></a>
                 </li>
                 <li>
-                <a class="active"><span class="las la-dog"></span>
-                        <span>ดูข้อมูลสุนัขทั่วไป</span></a>
+                <a class="active"><span class="las la-user"></span>
+                        <span>ข้อมูลเจ้าของ</span></a>
                 </li>
                
-                <li>
+                <!-- <li>
                     <a href="dtag/info_body.php"><span class="las la-bookmark"></span>
                         <span>กายวิภาคสุนัข</span></a>
                 </li>
@@ -210,7 +207,7 @@ extract($row);
                 <li>
                     <a href="ttag/info_potted_plant.php"><span class="las la-bookmark"></span>
                         <span>ข้อมูลการปลูกต้นไม้กระถาง</span></a>
-                </li>
+                </li> -->
                 <li>
                     <a href="../logout.php"><span class="las la-home"></span>
                         <span>ออกจากระบบ</span></a>

@@ -54,8 +54,32 @@ extract($row);
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>วิธีดูแล</label>
+                                    <label>การดูแลเบื้องต้น</label>
                                     <input type="text" name="TreeBreedCare" class="form-control" value="<?php echo $row['TreeBreedCare'];?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>อาการผิดปกติ/โรค/ศัตรู และวิธีการรักษาเบื้องต้น</label>
+                                    <input type="text" name="TreeBreedDisease" class="form-control" value="<?php echo $row['TreeBreedDisease'];?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>คำเตือน และคำแนะนำเพิ่มเติม</label>
+                                    <input type="text" name="TreeBreedWarning" class="form-control" value="<?php echo $row['TreeBreedWarning'];?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>สัดส่วนการใช้เครื่องปลูกและปุ๋ย</label>
+                                    <input type="text" name="TreeBreedFertilize" class="form-control" value="<?php echo $row['TreeBreedFertilize'];?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>การขยายพันธุ์ / การเพาะปลูก</label>
+                                    <input type="text" name="TreeBreedPropagation" class="form-control" value="<?php echo $row['TreeBreedPropagation'];?>">
                                 </div>
                             </div>
                 </div>

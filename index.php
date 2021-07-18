@@ -127,9 +127,9 @@
         data-scrollax-parent="true">
         <div class="col-md-11 ftco-animate text-center">
           <div>
-            <a href="member/dtag_register.php">DTagRegister</a>/
-            <a href="member/ctag_register.php">CTagRegister</a>/
-            <a href="member/ttag_register.php">TTagRegister</a>/
+            <a href="member/dtag_register.php?qrID=">DTagRegister</a>/
+            <a href="member/ctag_register.php?qrID=">CTagRegister</a>/
+            <a href="member/ttag_register.php?qrID=">TTagRegister</a>/
             <a href="member/profile_ttag.php">Profile</a>/
             <a href="member/member_login.php">MemberLogin</a>/
             <a href="member/dtag/index.php">MemberDashboard</a>/

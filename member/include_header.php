@@ -1,9 +1,12 @@
+<?php
+include('include_menu.php');
+?>
 <header>
             <h2>
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                Dashboard Member
+                My Profile
             </h2>
             <div class="search-wrapper">
                 <span class="las-la-search"></span>
@@ -11,10 +14,10 @@
             </div>
 
             <div class="user-wrapper">
-                <img src="../assets/img/profile/avatar.jpg" width="40px" height="40px" alt="">
+            <img src="./profileimg/owner/<?php echo $row['OwnerPhoto'];?>" width="40px" height="40px" alt="">
                 <div>
-                    <h4>John Doe</h4>
-                    <small>Super Member</small>
+                    <h4><?php echo $Username;?></h4>
+                    <small><?php echo $FirstName.'  '.$LastName;?></small>
                 </div>
             </div>
         </header>

@@ -257,11 +257,16 @@ $result3 = mysqli_query($condb, $query3);
                                     <input type="text" name="Facebook" class="form-control" placeholder="เฟซบุ๊ก (Facebook)">
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="file" name="OwnerPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*">
+                                </div>
+                            </div>
                         </div>
                         <div class="container">
                             <div >
                                 <div>
-                                    <a href="./register_login.php?qrID=<?php echo "$qrID"; ?>">หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</a>
+                                    <a style="color:yellow" href="./register_login_dtag.php?qrID=<?php echo "$qrID"; ?>">หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</a>
                                 </div>
                             </div>
                         </div>
@@ -401,7 +406,7 @@ $result3 = mysqli_query($condb, $query3);
                             </div> -->
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="hidden" name="TagType" value="Dtag">
+                                <input type="hidden" name="Level" value="member">
                                 <!-- <input type='hidden' name='qrID' value='<?php echo "$qrID"; ?>' /> -->
                                 <input type='hidden' name='Ref_QrCodeID' value='<?php echo "$qrID"; ?>' />
                                 <input type="hidden" name="OwnerID" value="" id="input1" />

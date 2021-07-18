@@ -5,11 +5,19 @@ include('../condb.php');
 
 	$TreeBreedName = $_POST["TreeBreedName"];
 	$TreeBreedCare = $_POST["TreeBreedCare"];
+	$TreeBreedDisease = $_POST["TreeBreedDisease"];
+	$TreeBreedWarning = $_POST["TreeBreedWarning"];
+	$TreeBreedFertilize = $_POST["TreeBreedFertilize"];
+	$TreeBreedPropagation = $_POST["TreeBreedPropagation"];
 	$TreeBreedID  = $_POST["TreeBreedID"];
 
 	$sql = "UPDATE tbl_tree_breed SET 
 	TreeBreedName='$TreeBreedName',
-	TreeBreedCare='$TreeBreedCare'
+	TreeBreedCare='$TreeBreedCare',
+	TreeBreedDisease='$TreeBreedDisease',
+	TreeBreedWarning='$TreeBreedWarning',
+	TreeBreedFertilize='$TreeBreedFertilize',
+	TreeBreedPropagation='$TreeBreedPropagation'
 	WHERE TreeBreedID=$TreeBreedID
 	 ";
 

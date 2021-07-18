@@ -1,3 +1,25 @@
+<!-- <?php 
+session_start();
+
+include('../../condb.php');
+
+$OwnerID = $_SESSION['OwnerID'];
+$Level = $_SESSION['Level'];
+
+if($Level!='member'){
+	Header("Location: ../../logout.php");
+}
+
+
+$sql = "
+SELECT * 
+FROM tbl_owner as o
+WHERE o.OwnerID=$OwnerID";
+$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
+$row = mysqli_fetch_array($result);
+extract($row);
+
+ ?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

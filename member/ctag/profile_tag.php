@@ -1,16 +1,24 @@
-<?php
-include('include_menu.php');
+<?php  
+include('./include_menu.php'); 
+
+$ID = $_GET['ID'];
+$sql = "
+SELECT * ,YEAR( FROM_DAYS( DATEDIFF( NOW( ) , CatBirthdate ) ) ) as age FROM tbl_cat as c
+INNER JOIN tbl_templates as t ON c.Ref_TemplateID = t.TemplateID
+INNER JOIN tbl_cat_breed as cb ON t.Ref_BreedID = cb.CatBreedID
+WHERE c.CatID=$ID";
+$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
+$row = mysqli_fetch_array($result);
+extract($row);
+
 ?>
     <div class="main-content">
         <?php
            include('include_header.php');
         ?>
-
         <main>
-            
-
             <div class="recent-grid">
-                <div class="projects">
+            <div class="projects">
                     <div class="card">
                         <div class="card-header">
                             <h2>ข้อมูลแท็ก</h2>
@@ -19,20 +27,29 @@ include('include_menu.php');
                         <div class="card-body">
                             <div class="profile">
                                     <div class="profile-info">
-                                        <img src="../assets/img/profile/procat1.jpg" width="250px" height="250px" alt="">
+                                        <img src="../profileimg/ctag/<?php echo $row['CatPhoto'];?>" width="250px" height="250px" alt="">
                                     </div>
                                     <div>
-                                        <h3><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: meow</h3>
-                                        <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : เปอร์เซีย</p>
-                                        <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-                                        <p><span class="las la-chevron-circle-right"></span> นิสัย : Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum earum id eos voluptate voluptatum placeat in sit sapiente officiis error.</p>
-                                        <p><span class="las la-chevron-circle-right"></span> ข้อควรระวัง : Lorem ipsum dolor sit amet.</p>
+                                        <h3><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: <?php echo $CatName;?></h3>
+                                        <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : <?php echo $CatBreedName;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> อายุ : <?php echo $age;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> น้ำหนัก : <?php echo $CatBreedName;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> เพศ : <?php echo $CatGender;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> กรุ๊ปเลือด : <?php echo $CatBlood;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> วันเกิด : <?php echo date('d/m/Y', strtotime($row["CatBirthdate"]));?></p>
+                                        <div class="firstline">
+                                        <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : <?php echo $CatBreedCharacter;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> นิสัย : <?php echo $CatBreedPersonality;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> ข้อควรระวัง : <?php echo $CatBreedNutrients;?></p>
+                                        </div>
                                     </div>
                             </div>
                          </div>
                          <div class="card-header">
-                            <button>ดูข้อมูลเกี่ยวกับพันธุ์ <span class="lab la-readme"></span></button>
-                            <button>บันทึกข้อมูลสัตว์เลี้ยง <span class="las la-save"></span></button>
+                         <?php 
+                                echo "<a href='./info_breed.php?ID=".$row['CatID']."'>"." <button>ดูข้อมูลเกี่ยวกับพันธุ์ <span class='lab la-readme'></span></button>" ."</a>";
+                                echo "<a href='./create_info_ctag.php?ID=".$row['CatID']."'>"." <button>บันทึกข้อมูลสัตว์เลี้ยง <span class='lab la-save'></span></button>" ."</a>";
+                         ?>
                         </div>
                     </div>
                 </div>
@@ -45,10 +62,10 @@ include('include_menu.php');
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                <img src="../assets/img/template/c1.jpg" width="250px" alt="">
+                                <img src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
                                 </div>
                                 <div class="flip-card-back">
-                                <img src="../assets/img/template/c2.jpg" width="250px" alt="">
+                                <img src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +73,7 @@ include('include_menu.php');
                 </div>
             </div>
             <?php
-           include('include_card_list.php');
+           include('../include_card_list.php');
             ?>
         </main>
     </div>

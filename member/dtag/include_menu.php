@@ -4,19 +4,16 @@ session_start();
 include('../../condb.php');
 
 $OwnerID = $_SESSION['OwnerID'];
-$TagType = $_SESSION['TagType'];
+$Level = $_SESSION['Level'];
 
-if($TagType!='Dtag'){
+if($Level!='member'){
 	Header("Location: ../../logout.php");
 }
 
 
 $sql = "
 SELECT * 
-FROM tbl_dog as d
-INNER JOIN tbl_owner as o On d.Ref_OwnerID= o.OwnerID 
-INNER JOIN tbl_dog_breed as b ON d.Ref_DogBreedID=b.DogBreedID 
-INNER JOIN tbl_templates as t ON d.Ref_TemplateID=t.TemplateID 
+FROM tbl_owner as o
 WHERE o.OwnerID=$OwnerID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
