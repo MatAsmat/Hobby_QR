@@ -47,9 +47,9 @@ include('include_menu.php');
                             //     echo print_r($row);       // Print the entire row data
                             // }
                             while($row = mysqli_fetch_array($result)) { 
-                                echo print_r($row['DogID']);
-                                echo " / ";
-                                echo print_r($row['OwnerID']);
+                                // echo print_r($row['DogID']);
+                                // echo " / ";
+                                // echo print_r($row['OwnerID']);
                                 echo "<div class='customer'>";
                                     echo "<div class='info'>";
                                         echo "<a href='../member/dtag/profile_tag.php?ID=".$row['DogID']."'>"."<img  width='80px' height='80px' alt='imagetag' src='./profileimg/dtag/".$row['DogPhoto']."'>" ."</a>";
@@ -60,7 +60,7 @@ include('include_menu.php');
                                         ";
                                     echo "</div>";
                                     echo "<div class='contact'>
-                                    <span class='las la-eye'></span>
+                                    <span class='las la-bell'></span>
                                     </div> ";
                                     echo "</div>";
                             }
@@ -76,9 +76,9 @@ include('include_menu.php');
                             //     echo print_r($row);       // Print the entire row data
                             // }
                             while($row = mysqli_fetch_array($result)) { 
-                                echo print_r($row['CatID']);
-                                echo " / ";
-                                echo print_r($row['OwnerID']);
+                                // echo print_r($row['CatID']);
+                                // echo " / ";
+                                // echo print_r($row['OwnerID']);
                                 echo "<div class='customer'>";
                                     echo "<div class='info'>";
                                         echo "<a href='../member/ctag/profile_tag.php?ID=".$row['CatID']."'>"."<img  width='80px' height='80px' alt='imagetag' src='./profileimg/ctag/".$row['CatPhoto']."'>" ."</a>";
@@ -89,7 +89,7 @@ include('include_menu.php');
                                         ";
                                     echo "</div>";
                                     echo "<div class='contact'>
-                                    <span class='las la-eye'></span>
+                                    <span class='las la-bell'></span>
                                     </div> ";
                                     echo "</div>";
                             }
@@ -106,9 +106,9 @@ include('include_menu.php');
                             //     echo print_r($row);       // Print the entire row data
                             // }
                             while($row = mysqli_fetch_array($result)) { 
-                                echo print_r($row['TreeID']);
-                                echo " / ";
-                                echo print_r($row['OwnerID']);
+                                // echo print_r($row['TreeID']);
+                                // echo " / ";
+                                // echo print_r($row['OwnerID']);
                                 echo "<div class='customer'>";
                                     echo "<div class='info'>";
                                         echo "<a href='../member/ttag/profile_tag.php?ID=".$row['TreeID']."'>"."<img  width='80px' height='80px' alt='imagetag' src='./profileimg/ttag/".$row['TreePhoto']."'>" ."</a>";
@@ -119,7 +119,7 @@ include('include_menu.php');
                                         ";
                                     echo "</div>";
                                     echo "<div class='contact'>
-                                    <span class='las la-eye'></span>
+                                    <span class='las la-bell'></span>
                                     </div> ";
                                     echo "</div>";
                             }

@@ -1,3 +1,16 @@
+<?php  
+include('./include_menu.php'); 
+
+
+$ID = $_GET['ID'];
+$sql = "
+SELECT * FROM tbl_tree
+WHERE TreeID=$ID";
+$result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
+$row = mysqli_fetch_array($result);
+extract($row);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +23,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.boostrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
@@ -20,75 +35,58 @@
 
         <div class="sidebar-menu">
             <ul>
-
             <li>
-                    <a href="index.php" ><span class="las la-igloo"></span>
-                        <span>หน้าหลัก</span></a>
+                <a href="../index.php" ><span class="las la-igloo"></span>
+                    <span>หน้าหลัก</span></a>
                 </li>
                 <li>
-                <a class="active"><span class="las la-cat"></span>
-                        <span>ดูข้อมูลสุนัขทั่วไป</span></a>
+                <a class="active"><span class="las la-seedling"></span>
+                        <span>ดูข้อมูลต้นไม้ทั่วไป</span></a>
                 </li>
                
                 <li>
-                    <a href="info_body.php"><span class="las la-bookmark"></span>
-                        <span>กายวิภาคสุนัข</span></a>
+                    <a href="info_structure.php"><span class="las la-bookmark"></span>
+                        <span>โครงสร้างของพืช</span></a>
                 </li>
                 <li>
-                    <a href="info_ave_age.php"><span class="las la-bookmark"></span>
-                        <span>อายุเฉลี่ยสุนัข</span></a>
+                    <a href="info_potted_plant.php"><span class="las la-bookmark"></span>
+                        <span>ข้อมูลการปลูกต้นไม้กระถาง</span></a>
                 </li>
                 <li>
-                    <a href="info_supplies.php"><span class="las la-bookmark"></span>
-                        <span>อุปกรณ์ในการเลี้ยงสุนัข</span></a>
+                    <a href="info_pot_plant.php"><span class="las la-bookmark"></span>
+                        <span>กระถางหรือภาชนะปลูก</span></a>
                 </li>
                 <li>
-                    <a href="info_communicate.php"><span class="las la-bookmark"></span>
-                        <span>การสื่อสารเบื้องต้นของสุนัข</span></a>
+                    <a href="info_pot_shape.php"><span class="las la-bookmark"></span>
+                        <span>รูปทรงกระถางต้นไม้</span></a>
                 </li>
                 <li>
-                    <a href="info_treat.php"><span class="las la-bookmark"></span>
-                        <span>การเลี้ยงดูสุนัขเบื้องต้น</span></a>
+                    <a href="info_how_to_plant.php"><span class="las la-bookmark"></span>
+                        <span>วิธีการปลูก</span></a>
                 </li>
                 <li>
-                    <a href="info_cleaning.php"><span class="las la-bookmark"></span>
-                        <span>การทำความสะอาดสุนัข</span></a>
+                    <a href="info_fertilizing.php"><span class="las la-bookmark"></span>
+                        <span>การให้ปุ๋ย</span></a>
                 </li>
                 <li>
-                    <a href="info_diseases.php"><span class="las la-bookmark"></span>
-                        <span>โรคต่างๆของสุนัข</span></a>
+                    <a href="info_watering.php"><span class="las la-bookmark"></span>
+                        <span>การให้น้ำ</span></a>
                 </li>
                 <li>
-                    <a href="info_questions.php"><span class="las la-bookmark"></span>
-                        <span>คำถามที่พบบ่อย</span></a>
+                    <a href="info_soil_planter.php"><span class="las la-bookmark"></span>
+                        <span>ดินหรือเครื่องปลูก</span></a>
                 </li>
                 <li>
-                    <a href="info_vaccine.php"><span class="las la-bookmark"></span>
-                        <span>ตารางการให้วัดซีนของสุนัข</span></a>
+                    <a href="info_tree_care.php"><span class="las la-bookmark"></span>
+                        <span>การดูแลรักษาโดยทั่วไป</span></a>
                 </li>
                 <li>
-                    <a href="info_sickness.php"><span class="las la-bookmark"></span>
-                        <span>ข้อสังเกตสุนัขเมื่อป่วย</span></a>
+                    <a href="info_preventing.php"><span class="las la-bookmark"></span>
+                        <span>การป้องกันและกำจัดศัตรูพืช</span></a>
                 </li>
                 <li>
-                    <a href="info_choose_food.php"><span class="las la-bookmark"></span>
-                        <span>เลือกอาหารสุนัขให้เหมาะกับวัย</span></a>
-                </li>
-                <li>
-                    <a href="info_takecare.php"><span class="las la-bookmark"></span>
-                        <span>ข้อควรระวังในการเลี้ยงสุนัข</span></a>
-                </li>
-                <li>
-                    <a href="info_neuter.php"><span class="las la-bookmark"></span>
-                        <span>ข้อมูลการทำหมันสุนัข</span></a>
-                </li>
-                <li>
-                    <a href="info_type_food.php"><span class="las la-bookmark"></span>
-                        <span>ประเภทอาหารของสุนัข</span></a>
-                </li>
-                <li>
-                    <a href="info_vaccine_program.php"><span class="las la-bookmark"></span>
-                        <span>โปรแกรมวัคซีนในสุนัข</span></a>
+                    <a href="info_benefits_plant.php"><span class="las la-bookmark"></span>
+                        <span>ประโยชน์ของไม้กระถาง</span></a>
                 </li>
                 <li>
                     <a href="../../logout.php"><span class="las la-home"></span>
@@ -139,19 +137,21 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                    <form>
+                    <form action="create_member_tree_water_db.php" method="post">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>วันที่</label>
-                                <input type="date" name="" class="form-control">
+                                <input type="date" name="WaterDate" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>เวลา</label>
-                                <input type="number" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                                <input type="time" name="WaterTime" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success">บันทึก</button>
+                            <input type="hidden" name="Ref_TreeID" value="<?php echo $TreeID;?>">
+                                <input type="hidden" name="Ref_OwnerID" value="<?php echo $OwnerID;?>">
+                                <button type="submit" class="btn btn-success">บันทึก</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
                             </div>
                     </form>
@@ -167,42 +167,44 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                <div class="table-responsive">
-                    <table id="example" class="table thead-dark">
-                        <thead>
-                            <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">วันที่</th>
-                            <th scope="col">เวลา</th>
-                            <th scope="col">แก้ไข</th>
-                            <th scope="col">ลบ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td><button type="button" class="btn btn-primary editbtn1">Edit</button></td>
-                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td><button type="button" class="btn btn-primary editbtn1">Edit</button></td>
-                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td><button type="button" class="btn btn-primary editbtn1">Edit</button></td>
-                            <td> <button type="button" class="btn btn-danger">Delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <?php
+                            $query2 = "SELECT * FROM tbl_tree as t
+                            INNER JOIN tbl_member_tree_water as mtw ON mtw.Ref_TreeID = t.TreeID WHERE TreeID=$TreeID
+                            " or die("Error:" . mysqli_error());
+                            $result2 = mysqli_query($condb, $query2); 
+                            echo "<div class='table-responsive'>";
+                            echo "<table  id='myTable' class='table thead-light'>";
+                                    echo "
+                                        <thead>
+                                            <tr align='center'>
+                                            <th>#</th>
+                                            <th>วันที่</th>
+                                            <th>เวลา</th>
+                                            <th>วันที่บันทึก</th>
+                                            <th>แก้ไข</th>
+                                            <th>ลบ</th>
+                                            </tr>
+                                        </thead>
+                                    ";
+                                    $item = 0;
+                                    while($row = mysqli_fetch_array($result2)) { 
+                                        $item +=1;
+                                        echo "<tr align='center'>";
+                                        echo "<td>".$item.'.'. "</td>";
+                                        echo "<td>" .$row["WaterDate"] . "</td> "; 
+                                        echo "<td>" .$row["WaterTime"] . "</td> "; 
+                                        echo "<td>" .$row["DateSave"] . "</td> "; 
+                                        echo "<td>
+                                        <button type='button' class='btn btn-primary editbtn1'>Edit</button>
+                                        </td> ";
+                                        echo "<td>
+                                        <button type='button' class='btn btn-danger'>Delete</button>
+                                        </td> ";
+                                        
+                                    }
+                                echo "</table>";
+                                echo "</div>";
+                        ?>
                 </div>
             </div>
         </div>
@@ -217,7 +219,13 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.18/js/jquery.daTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> -->
+
         <script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
             $(document).ready(function() {
                 $('#example').Datable();
             });

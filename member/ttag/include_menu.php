@@ -40,8 +40,7 @@ extract($row);
 
         <div class="sidebar-menu">
             <ul>
-
-            <li>
+                <li>
                 <a href="../index.php" ><span class="las la-igloo"></span>
                     <span>หน้าหลัก</span></a>
                 </li>
