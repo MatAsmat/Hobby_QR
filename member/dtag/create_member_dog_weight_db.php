@@ -29,12 +29,13 @@ include('../../condb.php');
 	if($result){
 	echo "<script type='text/javascript'>";
 	echo "alert('เพิ่มข้อมูลสำเร็จ');";
-	echo "window.location = '../index.php'; ";
+	echo "window.history.back();";
 	echo "</script>";
 	}else{
 	echo "<script type='text/javascript'>";
 	echo "alert('Error!!');";
-	echo "window.location = '../index.php'; ";
+	echo "window.history.back();";
+	// echo "window.location = 'create_info_dtag.php'; ";
 	echo "</script>";
 }
 ?>
