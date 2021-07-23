@@ -3,10 +3,10 @@ include('./include_menu.php');
 
 $ID = $_GET['ID'];
 $sql = "
-SELECT * FROM tbl_tree as c
-INNER JOIN tbl_templates as t ON c.Ref_TemplateID = t.TemplateID
-INNER JOIN tbl_tree_breed as cb ON t.Ref_BreedID = cb.TreeBreedID
-WHERE c.TreeID=$ID";
+SELECT * FROM tbl_tree as t
+INNER JOIN tbl_tree_breed as cb ON t.Ref_TreeBreedID = cb.TreeBreedID
+INNER JOIN tbl_templates as tp ON t.Ref_TemplateID = tp.TemplateID
+WHERE t.TreeID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);

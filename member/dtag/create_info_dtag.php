@@ -2,10 +2,10 @@
 include('./include_menu.php'); 
 
 
-$DID = $_GET['ID'];
+$ID = $_GET['ID'];
 $sql = "
 SELECT * FROM tbl_dog
-WHERE DogID=$DID";
+WHERE DogID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);

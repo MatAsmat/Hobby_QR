@@ -137,27 +137,27 @@ $result3 = mysqli_query($condb, $query3);
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Username" class="form-control" placeholder="ชื่อผู้ใช้ (Username)">
+                                    <input type="text" name="Username" class="form-control" placeholder="ชื่อผู้ใช้ (Username)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Password" class="form-control" placeholder="รหัสผ่าน (Password)">
+                                    <input type="text" name="Password" class="form-control" placeholder="รหัสผ่าน (Password)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="FirstName" class="form-control" placeholder="ชื่อจริง (First Name)">
+                                    <input type="text" name="FirstName" class="form-control" placeholder="ชื่อจริง (First Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="LastName" class="form-control" placeholder="นามสกุลจริง (Last Name)">
+                                    <input type="text" name="LastName" class="form-control" placeholder="นามสกุลจริง (Last Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Email" class="form-control" placeholder="อีเมล (Email)">
+                                    <input type="text" name="Email" class="form-control" placeholder="อีเมล (Email)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -177,7 +177,7 @@ $result3 = mysqli_query($condb, $query3);
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="file" name="OwnerPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*">
+                                    <input type="file" name="OwnerPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
                         </div>
@@ -192,19 +192,18 @@ $result3 = mysqli_query($condb, $query3);
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="CatName" class="form-control" placeholder="ชื่อแมว (Name)">
+                                    <input type="text" name="CatName" class="form-control" placeholder="ชื่อแมว (Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="file" name="CatPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*">
+                                    <input type="file" name="CatPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="fa fa-calendar"></span></div>
-                                        <input type="date" name="CatBirthdate" class="form-control appointment_date" placeholder="วันเกิด (ฺBirthdate)">
+                            <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="date" name="CatBirthdate" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -282,7 +281,7 @@ $result3 = mysqli_query($condb, $query3);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_CatBreedID" id="" class="form-control">
+                                            <select name="Ref_CatBreedID" id="" class="form-control" required>
                                             <option value="">เลือกพันธุ์แมว</option>
                                             <?php foreach($result as $results){ ?>
                                         <option value="<?php echo $results["CatBreedID"];?>">
@@ -301,8 +300,8 @@ $result3 = mysqli_query($condb, $query3);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_TemplateID" id="" class="form-control">
-                                            <option value="Ref_TemplateID">เลือกนามบัตรแมว</option>
+                                            <select name="Ref_TemplateID" id="" class="form-control" required>
+                                            <option value="">เลือกนามบัตรแมว</option>
                                             <?php foreach($result2 as $results2){ ?>
                                         <option value="<?php echo $results2["TemplateID"];?>">
                                             <?php echo $results2["TemplateName"];?>

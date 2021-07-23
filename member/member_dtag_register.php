@@ -219,19 +219,18 @@ $result2 = mysqli_query($condb, $query2);
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="DogName" class="form-control" placeholder="ชื่อสุนัข (Name)">
+                                    <input type="text" name="DogName" class="form-control" placeholder="ชื่อสุนัข (Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="file" name="DogPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*">
+                                    <input type="file" name="DogPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="fa fa-calendar"></span></div>
-                                        <input type="date" name="DogBirthdate" class="form-control appointment_date" placeholder="วันเกิด (ฺBirthdate)">
+                            <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="date" name="DogBirthdate" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -309,7 +308,7 @@ $result2 = mysqli_query($condb, $query2);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_DogBreedID" id="" class="form-control">
+                                            <select name="Ref_DogBreedID" id="" class="form-control" required>
                                                 <option value="">เลือกพันธุ์สุนัข</option>
                                                 <?php foreach ($result as $results) { ?>
                                                     <option value="<?php echo $results["DogBreedID"]; ?>">
@@ -329,8 +328,8 @@ $result2 = mysqli_query($condb, $query2);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_TemplateID" id="" class="form-control">
-                                                <option value="Ref_TemplateID">เลือกนามบัตรสุนัข</option>
+                                            <select name="Ref_TemplateID" id="" class="form-control" required>
+                                                <option value="">เลือกนามบัตรสุนัข</option>
                                                 <?php foreach ($result2 as $results2) { ?>
                                                     <option value="<?php echo $results2["TemplateID"]; ?>">
                                                         <?php echo $results2["TemplateName"]; ?>

@@ -32,6 +32,7 @@ include('include_menu.php');
                          </div>
                     </div>
                 </div>
+                
                 <div class="tags">
                     <div class="card">
                         <div class="card-header">

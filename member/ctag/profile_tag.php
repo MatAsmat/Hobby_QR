@@ -4,8 +4,8 @@ include('./include_menu.php');
 $ID = $_GET['ID'];
 $sql = "
 SELECT * ,YEAR( FROM_DAYS( DATEDIFF( NOW( ) , CatBirthdate ) ) ) as age FROM tbl_cat as c
+INNER JOIN tbl_cat_breed as cb ON c.Ref_CatBreedID = cb.CatBreedID
 INNER JOIN tbl_templates as t ON c.Ref_TemplateID = t.TemplateID
-INNER JOIN tbl_cat_breed as cb ON t.Ref_BreedID = cb.CatBreedID
 WHERE c.CatID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
@@ -33,14 +33,13 @@ extract($row);
                                         <h3><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: <?php echo $CatName;?></h3>
                                         <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : <?php echo $CatBreedName;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> อายุ : <?php echo $age;?></p>
-                                        <p><span class="las la-chevron-circle-right"></span> น้ำหนัก : <?php echo $CatBreedName;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> น้ำหนัก : <?php echo $age;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> เพศ : <?php echo $CatGender;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> กรุ๊ปเลือด : <?php echo $CatBlood;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> วันเกิด : <?php echo date('d/m/Y', strtotime($row["CatBirthdate"]));?></p>
                                         <div class="firstline">
-                                        <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : <?php echo $CatBreedCharacter;?></p>
-                                        <p><span class="las la-chevron-circle-right"></span> นิสัย : <?php echo $CatBreedPersonality;?></p>
-                                        <p><span class="las la-chevron-circle-right"></span> ข้อควรระวัง : <?php echo $CatBreedNutrients;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : <?php echo $CatCoatColor;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> นิสัย : <?php echo $CatPersonality;?></p>
                                         </div>
                                     </div>
                             </div>
