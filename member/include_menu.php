@@ -30,6 +30,21 @@ extract($row);
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+<style>
+    .customer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem .7rem;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    margin: 10px 0px;
+}
+
+.customer:hover {
+    background-color: #eee;
+}
+
+</style>
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">

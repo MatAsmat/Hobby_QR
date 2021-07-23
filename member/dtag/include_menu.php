@@ -30,6 +30,92 @@ extract($row);
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 420px;
+    perspective: 1000px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* .flip-card-front {
+    background-color: #fff;
+  } */
+  
+  .flip-card-back {
+    /* background-color: #fff; */
+    transform: rotateY(180deg);
+  }
+
+  /* .data-template {
+    position: absolute;
+  }
+
+  .data-text {
+    position: absolute;
+  } */
+
+  .img-front {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  }
+
+  .img-back {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+  }
+
+  .data-front {
+  position: absolute;
+  top: 262px;
+  left: 30px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 280%;
+  }
+
+  .data-back {
+  position: absolute;
+  top: 30%;
+  left: 65%;
+  transform: translate(-50%, -50%); 
+  }
+
+  .data-left {
+    
+  }
+
+  .data-right {
+  }
+    </style>
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">

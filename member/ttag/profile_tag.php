@@ -55,10 +55,18 @@ extract($row);
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                <img src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
+                                        <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
+                                        <div class="data-ft">
+                                                <p><?php  echo $TreeName;?></p>  
+                                                <p><?php echo $TreeBreedName;?></p>
+                                                <p><?php echo $TreeBreedName;?></p>
+                                        </div>
                                 </div>
                                 <div class="flip-card-back">
-                                <img src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
+                                <img class="img-back" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
+                                <div class="data-bk">
+                                <img src="../profileimg/ttag/<?php echo $row['TreePhoto'];?>" width="100px"  alt="template">
+                                </div>
                                 </div>
                             </div>
                         </div>

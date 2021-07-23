@@ -104,7 +104,7 @@ extract($row);
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลน้ำหนักสัตว์เลี้ยง</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลรดต้นไม้</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -132,7 +132,7 @@ extract($row);
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลน้ำหนักสัตว์เลี้ยง</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลรดต้นไม้</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -211,7 +211,217 @@ extract($row);
         <br>
       
        <!-- ======================================================= -->
-       
+       <div class="modal fade" id="editInfo2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลใส่ปุ๋ย</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>วันที่</label>
+                                <input type="date" name="" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>เวลา</label>
+                                <input type="number" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">แก้ไข</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addInfo2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลใส่ปุ๋ย</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form action="create_member_tree_fertilize_db.php" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>วันที่</label>
+                                <input type="date" name="FertilizeDate" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>เวลา</label>
+                                <input type="time" name="FertilizeTime" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                            <input type="hidden" name="Ref_TreeID" value="<?php echo $TreeID;?>">
+                                <input type="hidden" name="Ref_OwnerID" value="<?php echo $OwnerID;?>">
+                                <button type="submit" class="btn btn-success">บันทึก</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+            <div class="card-body">
+            <h2>ตารางใส่ปุ๋ย</h2>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addInfo2">เพิ่มข้อมูล</button>
+            </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                <?php
+                            $query2 = "SELECT * FROM tbl_tree as t
+                            INNER JOIN tbl_member_tree_fertilize as mtf ON mtf.Ref_TreeID = t.TreeID WHERE TreeID=$TreeID
+                            " or die("Error:" . mysqli_error());
+                            $result2 = mysqli_query($condb, $query2); 
+                            echo "<div class='table-responsive'>";
+                            echo "<table  id='myTable2' class='table thead-light'>";
+                                    echo "
+                                        <thead>
+                                            <tr align='center'>
+                                            <th>#</th>
+                                            <th>วันที่</th>
+                                            <th>เวลา</th>
+                                            <th>วันที่บันทึก</th>
+                                            <th>แก้ไข</th>
+                                            <th>ลบ</th>
+                                            </tr>
+                                        </thead>
+                                    ";
+                                    $item = 0;
+                                    while($row = mysqli_fetch_array($result2)) { 
+                                        $item +=1;
+                                        echo "<tr align='center'>";
+                                        echo "<td>".$item.'.'. "</td>";
+                                        echo "<td>" .$row["FertilizeDate"] . "</td> "; 
+                                        echo "<td>" .$row["FertilizeTime"] . "</td> "; 
+                                        echo "<td>" .$row["DateSave"] . "</td> "; 
+                                        echo "<td>
+                                        <button type='button' class='btn btn-primary editbtn1'>Edit</button>
+                                        </td> ";
+                                        echo "<td>
+                                        <button type='button' class='btn btn-danger'>Delete</button>
+                                        </td> ";
+                                        
+                                    }
+                                echo "</table>";
+                                echo "</div>";
+                        ?>
+                </div>
+            </div>
+        </div>
+        <br>
+<!-- ========================================================================= -->
+        <div class="modal fade" id="editInfo3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลหมายเหตุ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>หมายเหตุ</label>
+                                <input type="text" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">แก้ไข</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addInfo3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกข้อมูลหมายเหตุ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form action="create_member_tree_note_db.php" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>หมายเหตุ</label>
+                                <textarea name="Note" class="form-control" rows="1" placeholder="ป้อนข้อมูล..."></textarea>
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                            <input type="hidden" name="Ref_TreeID" value="<?php echo $TreeID;?>">
+                                <input type="hidden" name="Ref_OwnerID" value="<?php echo $OwnerID;?>">
+                                <button type="submit" class="btn btn-success">บันทึก</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+            <div class="card-body">
+            <h2>ตารางหมายเหตุ</h2>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addInfo3">เพิ่มข้อมูล</button>
+            </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                <?php
+                            $query2 = "SELECT * FROM tbl_tree as t
+                            INNER JOIN tbl_member_tree_note as mtn ON mtn.Ref_TreeID = t.TreeID WHERE TreeID=$TreeID
+                            " or die("Error:" . mysqli_error());
+                            $result2 = mysqli_query($condb, $query2); 
+                            echo "<div class='table-responsive'>";
+                            echo "<table  id='myTable3' class='table thead-light'>";
+                                    echo "
+                                        <thead>
+                                            <tr align='center'>
+                                            <th>#</th>
+                                            <th>วันที่</th>
+                                            <th>หมายเหตุ</th>
+                                            <th>วันที่บันทึก</th>
+                                            <th>แก้ไข</th>
+                                            <th>ลบ</th>
+                                            </tr>
+                                        </thead>
+                                    ";
+                                    $item = 0;
+                                    while($row = mysqli_fetch_array($result2)) { 
+                                        $item +=1;
+                                        echo "<tr align='center'>";
+                                        echo "<td>".$item.'.'. "</td>";
+                                        echo "<td>" .$row["Note"] . "</td> "; 
+                                        echo "<td>" .$row["DateSave"] . "</td> "; 
+                                        echo "<td>
+                                        <button type='button' class='btn btn-primary editbtn1'>Edit</button>
+                                        </td> ";
+                                        echo "<td>
+                                        <button type='button' class='btn btn-danger'>Delete</button>
+                                        </td> ";
+                                        
+                                    }
+                                echo "</table>";
+                                echo "</div>";
+                        ?>
+                </div>
+            </div>
+        </div>
+      
+       <!-- ======================================================= -->
     </main>
     </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -224,6 +434,8 @@ extract($row);
         <script>
 $(document).ready( function () {
     $('#myTable').DataTable();
+    $('#myTable2').DataTable();
+    $('#myTable3').DataTable();
 } );
 
             $(document).ready(function() {

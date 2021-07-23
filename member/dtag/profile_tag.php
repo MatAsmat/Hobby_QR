@@ -61,10 +61,25 @@ extract($row);
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                <img src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
+                                        <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
+                                        <div class="data-front">
+                                            <div class="data-left">
+                                                <p><?php  echo $FirstName.'  '.$LastName;?></p>  
+                                                <p><?php echo $Telephone;?></p>
+                                                <p><?php echo $Line;?></p>
+                                            </div>
+                                            <div class="data-right">
+                                                <p><?php echo $DogName;?></p>
+                                                <p><?php echo $DogBlood;?></p>
+                                                <p><?php echo $DogBirthdate;?></p>  
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="flip-card-back">
-                                <img src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
+                                <img class="img-back" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
+                                <div class="data-back">
+                                <img src="../profileimg/dtag/<?php echo $row['DogPhoto'];?>" width="100px"  alt="template">
+                                </div>
                                 </div>
                             </div>
                         </div>

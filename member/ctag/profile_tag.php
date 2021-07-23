@@ -6,6 +6,7 @@ $sql = "
 SELECT * ,YEAR( FROM_DAYS( DATEDIFF( NOW( ) , CatBirthdate ) ) ) as age FROM tbl_cat as c
 INNER JOIN tbl_cat_breed as cb ON c.Ref_CatBreedID = cb.CatBreedID
 INNER JOIN tbl_templates as t ON c.Ref_TemplateID = t.TemplateID
+INNER JOIN tbl_owner as o ON c.Ref_OwnerID = o.OwnerID
 WHERE c.CatID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
@@ -61,10 +62,25 @@ extract($row);
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                <img src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
+                                        <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
+                                        <div class="data-front">
+                                            <div class="data-left">
+                                                <p><?php  echo $FirstName.'  '.$LastName;?></p>  
+                                                <p><?php echo $Telephone;?></p>
+                                                <p><?php echo $Line;?></p>
+                                            </div>
+                                            <div class="data-right">
+                                                <p><?php echo $CatName;?></p>
+                                                <p><?php echo $CatBlood;?></p>
+                                                <p><?php echo $CatBirthdate;?></p>  
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="flip-card-back">
-                                <img src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
+                                <img class="img-back" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
+                                <div class="data-back">
+                                <img src="../profileimg/ctag/<?php echo $row['CatPhoto'];?>" width="100px"  alt="template">
+                                </div>
                                 </div>
                             </div>
                         </div>

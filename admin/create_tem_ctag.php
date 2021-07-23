@@ -1,7 +1,7 @@
 <?php 
 include('./include_menu.php'); 
 
-$query = "SELECT * FROM tbl_Cat_breed" or die("Error:" . mysqli_error());
+$query = "SELECT * FROM tbl_cat_breed" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
 ?>
 <br><br>
