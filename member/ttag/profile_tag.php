@@ -57,9 +57,9 @@ extract($row);
                                 <div class="flip-card-front">
                                         <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
                                         <div class="data-ft">
-                                                <p><?php  echo $TreeName;?></p>  
-                                                <p><?php echo $TreeBreedName;?></p>
-                                                <p><?php echo $TreeBreedName;?></p>
+                                                <p><?php  echo $TreeName .' '. $TreeBreedName;?></p>  
+                                                <p><?php echo $waterimg;?></p>
+                                                <p><?php echo $sunligntimg;?></p>
                                         </div>
                                 </div>
                                 <div class="flip-card-back">

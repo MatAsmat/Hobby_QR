@@ -76,6 +76,37 @@ include('./include_menu.php');
                                     <textarea name="TreeBreedPropagation" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label for="exampleInputFile">ระดับการดูแลน้ำ</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="TemplateFrontImage" class="custom-file-input" required
+                                                id="exampleInputFile" eccept="image/*">
+                                            <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="">อัพโหลด</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label for="exampleInputFile">ระดับการดูแลแสง</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="TemplateBackImage" class="custom-file-input" required
+                                                id="exampleInputFile" eccept="image/*">
+                                            <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="">อัพโหลด</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

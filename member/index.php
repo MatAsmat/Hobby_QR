@@ -37,6 +37,14 @@ include('include_menu.php');
                             </span></button>
                         </div>
                         <div class="card-body">
+                        <div style="text-align:center">
+                            <img src="../images/icon/dog.png" alt="" width="49px">
+                            <img src="../images/icon/cat.png" alt="" width="49px">
+                            <img src="../images/icon/plant.png" alt="" width="49px">
+                            <img src="../images/icon/bird.png" alt="" width="49px">
+                            <img src="../images/icon/fish.png" alt="" width="49px">
+                            <img src="../images/icon/heart.png" alt="" width="49px">
+                        </div>
                         <?php 
                             $query = " SELECT * FROM tbl_owner as o
                             INNER JOIN tbl_dog as d ON d.Ref_OwnerID = o.OwnerID

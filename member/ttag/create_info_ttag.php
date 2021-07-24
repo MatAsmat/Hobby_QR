@@ -391,7 +391,6 @@ extract($row);
                                         <thead>
                                             <tr align='center'>
                                             <th>#</th>
-                                            <th>วันที่</th>
                                             <th>หมายเหตุ</th>
                                             <th>วันที่บันทึก</th>
                                             <th>แก้ไข</th>
@@ -412,7 +411,6 @@ extract($row);
                                         echo "<td>
                                         <button type='button' class='btn btn-danger'>Delete</button>
                                         </td> ";
-                                        
                                     }
                                 echo "</table>";
                                 echo "</div>";
@@ -432,6 +430,8 @@ extract($row);
         <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> -->
 
         <script>
+
+            
 $(document).ready( function () {
     $('#myTable').DataTable();
     $('#myTable2').DataTable();

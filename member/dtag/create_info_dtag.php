@@ -119,6 +119,28 @@ extract($row);
            include('include_header.php');
         ?>
     <main>
+    <div class="modal fade" id="deleteInfo1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ลบข้อมูลน้ำหนักสัตว์เลี้ยง</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form action="delete_member_dog_weight_db.php" method="POST">
+                        <div class="modal-body">
+                        <input type="hidden" name="delete_id" id="delete_id">
+                         <h4>คุณต้องการลบข้อมูลนี้ จริงหรือ?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" name="deletedata" class="btn btn-primary">ใช่ !!! ลบข้อมูลนี้</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ไม่ใช่</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     <div class="modal fade" id="editInfo1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -128,19 +150,20 @@ extract($row);
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                    <form>
+                    <form action="update_member_dog_weight_db.php" method="POST">
                         <div class="modal-body">
+                        <input type="hidden" name="update_id" id="update_id">
                             <div class="form-group">
                                 <label>วันที่</label>
-                                <input type="date" name="" class="form-control">
+                                <input type="date" name="DogWeightDate"  id="DogWeightDate" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>น้ำหนัก</label>
-                                <input type="number" name="" class="form-control" placeholder="ป้อนข้อมูล...">
+                                <input type="number" name="DogWeight" id="DogWeight" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">แก้ไข</button>
+                                <button type="submit" name="updatedata" class="btn btn-primary">แก้ไข</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
                             </div>
                     </form>
@@ -197,6 +220,7 @@ extract($row);
                                         <thead>
                                             <tr align='center'>
                                             <th>#</th>
+                                            <th>ลำดับ</th>
                                             <th>วันที่</th>
                                             <th>kg</th>
                                             <th>วันที่บันทึก</th>
@@ -210,18 +234,18 @@ extract($row);
                                         $item +=1;
                                         echo "<tr align='center'>";
                                         echo "<td>".$item.'.'. "</td>";
+                                        echo "<td>" .$row["DogWeightID"] . "</td> "; 
                                         echo "<td>" .$row["DogWeightDate"] . "</td> "; 
                                         echo "<td>" .$row["DogWeight"] . "</td> "; 
                                         echo "<td>" .$row["DateSave"] . "</td> "; 
-                                          echo "<td class='project-actions text-center'>
-                                            <a href='#editbtn1$ID' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
-                                            </i> แก้ไข</a></td> ";
                                         echo "<td>
                                         <button type='button' class='btn btn-primary editbtn1'>Edit</button>
                                         </td> ";
                                         echo "<td>
-                                        <button type='button' class='btn btn-danger'>Delete</button>
+                                        <button type='button' class='btn btn-danger deletebtn1'>Delete</button>
                                         </td> ";
+                                        echo "</tr>";
+
                                         
                                     }
                                 echo "</table>";
@@ -960,12 +984,55 @@ extract($row);
             $(document).ready(function() {
                 $('.editbtn1').on('click', function() {
                     $('#editInfo1').modal('show');
+
+                    $tr = $(this).closest('tr');
+
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#update_id').val(data[0]);
+                    $('#DogWeightDate').val(data[1]);
+                    $('#DogWeight').val(data[2]);
+
+                });
+            });
+
+            $(document).ready(function() {
+                $('.deletebtn1').on('click', function() {
+                    $('#deleteInfo1').modal('show');
+
+                    $tr = $(this).closest('tr');
+
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#delete_id').val(data[0]);
+
+
                 });
             });
 
             $(document).ready(function() {
                 $('.editbtn2').on('click', function() {
                     $('#editInfo2').modal('show');
+
+                    $tr = $(this).closest('tr');
+
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#DogWeightID').val(data[0]);
+                    $('#DogWeightDate').val(data[1]);
+                    $('#DogWeight').val(data[2]);
                 });
             });
 
