@@ -33,15 +33,15 @@ include('../../condb.php');
 	mysqli_close($condb);
 	
 	if($result){
-	echo "<script type='text/javascript'>";
-	echo "alert('เพิ่มข้อมูลสำเร็จ');";
-	echo "window.location = '../index.php'; ";
-	echo "</script>";
+		echo "<script type='text/javascript'>";
+		echo "alert('เพิ่มข้อมูลสำเร็จ');";
+		echo "window.history.back();";
+		echo "</script>";
 	}else{
-	echo "<script type='text/javascript'>";
-	echo "alert('Error!!');";
-	echo "window.location = '../index.php'; ";
-	echo "</script>";
-}
+		echo "<script type='text/javascript'>";
+		echo "alert('Error!!');";
+		echo "window.history.back();";
+		echo "</script>";
+	}
 ?>
 

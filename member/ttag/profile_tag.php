@@ -65,7 +65,7 @@ extract($row);
                                 <div class="flip-card-back">
                                 <img class="img-back" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
                                 <div class="data-bk">
-                                <img src="../profileimg/ttag/<?php echo $row['TreePhoto'];?>" width="100px"  alt="template">
+                                <img src="../profileimg/ttag/<?php echo $row['TreePhoto'];?>" width="200px"  alt="template">
                                 </div>
                                 </div>
                             </div>

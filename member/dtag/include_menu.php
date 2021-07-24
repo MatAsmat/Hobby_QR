@@ -104,7 +104,7 @@ extract($row);
 
   .data-back {
   position: absolute;
-  top: 30%;
+  top: 55%;
   left: 65%;
   transform: translate(-50%, -50%); 
   }

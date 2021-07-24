@@ -65,7 +65,7 @@ extract($row);
                                         <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
                                         <div class="data-front">
                                             <div class="data-left">
-                                                <p><?php  echo $FirstName.'  '.$LastName;?></p>  
+                                                <p><?php  echo $FirstName;?></p>  
                                                 <p><?php echo $Telephone;?></p>
                                                 <p><?php echo $Line;?></p>
                                             </div>
@@ -79,7 +79,7 @@ extract($row);
                                 <div class="flip-card-back">
                                 <img class="img-back" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
                                 <div class="data-back">
-                                <img src="../profileimg/ctag/<?php echo $row['CatPhoto'];?>" width="100px"  alt="template">
+                                <img src="../profileimg/ctag/<?php echo $row['CatPhoto'];?>" width="200px"  alt="template">
                                 </div>
                                 </div>
                             </div>

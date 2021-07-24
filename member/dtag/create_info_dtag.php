@@ -213,6 +213,9 @@ extract($row);
                                         echo "<td>" .$row["DogWeightDate"] . "</td> "; 
                                         echo "<td>" .$row["DogWeight"] . "</td> "; 
                                         echo "<td>" .$row["DateSave"] . "</td> "; 
+                                          echo "<td class='project-actions text-center'>
+                                            <a href='#editbtn1$ID' class='btn btn-info btn-sm'> <i class='fas fa-pencil-alt'>
+                                            </i> แก้ไข</a></td> ";
                                         echo "<td>
                                         <button type='button' class='btn btn-primary editbtn1'>Edit</button>
                                         </td> ";
