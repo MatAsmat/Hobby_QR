@@ -9,13 +9,23 @@ $qrStatus = mysqli_fetch_row($qrResults);
 echo ' qrStatus: ' . $qrStatus[1];
 
 if (isset($_POST['Ref_QrCodeID'])) $qrID = $_POST['Ref_QrCodeID'];
-if ($qrStatus[1] == 'Yes') {
-    echo "<script>";
-    // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
-    echo "window.location = 'profile.php'";
-    echo "</script>";
-}
+    if ($qrStatus[1] == 'Yes') {
+        echo "<script>";
+        // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
+        echo "window.location = 'profile.php?qrID=$qrID'";
+        echo "</script>";
+    }
 
+$qrID=$_GET['qrID'];
+echo 'qrID'.$name1;
+
+$checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName = '$qrID'";
+$qrResults =  mysqli_query($condb, $checkQR) or die(mysqli_error());
+
+echo "<script>";
+echo "alert('$qrID');";
+echo "window.history.back();";
+echo "</script>";
 
 $query = "SELECT * FROM tbl_dog_breed" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);

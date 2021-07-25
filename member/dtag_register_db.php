@@ -1,7 +1,9 @@
 <meta charset="utf-8">
 <?php
 include('../condb.php'); 
-	
+
+	$qrID=$_GET['qrID'];	
+	echo 'qrID'.$name1;
     $OwnerID = $_POST["OwnerID"];
 	$Username = $_POST["Username"];
 	$Password = md5($_POST["Password"]);

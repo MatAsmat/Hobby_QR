@@ -522,7 +522,7 @@
       </div>
     </div>
   </section>
-
+<!-- 
   <section class="ftco-counter">
     <div class="container">
       <div class="row d-flex no-gutters">
@@ -540,7 +540,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <footer class="footer">
     <div class="container">
