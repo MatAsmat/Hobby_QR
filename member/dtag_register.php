@@ -260,7 +260,7 @@ $result3 = mysqli_query($condb, $query3);
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Email" class="form-control" placeholder="* อีเมล (Email)" required>
+                                    <input type="email" name="Email" class="form-control" placeholder="* อีเมล (Email)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">

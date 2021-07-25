@@ -11,7 +11,11 @@ include('include_menu.php');
                     <div class="card">
                         <div class="card-header">
                             <h2>ข้อมูลเจ้าของ</h2>
-                            <button> แก้ไขข้อมูล<span class="las la-arrow-right"></span></button>
+                            <!-- <button> แก้ไขข้อมูล<span class="las la-arrow-right"></span></button> -->
+                            <?php 
+                                echo "<a href='update_owner_profle.php'>"." <button>แก้ไขข้อมูล<span class='las la-arrow-right'></span></button>" ."</a>";
+                            ?>
+                            <!-- <a href="update_owner_profle.php">แก้ไขข้อมูล <span class="las la-arrow-right"></span></a> -->
                         </div>
                         <div class="card-body">
                         <div class="profile">
