@@ -70,6 +70,10 @@ $result2 = mysqli_query($condb, $query2);
         border-color: #cc0000;
         background-color: #ffff99;
     }
+
+    label {
+        color: #fff;
+    }
 </style>
 
 <body>
@@ -215,22 +219,24 @@ $result2 = mysqli_query($condb, $query2);
                         </div>
                        </form> --> 
                        <form role="form" action="member_dtag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">    
-                        <h4 style="color:#fff">* ข้อมูลสุนัข</h4>
+                       <h3 style="color:#fff"><span class="fa fa-dog mr-1"><span> ข้อมูลสุนัข</h3> 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="DogName" class="form-control" placeholder="ชื่อสุนัข (Name)" required>
+                                    <input type="text" name="DogName" class="form-control" placeholder="* ชื่อสุนัข (Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
+                            <label>* รูปโปรไฟล์สุนัข</label>
                                 <div class="form-group">
-                                    <input type="file" name="DogPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
+                                    <input type="file" name="DogPhoto" class="form-control" placeholder="* รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                             <div class="form-group">
+                            <label>วัน เดือน ปีเกิด</label>
                                     <div class="input-group">
-                                        <input type="date" name="DogBirthdate" class="form-control" required>
+                                        <input type="date" name="DogBirthdate" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -255,10 +261,14 @@ $result2 = mysqli_query($condb, $query2);
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                             <select name="DogBlood" id="" class="form-control">
                                                 <option value="">เลือกกรุ๊ปเลือด (Blood)</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="AB">AB</option>
-                                                <option value="O">O</option>
+                                                <option value="DEA 1.1">DEA 1.1</option>
+                                                <option value="DEA 1.2">DEA 1.2</option>
+                                                <option value="DEA 3">DEA 3</option>
+                                                <option value="DEA 4">DEA 4</option>
+                                                <option value="DEA 5">DEA 5</option>
+                                                <option value="DEA 6">DEA 6</option>
+                                                <option value="DEA 7">DEA 7</option>
+                                                <option value="DEA 8">DEA 8</option>
                                             </select>
                                         </div>
                                     </div>
@@ -304,6 +314,7 @@ $result2 = mysqli_query($condb, $query2);
                                 </div>
                             </div>
                             <div class="col-md-12">
+                        <label>* พันธุ์สุนัข</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
@@ -321,9 +332,9 @@ $result2 = mysqli_query($condb, $query2);
                                 </div>
                             </div>
                         </div>
-                        <h4 style="color:#fff">* นามบัตรสุนัข</h4>
                         <div class="row">
                             <div class="col-md-12">
+                        <label>* นามบัตรสุนัข</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">

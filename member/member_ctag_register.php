@@ -77,6 +77,10 @@ $result3 = mysqli_query($condb, $query3);
      border-color:#cc0000;
      background-color:#ffff99;
     }
+
+    label {
+        color: #fff;
+    }
     </style>
 
 <body>
@@ -187,7 +191,7 @@ $result3 = mysqli_query($condb, $query3);
                             </div>
                         </div> -->
                         <form role="form" action="member_ctag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">    
-                        <h4 style="color:#fff">* ข้อมูลแมว</h4>
+                        <h3 style="color:#fff"><span class="fa fa-dog mr-1"><span> ข้อมูลแมว</h3> 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -195,14 +199,16 @@ $result3 = mysqli_query($condb, $query3);
                                 </div>
                             </div>
                             <div class="col-md-6">
+                            <label>* รูปโปรไฟล์แมว</label>
                                 <div class="form-group">
                                     <input type="file" name="CatPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
+                            <label>วัน เดือน ปีเกิด</label>
                             <div class="form-group">
                                     <div class="input-group">
-                                        <input type="date" name="CatBirthdate" class="form-control" required>
+                                        <input type="date" name="CatBirthdate" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -230,7 +236,6 @@ $result3 = mysqli_query($condb, $query3);
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>
                                                 <option value="AB">AB</option>
-                                                <option value="O">O</option>
                                             </select>
                                         </div>
                                     </div>
@@ -276,6 +281,8 @@ $result3 = mysqli_query($condb, $query3);
                                 </div>
                             </div>
                             <div class="col-md-12">
+                        <label>* พันธุ์แมว</label>
+
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
@@ -292,9 +299,10 @@ $result3 = mysqli_query($condb, $query3);
                                     </div>
                                     </div>
                                     </div>
-                            </div>  <h4 style="color:#fff">* นามบัตรแมว</h4>
+                            </div>  
                         <div class="row">
                         <div class="col-md-12">
+                        <label>* นามบัตรแมว</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">

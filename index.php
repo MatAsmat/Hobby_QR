@@ -112,6 +112,7 @@
           <li class="nav-item"><a href="ctag.php" class="nav-link">CTag</a></li>
           <li class="nav-item"><a href="ttag.php" class="nav-link">TTag</a></li>
           <li class="nav-item"><a href="product.php" class="nav-link">Product</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link">About Us</a></li>
           <li class="nav-item"><a href="admin_login.php" class="nav-link">Admin</a></li>
           

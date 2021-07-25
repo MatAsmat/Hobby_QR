@@ -3,6 +3,7 @@
 include('../condb.php'); 
 	
 	$TreeName = $_POST["TreeName"];
+	$TreeBirthdate = $_POST["TreeBirthdate"];
 	$Ref_TreeBreedID = $_POST["Ref_TreeBreedID"];
 	$Ref_TemplateID = $_POST["Ref_TemplateID"];
 	$Ref_QrCodeID = $_POST["Ref_QrCodeID"];
@@ -23,6 +24,7 @@ include('../condb.php');
     $sql2 = "INSERT INTO tbl_tree
 	(
 	TreeName,
+	TreeBirthdate,
 	Ref_TreeBreedID,
 	Ref_TemplateID,
 	Ref_QrCodeID,
@@ -32,6 +34,7 @@ include('../condb.php');
 	VALUES
 	(
 	'$TreeName',
+	'$TreeBirthdate',
 	'$Ref_TreeBreedID',
 	'$Ref_TemplateID',
 	'$Ref_QrCodeID',

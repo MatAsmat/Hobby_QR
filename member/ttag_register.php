@@ -74,6 +74,10 @@ $result3 = mysqli_query($condb, $query3);
      border-color:#cc0000;
      background-color:#ffff99;
     }
+
+    label {
+        color: #fff;
+    }
     </style>
 
 <body>
@@ -226,31 +230,38 @@ $result3 = mysqli_query($condb, $query3);
                        </form> -->
                        <h2 class="mb-4">กรอกข้อมูลสมัครสมาชิก</h2>
                     <form role="form" action="ttag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">
-                    <h4 style="color:#fff">* ข้อมูลเจ้าของ</h4>
+                    <div class="container">
+                            <div >
+                                <div>
+                                    <a style="color:yellow" href="./register_login_ttag.php?qrID=<?php echo "$qrID"; ?>"><h4>หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</h4></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 style="color:#fff"><span class="fa fa-user mr-1"><span> ข้อมูลเจ้าของ</h3> 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Username" class="form-control" placeholder="ชื่อผู้ใช้ (Username)" required>
+                                    <input type="text" name="Username" class="form-control" placeholder="* ชื่อผู้ใช้ (Username)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Password" class="form-control" placeholder="รหัสผ่าน (Password)" required>
+                                    <input type="text" name="Password" class="form-control" placeholder="* รหัสผ่าน (Password)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="FirstName" class="form-control" placeholder="ชื่อจริง (First Name)" required>
+                                    <input type="text" name="FirstName" class="form-control" placeholder="* ชื่อจริง (First Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="LastName" class="form-control" placeholder="นามสกุลจริง (Last Name)" required>
+                                    <input type="text" name="LastName" class="form-control" placeholder="นามสกุลจริง (Last Name)">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Email" class="form-control" placeholder="อีเมล (Email)" required>
+                                    <input type="text" name="Email" class="form-control" placeholder="* อีเมล (Email)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -270,18 +281,12 @@ $result3 = mysqli_query($condb, $query3);
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="file" name="OwnerPhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
+                            <label>* รูปโปรไฟล์เจ้าของ</label>
+                                    <input type="file" name="OwnerPhoto" class="form-control" placeholder="* รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="container">
-                            <div >
-                                <div>
-                                    <a style="color:yellow" href="./register_login_ttag.php?qrID=<?php echo "$qrID"; ?>">หรือหากคุณมี Account อยู่แล้วคลิ๊กที่นี่</a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 style="color:#fff">* ข้อมูลต้นไม้</h4>
+                        <h3 style="color:#fff"><span class="fa fa-dog mr-1"><span> ข้อมูลต้นไม้</h3> 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -289,11 +294,21 @@ $result3 = mysqli_query($condb, $query3);
                                 </div>
                             </div>
                             <div class="col-md-6">
+                            <label>* รูปโปรไฟล์ต้นไม้</label>
                                 <div class="form-group">
                                     <input type="file" name="TreePhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                            <div class="form-group">
+                            <label>วัน เดือน ปีเกิด</label>
+                                    <div class="input-group">
+                                        <input type="date" name="TreeBirthdate" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-12">
+                        <label>* พันธุ์ต้นไม้</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
@@ -310,9 +325,10 @@ $result3 = mysqli_query($condb, $query3);
                                     </div>
                                     </div>
                                     </div>
-                            </div>  <h4 style="color:#fff">* นามบัตรต้นไม้</h4>
+                            </div>
                         <div class="row">
                         <div class="col-md-12">
+                        <label>* นามบัตรต้นไม้</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">

@@ -76,6 +76,10 @@ $result3 = mysqli_query($condb, $query3);
      border-color:#cc0000;
      background-color:#ffff99;
     }
+
+    label {
+        color: #fff
+    }
     </style>
 
 <body>
@@ -279,7 +283,7 @@ $result3 = mysqli_query($condb, $query3);
                             </div>
                         </div> -->
                         <form role="form" action="member_ttag_register_db.php" method="post" name="form1" class="appointment" enctype="multipart/form-data">    
-                        <h4 style="color:#fff">* ข้อมูลต้นไม้</h4>
+                        <h3 style="color:#fff"><span class="fa fa-dog mr-1"><span> ข้อมูลต้นไม้</h3> 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -287,11 +291,21 @@ $result3 = mysqli_query($condb, $query3);
                                 </div>
                             </div>
                             <div class="col-md-6">
+                            <label>* รูปโปรไฟล์ต้นไม้</label>
                                 <div class="form-group">
                                     <input type="file" name="TreePhoto" class="form-control" placeholder="รูป (Photo)" eccept="image/*" required>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                            <div class="form-group">
+                            <label>วัน เดือน ปีเกิด</label>
+                                    <div class="input-group">
+                                        <input type="date" name="TreeBirthdate" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-12">
+                        <label>* พันธุ์ต้นไม้</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
@@ -308,9 +322,10 @@ $result3 = mysqli_query($condb, $query3);
                                     </div>
                                     </div>
                                     </div>
-                            </div>  <h4 style="color:#fff">* นามบัตรต้นไม้</h4>
+                            </div>
                         <div class="row">
                         <div class="col-md-12">
+                        <label>* นามบัตรต้นไม้</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
