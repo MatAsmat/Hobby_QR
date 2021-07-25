@@ -3,7 +3,7 @@ include('./include_menu.php');
 
 $ID = $_GET['ID'];
 $sql = "
-SELECT * FROM tbl_tree as t
+SELECT * ,YEAR( FROM_DAYS( DATEDIFF( NOW( ) , TreeBirthdate ) ) ) as age FROM tbl_tree as t
 INNER JOIN tbl_tree_breed as cb ON t.Ref_TreeBreedID = cb.TreeBreedID
 INNER JOIN tbl_templates as tp ON t.Ref_TemplateID = tp.TemplateID
 WHERE t.TreeID=$ID";
@@ -30,11 +30,11 @@ extract($row);
                                         <img src="../profileimg/ttag/<?php echo $row['TreePhoto'];?>" width="250px" height="250px" alt="">
                                     </div>
                                     <div>
-                                        <h3><span class="las la-user-circle"></span> ชื่อต้นไม้: <?php echo $TreeName;?></h3>
+                                        <p><span class="las la-user-circle"></span> ชื่อต้นไม้: <?php echo $TreeName;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : <?php echo $TreeBreedName;?></p>
-                                        <div class="firstline">
+                                        <!-- <div class="firstline"> -->
                                         <p><span class="las la-chevron-circle-right"></span> การดูแลเบื้องต้น : <?php echo $TreeBreedCare;?></p>
-                                        </div>
+                                        <!-- </div> -->
                                     </div>
                             </div>
                          </div>
@@ -57,9 +57,12 @@ extract($row);
                                 <div class="flip-card-front">
                                         <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
                                         <div class="data-ft">
-                                                <p><?php  echo $TreeName .' '. $TreeBreedName;?></p>  
-                                                <p><?php echo $waterimg;?></p>
-                                                <p><?php echo $sunligntimg;?></p>
+                                            <p><?php  echo $TreeName .'/'. $TreeBreedName;?></p> <br> 
+                                            <img src="./../../admin/image/water_sunlight/<?php echo $row['TreeWaterImg'];?>" width="100px"> <br>
+                                            <img src="./../../admin/image/water_sunlight/<?php echo $row['TreeSunLightImg'];?>" width="100px">
+                                            <br>
+                                            <p><?php echo $age;?></p>
+                                            <p><?php echo $TreeBirthdate;?></p>
                                         </div>
                                 </div>
                                 <div class="flip-card-back">

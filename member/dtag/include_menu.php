@@ -91,26 +91,27 @@ extract($row);
     z-index: -1;
   }
 
-  .data-front {
+  .data-ft {
   position: absolute;
-  top: 262px;
-  left: 30px;
+  /* top: 110px;
+  left: 60px; */
+  bottom: 65px;
+  left: 100px;
   font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 280%;
+  line-height: 100%;
+  /* transform: translate(-50%, -50%);  */
   }
 
-  .data-back {
+  .data-bk {
   position: absolute;
   top: 55%;
-  left: 65%;
+  left: 66%;
+  text-align: center;
   transform: translate(-50%, -50%); 
   }
 
   .data-left {
-    
+
   }
 
   .data-right {

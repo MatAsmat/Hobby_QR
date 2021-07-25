@@ -82,10 +82,50 @@ extract($row);
                                     <input type="text" name="TreeBreedPropagation" class="form-control" value="<?php echo $row['TreeBreedPropagation'];?>">
                                 </div>
                             </div>
+                            <div class="col-sm-2">
+                            <img src="./image/water_sunlight/<?php echo $row['TreeWaterImg'];?>" width="200px">
+                        </div>
+                            <div class="col-sm-4">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label for="exampleInputFile">ระดับการดูแลน้ำ</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="TreeWaterImg" class="custom-file-input"
+                                                id="exampleInputFile" eccept="image/*">
+                                            <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="">อัพโหลด</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                            <img src="./image/water_sunlight/<?php echo $row['TreeSunLightImg'];?>" width="200px">
+                        </div>
+                            <div class="col-sm-4">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label for="exampleInputFile">ระดับการดูแลแสง</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="TreeSunLightImg" class="custom-file-input"
+                                                id="exampleInputFile" eccept="image/*">
+                                            <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="">อัพโหลด</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <div class="float-right">
+                    <input type="hidden" name="TreeWaterImg2" value="<?php echo $row['TreeWaterImg'];?>">
+                        <input type="hidden" name="TreeSunLightImg2" value="<?php echo $row['TreeSunLightImg'];?>">
                         <input type="hidden" name="TreeBreedID" value="<?php echo $row['TreeBreedID'];?>">
                         <button class="btn btn-info" type="submit" >บันทึก</button>
                         <button class="btn btn-default" type="reset">ยกเลิก</button>

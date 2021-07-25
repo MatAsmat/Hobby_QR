@@ -82,7 +82,7 @@ include('./include_menu.php');
                                     <label for="exampleInputFile">ระดับการดูแลน้ำ</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" name="TemplateFrontImage" class="custom-file-input" required
+                                            <input type="file" name="TreeWaterImg" class="custom-file-input" 
                                                 id="exampleInputFile" eccept="image/*">
                                             <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
                                         </div>
@@ -97,7 +97,7 @@ include('./include_menu.php');
                                     <label for="exampleInputFile">ระดับการดูแลแสง</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" name="TemplateBackImage" class="custom-file-input" required
+                                            <input type="file" name="TreeSunLightImg" class="custom-file-input" 
                                                 id="exampleInputFile" eccept="image/*">
                                             <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
                                         </div>

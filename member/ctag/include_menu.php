@@ -32,7 +32,7 @@ extract($row);
     <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
-        .flip-card {
+.flip-card {
     background-color: transparent;
     width: 100%;
     height: 420px;
@@ -92,40 +92,31 @@ extract($row);
     z-index: -1;
   }
 
-  .data-front {
+  .data-ft {
   position: absolute;
-  top: 262px;
-  left: 30px;
+  /* top: 110px;
+  left: 60px; */
+  bottom: 65px;
+  left: 100px;
   font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 280%;
+  line-height: 100%;
+  /* transform: translate(-50%, -50%);  */
   }
 
-  .data-back {
+  .data-bk {
   position: absolute;
-  top: 55%;
-  left: 65%;
+  top: 50%;
+  left: 66%;
+  text-align: center;
   transform: translate(-50%, -50%); 
   }
 
   .data-left {
-    
+
   }
 
   .data-right {
   }
-
-  .customer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: .5rem .7rem;
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-    margin: 5px;
-}
-
     </style>
 </head>
 <body>

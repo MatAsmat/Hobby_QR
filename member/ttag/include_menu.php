@@ -93,16 +93,19 @@ extract($row);
 
   .data-ft {
   position: absolute;
-  top: 100px;
-  left: 10px;
+  top: 110px;
+  left: 60px;
+  text-align: center;
   font-size: 14px;
-  line-height: 550%;
+  line-height: 270%;
+  /* transform: translate(-50%, -50%);  */
   }
 
   .data-bk {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 65%;
+  text-align: center;
   transform: translate(-50%, -50%); 
   }
 
