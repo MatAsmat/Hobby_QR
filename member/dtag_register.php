@@ -393,11 +393,12 @@ $result3 = mysqli_query($condb, $query3);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_TemplateID" id="" class="form-control" required>
-                                                <option value="">เลือกนามบัตรสุนัข</option>
+                                            <select name="Ref_TemplateID" id="" class="form-control" onchange="document.getElementById('code').innerHTML = this.value">
+                                                <option value="Ref_TemplateID">เลือกนามบัตรสุนัข</option>
                                                 <?php foreach ($result2 as $results2) { ?>
-                                                    <option value="<?php echo $results2["TemplateID"]; ?>">
+                                                    <option value="<img class='table-avatar' width='300px' alt='image' src='../admin/image/templates/<?php echo $results2["TemplateFrontImage"]; ?>'>">
                                                         <?php echo $results2["TemplateName"]; ?>
+                                                        <?php echo $results2["TemplateFrontImage"]; ?>
                                                     </option>
                                                 <?php } ?>
                                             </select>
@@ -405,6 +406,9 @@ $result3 = mysqli_query($condb, $query3);
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div id="code">
+                            <img class='table-avatar' width='300px' alt='image' src='code1.jpg'>
                         </div>
 
                         <!-- <div class="col-md-12">
