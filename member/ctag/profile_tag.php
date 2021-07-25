@@ -31,17 +31,16 @@ extract($row);
                                         <img src="../profileimg/ctag/<?php echo $row['CatPhoto'];?>" width="250px" height="250px" alt="">
                                     </div>
                                     <div>
-                                        <h3><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: <?php echo $CatName;?></h3>
+                                        <p><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: <?php echo $CatName;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : <?php echo $CatBreedName;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> อายุ : <?php echo $age;?></p>
-                                        <p><span class="las la-chevron-circle-right"></span> น้ำหนัก : <?php echo $age;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> เพศ : <?php echo $CatGender;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> กรุ๊ปเลือด : <?php echo $CatBlood;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> วันเกิด : <?php echo date('d/m/Y', strtotime($row["CatBirthdate"]));?></p>
-                                        <div class="firstline">
+                                        <!-- <div class="firstline"> -->
                                         <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : <?php echo $CatCoatColor;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> นิสัย : <?php echo $CatPersonality;?></p>
-                                        </div>
+                                        <!-- </div> -->
                                     </div>
                             </div>
                          </div>
