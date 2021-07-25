@@ -22,7 +22,10 @@ extract($row);
                     <div class="card">
                         <div class="card-header">
                             <h2>ข้อมูลแท็ก</h2>
-                            <button> แก้ไขข้อมูล <span class="las la-edit"></span></button>
+                            <?php 
+                                echo "<a href='./update_dtag_profle.php?ID=".$row['DogID']."'>"." <button>แก้ไขข้อมูล <span class='las la-edit'></span></button>" ."</a>";
+                         ?>
+                            <!-- <button> แก้ไขข้อมูล <span class="las la-edit"></span></button> -->
                         </div>
                         <div class="card-body">
                             <div class="profile">
@@ -30,7 +33,7 @@ extract($row);
                                         <img src="../profileimg/dtag/<?php echo $row['DogPhoto'];?>" width="250px" height="250px" alt="">
                                     </div>
                                     <div>
-                                        <p><span class="las la-user-circle"></span> ชื่อสัตว์เลี้ยง: <?php echo $DogName;?></p>
+                                        <p><span class="las la-user-circle"></span> ชื่อ: <?php echo $DogName;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> ชื่อพันธุ์ : <?php echo $DogBreedName;?></p>
                                         <p><span class="las la-chevron-circle-right"></span> อายุ : <?php echo $age;?></p>
                                         <!-- <p><span class="las la-chevron-circle-right"></span> น้ำหนัก : <?php echo $age;?></p> -->

@@ -23,12 +23,12 @@ include('include_menu.php');
                                     <img src="./profileimg/owner/<?php echo $row['OwnerPhoto'];?>" width="250px" height="250px" alt="">
                                 </div>
                                 <div>
-                                <h3> <span class="las la-user-circle"></span> <?php echo $Username;?></h3>
-                                    <h3> <span class="las la-address-book"> <?php echo $FirstName.'  '.$LastName;?></h3>
-                                    <p> <span class="las la-inbox"></span> <?php echo $Email;?></p>
-                                    <p> <span class="las la-mobile"></span> <?php echo $Telephone;?></p>
-                                    <p> <span class="lab la-line"></span> <?php echo $Line;?></p>
-                                    <p> <span class="lab la-facebook-square"></span> <?php echo $Facebook;?></p>
+                                    <p> <span class="las la-user-circle"></span> ชื่อผู้ใช้: <?php echo $Username;?></p>
+                                    <p> <span class="las la-address-book"></span> ชื่อ-นามสกุล: <?php echo $FirstName.'  '.$LastName;?></p>
+                                    <p> <span class="las la-inbox"></span> อีเมล: <?php echo $Email;?></p>
+                                    <p> <span class="las la-mobile"></span> เบอร์โทรศัพท์: <?php echo $Telephone;?></p>
+                                    <p> <span class="lab la-line"></span> ไลน์: <?php echo $Line;?></p>
+                                    <p> <span class="lab la-facebook-square"></span> เฟซบุ๊ก: <?php echo $Facebook;?></p>
                                 </div>
                             </div>
                          </div>
@@ -71,9 +71,9 @@ include('include_menu.php');
                                             </div>
                                         ";
                                     echo "</div>";
-                                    echo "<div class='contact'>
-                                    <span class='las la-bell'></span>
-                                    </div> ";
+                                    // echo "<div class='contact'>
+                                    // <span class='las la-bell'></span>
+                                    // </div> ";
                                     echo "</div>";
                             }
             
@@ -100,9 +100,9 @@ include('include_menu.php');
                                             </div>
                                         ";
                                     echo "</div>";
-                                    echo "<div class='contact'>
-                                    <span class='las la-bell'></span>
-                                    </div> ";
+                                    // echo "<div class='contact'>
+                                    // <span class='las la-bell'></span>
+                                    // </div> ";
                                     echo "</div>";
                             }
             
@@ -130,9 +130,9 @@ include('include_menu.php');
                                             </div>
                                         ";
                                     echo "</div>";
-                                    echo "<div class='contact'>
-                                    <span class='las la-bell'></span>
-                                    </div> ";
+                                    // echo "<div class='contact'>
+                                    // <span class='las la-bell'></span>
+                                    // </div> ";
                                     echo "</div>";
                             }
                             
