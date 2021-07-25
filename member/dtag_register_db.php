@@ -51,6 +51,14 @@ include('../condb.php');
 		move_uploaded_file($_FILES['DogPhoto']['tmp_name'],$path_copy2);  
 	}
 
+	$checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName = '$qrID'"
+	$qrResults =  mysqli_query($condb, $checkQR) or die(mysqli_error());
+
+	echo "<script>";
+	echo "alert('$qrResults');";
+	echo "window.history.back();";
+	echo "</script>";
+	
     $check = "
 	SELECT Username 
 	FROM tbl_owner  
