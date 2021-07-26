@@ -62,14 +62,14 @@ include('../condb.php');
     mysqli_close($condb);
 	
 	if($result){
-	echo "<script type='text/javascript'>";
-	echo "alert('เพิ่มข้อมูลสำเร็จ');";
-	echo "window.location = 'profile.php'; ";
-	echo "</script>";
-	}else{
-	echo "<script type='text/javascript'>";
-	//echo "alert('Error!!');";
-	echo "window.location = 'profile.php'; ";
-	echo "</script>";
-}
+		echo "<script type='text/javascript'>";
+		echo "alert('เพิ่มข้อมูลสำเร็จ');";
+		echo "window.location = 'profile_ctag.php?qrID=$Ref_QrCodeID'; ";
+		echo "</script>";
+		}else{
+		echo "<script type='text/javascript'>";
+		//echo "alert('Error!!');";
+		echo "window.location = 'profile_ctag.php?qrID=$Ref_QrCodeID'; ";
+		echo "</script>";
+	   }
 ?>

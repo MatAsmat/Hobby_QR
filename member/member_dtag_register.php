@@ -10,15 +10,15 @@ $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
 echo ' qrStatus: ' . $qrStatus[1];
 
-if (isset($_POST['Ref_QrCodeID'])) $qrID = $_POST['Ref_QrCodeID'];
-if ($qrStatus[1] == 'Yes') {
+if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
+if($qrStatus[1] == 'Yes')
+{   
     echo "<script>";
     // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
-    echo "window.location = 'profile.php'";
+    // domain/member/dtag_register.php?qrID=QrCodeName
+    echo "window.location = 'profile_dtag.php'";
     echo "</script>";
 }
-
-
 
 
 $query = "SELECT * FROM tbl_dog_breed" or die("Error:" . mysqli_error());
@@ -339,10 +339,10 @@ $result2 = mysqli_query($condb, $query2);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_TemplateID" id="" class="form-control" required>
-                                                <option value="">เลือกนามบัตรสุนัข</option>
+                                            <select name="Ref_TemplateID" id="imageSelector" class="form-control">
+                                                <option value="Ref_TemplateID">เลือกนามบัตรสุนัข</option>
                                                 <?php foreach ($result2 as $results2) { ?>
-                                                    <option value="<?php echo $results2["TemplateID"]; ?>">
+                                                    <option value="<?php echo $results2["TemplateID"]; ?> " >
                                                         <?php echo $results2["TemplateName"]; ?>
                                                     </option>
                                                 <?php } ?>
@@ -352,7 +352,7 @@ $result2 = mysqli_query($condb, $query2);
                                 </div>
                             </div>
                         </div>
-
+                        <div id="imagePreview"></div>
                         <!-- <div class="col-md-12">
                                 <div class="form-group">
                                     <textarea name="" id="" cols="30" rows="7" class="form-control"
@@ -423,7 +423,18 @@ $result2 = mysqli_query($condb, $query2);
 
 </html>
 
-<script>
-  
-
+  <script>
+    $(document).ready(function() {
+    $("#imageSelector").change(function() {
+        var src = $(this).val();
+        $.ajax({
+            type:'POST',
+            url : 'getPath.php',
+            data : {templateID:src},
+            success : function(data){
+            $("#imagePreview").html(src ? "<img  width='300px' alt='image' src= '../admin/image/templates/" + data + "'>" : "");
+                }
+            });      
+        });
+    });
 </script>

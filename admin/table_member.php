@@ -30,8 +30,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php
-                            $query = "SELECT * FROM tbl_owner as n
-                            INNER JOIN tbl_dog as d ON d.Ref_OwnerID = n.OwnerID" or die("Error:" . mysqli_error());
+                            $query = "SELECT * FROM tbl_owner ORDER BY OwnerID DESC;" or die("Error:" . mysqli_error());
                             $result = mysqli_query($condb, $query); 
                                 echo "<table  id='example1' class='table table-bordered table-striped'>";
                                     echo "
@@ -39,10 +38,10 @@
                                             <tr align='center'>
                                             <th>ลำดับ</th>
                                             <th>รหัส</th>
-                                            <th>ชื่อสัตว์เลี้ยง</th>
-                                            <th>รูปสัตว์เลี้ยง</th>
-                                            <th>ชื่อเจ้าของ</th>
-                                            <th>เบอร์โทรศัพท์</th>
+                                            <th>รูปลูกค้า</th>
+                                            <th>ชื่อผู้ใช้</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>อีเมล</th>
                                             <th>จัดการ</th>
                                             </tr>
                                         </thead>
@@ -52,11 +51,11 @@
                                         $item +=1;
                                         echo "<tr>";
                                         echo "<td align='center'>".$item.'.'. "</td>";
-                                        echo "<td align='center'>" .'OWN'.$row["DogID"] . "</td> "; 
-                                        echo "<td>" .$row["DogName"] . "</td> "; 
-                                        echo "<td align='center'>"."<img class='table-avatar' width='300px' alt='image' src='../member/image/profile/".$row['DogPhoto']."'>"."</td>";
+                                        echo "<td align='center'>" .'OWN'.$row["OwnerID"] . "</td> "; 
+                                        echo "<td align='center'>"."<img class='table-avatar' width='150px' alt='image' src='../../member/profileimg/owner/".$row['OwnerPhoto']."'>"."</td>";
+                                        echo "<td align='center'>" .$row["Username"] . "</td> "; 
                                         echo "<td>" .$row["FirstName"] .' '.$row["LastName"] . "</td> "; 
-                                        echo "<td align='center'>" .$row["Telephone"] . "</td> "; 
+                                        echo "<td align='center'>" .$row["Email"] . "</td> "; 
                                         echo "<td class='project-actions text-center'>
                                         <a href='read_board.php?ID=$row[0]' class='btn btn-info btn-sm'> <i class='fas fa-eye'>
                                         </i></a>

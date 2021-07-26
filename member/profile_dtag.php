@@ -110,9 +110,9 @@ echo 'imageStatus: ' . $imageStatus[1];
 	}
 
 	#card .front {
-		/* background-color: #333; */
-		
-	}
+  /* background-color: #333; */
+  -webkit-backface-visibility: hidden;
+ }
 
 	#card .back {
 		/* background-color: #000; */
@@ -191,8 +191,6 @@ echo 'imageStatus: ' . $imageStatus[1];
 					<span class="login100-form-title">
 						Profile
 					</span>
-
-
 					<section class="container-template">
 						<div id="card">
 							<figure class="front">

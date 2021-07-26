@@ -16,7 +16,7 @@ if($qrStatus[1] == 'Yes')
     echo "<script>";
     // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
     // domain/member/dtag_register.php?qrID=QrCodeName
-    echo "window.location = 'profile.php'";
+    echo "window.location = 'profile_ttag.php'";
     echo "</script>";
 }
 
@@ -29,8 +29,6 @@ $result = mysqli_query($condb, $query);
 $query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'TTag' " or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
 
-$query3 = "SELECT * FROM tbl_dog" or die("Error:" . mysqli_error());
-$result3 = mysqli_query($condb, $query3);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -323,26 +321,27 @@ $result3 = mysqli_query($condb, $query3);
                                     </div>
                                     </div>
                             </div>
-                        <div class="row">
-                        <div class="col-md-12">
+                            <div class="row">
+                            <div class="col-md-12">
                         <label>* นามบัตรต้นไม้</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_TemplateID" id="" class="form-control" required>
-                                            <option value="">เลือกนามบัตรต้นไม้</option>
-                                            <?php foreach($result2 as $results2){ ?>
-                                        <option value="<?php echo $results2["TemplateID"];?>">
-                                            <?php echo $results2["TemplateName"];?>
-                                        </option>
-                                        <?php } ?>
+                                            <select name="Ref_TemplateID" id="imageSelector" class="form-control">
+                                                <option value="Ref_TemplateID">เลือกนามบัตรต้นไม้</option>
+                                                <?php foreach ($result2 as $results2) { ?>
+                                                    <option value="<?php echo $results2["TemplateID"]; ?> " >
+                                                        <?php echo $results2["TemplateName"]; ?>
+                                                    </option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
-                                    </div>
-                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div id="imagePreview"></div>
                             
                             <!-- <div class="col-md-12">
                                 <div class="form-group">
@@ -415,202 +414,18 @@ $result3 = mysqli_query($condb, $query3);
 
 </html>
 
-<script type="text/javascript">
-    var gRandLength = 7;
-
-    $(document).ready(function() {   
-        $('#button').click(function() {   
-        var num = Math.floor(1 + (Math.random() * Math.pow(10, gRandLength)));
-        $('#input1').val(num);
-        $('#input2').val(num);
+<script>
+    $(document).ready(function() {
+    $("#imageSelector").change(function() {
+        var src = $(this).val();
+        $.ajax({
+            type:'POST',
+            url : 'getPath.php',
+            data : {templateID:src},
+            success : function(data){
+            $("#imagePreview").html(src ? "<img  width='300px' alt='image' src= '../admin/image/templates/" + data + "'>" : "");
+                }
+            });      
         });
     });
 </script>
-
-<script>
-    $(document).ready(function(){
-     
-     $('#btn_login_details').click(function(){
-      
-      var error_email = '';
-      var error_password = '';
-      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      
-      if($.trim($('#email').val()).length == 0)
-      {
-       error_email = 'Email is required';
-       $('#error_email').text(error_email);
-       $('#email').addClass('has-error');
-      }
-      else
-      {
-       if (!filter.test($('#email').val()))
-       {
-        error_email = 'Invalid Email';
-        $('#error_email').text(error_email);
-        $('#email').addClass('has-error');
-       }
-       else
-       {
-        error_email = '';
-        $('#error_email').text(error_email);
-        $('#email').removeClass('has-error');
-       }
-      }
-      
-      if($.trim($('#password').val()).length == 0)
-      {
-       error_password = 'Password is required';
-       $('#error_password').text(error_password);
-       $('#password').addClass('has-error');
-      }
-      else
-      {
-       error_password = '';
-       $('#error_password').text(error_password);
-       $('#password').removeClass('has-error');
-      }
-    
-      if(error_email != '' || error_password != '')
-      {
-       return false;
-      }
-      else
-      {
-       $('#list_login_details').removeClass('active active_tab1');
-       $('#list_login_details').removeAttr('href data-toggle');
-       $('#login_details').removeClass('active');
-       $('#list_login_details').addClass('inactive_tab1');
-       $('#list_personal_details').removeClass('inactive_tab1');
-       $('#list_personal_details').addClass('active_tab1 active');
-       $('#list_personal_details').attr('href', '#personal_details');
-       $('#list_personal_details').attr('data-toggle', 'tab');
-       $('#personal_details').addClass('active in');
-      }
-     });
-     
-     $('#previous_btn_personal_details').click(function(){
-      $('#list_personal_details').removeClass('active active_tab1');
-      $('#list_personal_details').removeAttr('href data-toggle');
-      $('#personal_details').removeClass('active in');
-      $('#list_personal_details').addClass('inactive_tab1');
-      $('#list_login_details').removeClass('inactive_tab1');
-      $('#list_login_details').addClass('active_tab1 active');
-      $('#list_login_details').attr('href', '#login_details');
-      $('#list_login_details').attr('data-toggle', 'tab');
-      $('#login_details').addClass('active in');
-     });
-     
-     $('#btn_personal_details').click(function(){
-      var error_first_name = '';
-      var error_last_name = '';
-      
-      if($.trim($('#first_name').val()).length == 0)
-      {
-       error_first_name = 'First Name is required';
-       $('#error_first_name').text(error_first_name);
-       $('#first_name').addClass('has-error');
-      }
-      else
-      {
-       error_first_name = '';
-       $('#error_first_name').text(error_first_name);
-       $('#first_name').removeClass('has-error');
-      }
-      
-      if($.trim($('#last_name').val()).length == 0)
-      {
-       error_last_name = 'Last Name is required';
-       $('#error_last_name').text(error_last_name);
-       $('#last_name').addClass('has-error');
-      }
-      else
-      {
-       error_last_name = '';
-       $('#error_last_name').text(error_last_name);
-       $('#last_name').removeClass('has-error');
-      }
-    
-      if(error_first_name != '' || error_last_name != '')
-      {
-       return false;
-      }
-      else
-      {
-       $('#list_personal_details').removeClass('active active_tab1');
-       $('#list_personal_details').removeAttr('href data-toggle');
-       $('#personal_details').removeClass('active');
-       $('#list_personal_details').addClass('inactive_tab1');
-       $('#list_contact_details').removeClass('inactive_tab1');
-       $('#list_contact_details').addClass('active_tab1 active');
-       $('#list_contact_details').attr('href', '#contact_details');
-       $('#list_contact_details').attr('data-toggle', 'tab');
-       $('#contact_details').addClass('active in');
-      }
-     });
-     
-     $('#previous_btn_contact_details').click(function(){
-      $('#list_contact_details').removeClass('active active_tab1');
-      $('#list_contact_details').removeAttr('href data-toggle');
-      $('#contact_details').removeClass('active in');
-      $('#list_contact_details').addClass('inactive_tab1');
-      $('#list_personal_details').removeClass('inactive_tab1');
-      $('#list_personal_details').addClass('active_tab1 active');
-      $('#list_personal_details').attr('href', '#personal_details');
-      $('#list_personal_details').attr('data-toggle', 'tab');
-      $('#personal_details').addClass('active in');
-     });
-     
-     $('#btn_contact_details').click(function(){
-      var error_address = '';
-      var error_mobile_no = '';
-      var mobile_validation = /^\d{10}$/;
-      if($.trim($('#address').val()).length == 0)
-      {
-       error_address = 'Address is required';
-       $('#error_address').text(error_address);
-       $('#address').addClass('has-error');
-      }
-      else
-      {
-       error_address = '';
-       $('#error_address').text(error_address);
-       $('#address').removeClass('has-error');
-      }
-      
-      if($.trim($('#mobile_no').val()).length == 0)
-      {
-       error_mobile_no = 'Mobile Number is required';
-       $('#error_mobile_no').text(error_mobile_no);
-       $('#mobile_no').addClass('has-error');
-      }
-      else
-      {
-       if (!mobile_validation.test($('#mobile_no').val()))
-       {
-        error_mobile_no = 'Invalid Mobile Number';
-        $('#error_mobile_no').text(error_mobile_no);
-        $('#mobile_no').addClass('has-error');
-       }
-       else
-       {
-        error_mobile_no = '';
-        $('#error_mobile_no').text(error_mobile_no);
-        $('#mobile_no').removeClass('has-error');
-       }
-      }
-      if(error_address != '' || error_mobile_no != '')
-      {
-       return false;
-      }
-      else
-      {
-       $('#btn_contact_details').attr("disabled", "disabled");
-       $(document).css('cursor', 'prgress');
-       $("#register_form").submit();
-      }
-      
-     });
-     
-    });
-    </script>

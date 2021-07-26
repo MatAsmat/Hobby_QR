@@ -1,25 +1,34 @@
-<?php 
-include('../condb.php'); 
-$qrID=$_GET['qrID'];
-// echo 'qrID: '.$qrID;
-
+<?php
+include('../condb.php');
+$qrID = $_GET['qrID'];
+echo 'qrID: ' . $qrID;
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
-// echo ' qrStatus: '.$qrStatus[1];
+echo ' qrStatus: ' . $qrStatus[1];
 
-if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
-if($qrStatus[1] == 'Yes')
-{   
-    echo "<script>";
-    // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
-    // domain/member/ctag_register.php?qrID=QrCodeName
-    echo "window.location = 'profile.php'";
-    echo "</script>";
-}
+function getImagePath($src) {
+    include('../condb.php');
+    $getTemplate = "SELECT TemplateID, 	TemplateFrontImageSample, TemplateBackImageSample FROM tbl_templates WHERE TemplateID = $src"  or die("Error:" . mysqli_error());
+    $templateResults =  mysqli_query($condb, $getTemplate);
+    $templateStatus = mysqli_fetch_row($templateResults);
+    return $templateStatus[1];
+};
 
 
+if (isset($_POST['Ref_QrCodeID'])) $qrID = $_POST['Ref_QrCodeID'];
+    if ($qrStatus[1] == 'Yes') {
+        echo "<script>";
+        // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
+        echo "window.location = 'profile_ctag.php?qrID=$qrID'";
+        echo "</script>";
+    }
 
+$qrID=$_GET['qrID'];
+// echo 'qrID'.$name1;
+
+$checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName = '$qrID'";
+$qrResults =  mysqli_query($condb, $checkQR) or die(mysqli_error());
 
 $query = "SELECT * FROM tbl_cat_breed" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
@@ -302,26 +311,27 @@ $result3 = mysqli_query($condb, $query3);
                                     </div>
                                     </div>
                             </div>  
-                        <div class="row">
-                        <div class="col-md-12">
+                            <div class="row">
+                            <div class="col-md-12">
                         <label>* นามบัตรแมว</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_TemplateID" id="" class="form-control" required>
-                                            <option value="">เลือกนามบัตรแมว</option>
-                                            <?php foreach($result2 as $results2){ ?>
-                                        <option value="<?php echo $results2["TemplateID"];?>">
-                                            <?php echo $results2["TemplateName"];?>
-                                        </option>
-                                        <?php } ?>
+                                            <select name="Ref_TemplateID" id="imageSelector" class="form-control">
+                                                <option value="Ref_TemplateID">เลือกนามบัตรแมว</option>
+                                                <?php foreach ($result2 as $results2) { ?>
+                                                    <option value="<?php echo $results2["TemplateID"]; ?> " >
+                                                        <?php echo $results2["TemplateName"]; ?>
+                                                    </option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
-                                    </div>
-                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div id="imagePreview"></div>
                             
                             <!-- <div class="col-md-12">
                                 <div class="form-group">
@@ -392,6 +402,22 @@ $result3 = mysqli_query($condb, $query3);
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function() {
+    $("#imageSelector").change(function() {
+        var src = $(this).val();
+        $.ajax({
+            type:'POST',
+            url : 'getPath.php',
+            data : {templateID:src},
+            success : function(data){
+            $("#imagePreview").html(src ? "<img  width='300px' alt='image' src= '../admin/image/templates/" + data + "'>" : "");
+                }
+            });      
+        });
+    });
+</script>
 
 <script type="text/javascript">
     var gRandLength = 7;

@@ -1,3 +1,37 @@
+<?php
+
+include('../condb.php');
+$qrID = $_GET['qrID'];
+echo 'qrID: ' . $qrID;
+
+$checkTBLDog = "SELECT Ref_TemplateID, Ref_QrCodeID FROM tbl_cat WHERE Ref_QrCodeID ='$qrID'" or die("Error:" . mysqli_error());
+$tblResultsDog =  mysqli_query($condb, $checkTBLDog);
+$tblStatus = mysqli_fetch_row($tblResultsDog);
+
+// เก็บไว้ใช้ Check Table แมว ต้นไม้ 
+
+// if (is_null($tblStatus)) {
+// 	$checkTBLCat = "SELECT Ref_TemplateID, Ref_QrCodeID FROM tbl_cat WHERE Ref_QrCodeID ='$qrID'" or die("Error:" . mysqli_error());
+// 	$tblResultsCat =  mysqli_query($condb, $checkTBLCat);
+// 	$tblStatus = mysqli_fetch_row($tblResultsCat);
+// 	echo '/n Cat Checker: ' . $tblStatus;
+// } else if (is_null($tblStatus)) {
+// 	$checkTBLTree = "SELECT Ref_TemplateID, Ref_QrCodeID FROM tbl_tree WHERE Ref_QrCodeID ='$qrID'" or die("Error:" . mysqli_error());
+// 	$tblResultsTree =  mysqli_query($condb, $checkTBLTree);
+// 	$tblStatus = mysqli_fetch_row($tblResultsTree);
+// 	echo '/n Tree Checker: ' . $tblStatus;
+// }
+
+echo ' tblStatus: ' . $tblStatus[0];
+
+$checkImagePath = "SELECT TemplateID, TemplateFrontImage, TemplateBackImage FROM tbl_templates WHERE TemplateID ='$tblStatus[0]'" or die("Error:" . mysqli_error());
+$imageResult =  mysqli_query($condb, $checkImagePath);
+$imageStatus = mysqli_fetch_row($imageResult);
+
+echo 'imageStatus: ' . $imageStatus[1];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,12 +110,17 @@
 	}
 
 	#card .front {
-		/* background-color: #333; */
-	}
+  /* background-color: #333; */
+  -webkit-backface-visibility: hidden;
+ }
 
 	#card .back {
 		/* background-color: #000; */
 		transform: rotateY(180deg);
+		-ms-transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+		-o-transform: rotateY(180deg);
 	}
 
 	#card:hover {
@@ -91,6 +130,7 @@
 	img {
 		width: 100%;
 	}
+
 
 </style>
 
@@ -156,22 +196,16 @@
 					<section class="container-template">
 						<div id="card">
 							<figure class="front">
-								<img src="./testimg/cat1.png">
-								<!-- <div>
-									<h3>Asmat</h3>
-									<p>062-335-5987</p>
-									<p>Myname Mat</p>
-									<p>@mymat</p>
-								</div> -->
+								<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
+								<p><?php  echo $FirstName;?></p>  
+								<p><?php echo $Telephone;?></p>
+								<p><?php echo $Line;?></p>
 							</figure>
 							<figure class="back">
-								<img src="./testimg/cat2.png" alt="">
-								<!-- <div>
-									<h3>Asmat</h3>
-									<p>062-335-5987</p>
-									<p>Myname Mat</p>
-									<p>@mymat</p>
-								</div> -->
+								<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
+								<p><?php echo $CatName;?></p>
+								<p><?php echo $CatBlood;?></p>
+								<p><?php echo $CatBirthdate;?></p>  
 							</figure>
 						</div>
 					</section>

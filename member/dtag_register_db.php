@@ -2,8 +2,6 @@
 <?php
 include('../condb.php'); 
 
-	// $qrID=$_GET['qrID'];	
-	// echo 'qrID'.$name1;
     $OwnerID = $_POST["OwnerID"];
 	$Username = $_POST["Username"];
 	$Password = md5($_POST["Password"]);
@@ -135,14 +133,14 @@ include('../condb.php');
     mysqli_close($condb);
 	
 	if($result){
-	echo "<script type='text/javascript'>";
-	echo "alert('เพิ่มข้อมูลสำเร็จ');";
-	echo "window.location = 'profile_dtag.php'; ";
-	echo "</script>";
-	}else{
-	echo "<script type='text/javascript'>";
-	//echo "alert('Error!!');";
-	echo "window.location = 'profile_dtag.php'; ";
-	echo "</script>";
-}
+		echo "<script type='text/javascript'>";
+		echo "alert('เพิ่มข้อมูลสำเร็จ');";
+		echo "window.location = 'profile_dtag.php?qrID=$Ref_QrCodeID'; ";
+		echo "</script>";
+		}else{
+		echo "<script type='text/javascript'>";
+		//echo "alert('Error!!');";
+		echo "window.location = 'profile_dtag.php?qrID=$Ref_QrCodeID'; ";
+		echo "</script>";
+	   }
 ?>
