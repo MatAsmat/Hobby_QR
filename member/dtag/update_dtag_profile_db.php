@@ -11,8 +11,6 @@ include('../../condb.php');
 	$DogPersonality = $_POST["DogPersonality"];
 	$Ref_DogBreedID = $_POST["Ref_DogBreedID"];
 	$Ref_TemplateID = $_POST["Ref_TemplateID"];
-	$Ref_QrCodeID = $_POST["Ref_QrCodeID"];
-	$Ref_OwnerID = $_POST["Ref_OwnerID"];
 	$DogPhoto2 = $_POST["DogPhoto2"];
 	$DogID  = $_POST["DogID"];
 
@@ -41,8 +39,6 @@ include('../../condb.php');
 	DogPersonality='$DogPersonality',
 	Ref_DogBreedID='$Ref_DogBreedID',
 	Ref_TemplateID='$Ref_TemplateID',
-	Ref_QrCodeID='$Ref_QrCodeID',
-	Ref_OwnerID='$Ref_OwnerID',
 	DogPhoto='$newname'
 	WHERE DogID=$DogID
 	 ";
