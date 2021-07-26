@@ -6,24 +6,24 @@ include('./include_menu.php');
 
 $ID = $_GET['ID'];
 $sql = "
-SELECT * FROM tbl_dog as d
-INNER JOIN tbl_dog_breed as db ON d.Ref_DogBreedID = db.DogBreedID
+SELECT * FROM tbl_tree as d
+INNER JOIN tbl_tree_breed as db ON d.Ref_TreeBreedID = db.TreeBreedID
 INNER JOIN tbl_templates as t ON d.Ref_TemplateID = t.TemplateID
-WHERE d.DogID=$ID";
+WHERE d.TreeID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);
 
-$Ref_DogBreedID = $row['Ref_DogBreedID'];
+$Ref_TreeBreedID = $row['Ref_TreeBreedID'];
 
-$query = "SELECT * FROM tbl_dog_breed
-WHERE DogBreedID!=$Ref_DogBreedID" or die("Error:" . mysqli_error());
+$query = "SELECT * FROM tbl_tree_breed
+WHERE TreeBreedID!=$Ref_TreeBreedID" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
 
 $Ref_TemplateID = $row['Ref_TemplateID'];
 
 $query2 = "SELECT * FROM tbl_templates
-WHERE TemplateID!=$Ref_TemplateID AND TemplateCategory = 'DTag'" or die("Error:" . mysqli_error());
+WHERE TemplateID!=$Ref_TemplateID AND TemplateCategory = 'TTag'" or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
 
 ?>
@@ -50,76 +50,59 @@ $result2 = mysqli_query($condb, $query2);
         </div>
 
         <div class="sidebar-menu">
-            <ul>
-
-            <li>
-                    <a href="../index.php" ><span class="las la-igloo"></span>
-                        <span>หน้าหลัก</span></a>
+        <ul>
+                <li>
+                <a href="../index.php" ><span class="las la-igloo"></span>
+                    <span>หน้าหลัก</span></a>
                 </li>
                 <li>
-                <a class="active"><span class="las la-dog"></span>
-                        <span>ดูข้อมูลสุนัขทั่วไป</span></a>
+                <a class="active"><span class="las la-seedling"></span>
+                        <span>ดูข้อมูลต้นไม้ทั่วไป</span></a>
                 </li>
                
                 <li>
-                    <a href="info_body.php"><span class="las la-bookmark"></span>
-                        <span>กายวิภาคสุนัข</span></a>
+                    <a href="info_structure.php"><span class="las la-bookmark"></span>
+                        <span>โครงสร้างของพืช</span></a>
                 </li>
                 <li>
-                    <a href="info_ave_age.php"><span class="las la-bookmark"></span>
-                        <span>อายุเฉลี่ยสุนัข</span></a>
+                    <a href="info_potted_plant.php"><span class="las la-bookmark"></span>
+                        <span>ข้อมูลการปลูกต้นไม้กระถาง</span></a>
                 </li>
                 <li>
-                    <a href="info_supplies.php"><span class="las la-bookmark"></span>
-                        <span>อุปกรณ์ในการเลี้ยงสุนัข</span></a>
+                    <a href="info_pot_plant.php"><span class="las la-bookmark"></span>
+                        <span>กระถางหรือภาชนะปลูก</span></a>
                 </li>
                 <li>
-                    <a href="info_communicate.php"><span class="las la-bookmark"></span>
-                        <span>การสื่อสารเบื้องต้นของสุนัข</span></a>
+                    <a href="info_pot_shape.php"><span class="las la-bookmark"></span>
+                        <span>รูปทรงกระถางต้นไม้</span></a>
                 </li>
                 <li>
-                    <a href="info_treat.php"><span class="las la-bookmark"></span>
-                        <span>การเลี้ยงดูสุนัขเบื้องต้น</span></a>
+                    <a href="info_how_to_plant.php"><span class="las la-bookmark"></span>
+                        <span>วิธีการปลูก</span></a>
                 </li>
                 <li>
-                    <a href="info_cleaning.php"><span class="las la-bookmark"></span>
-                        <span>การทำความสะอาดสุนัข</span></a>
+                    <a href="info_fertilizing.php"><span class="las la-bookmark"></span>
+                        <span>การให้ปุ๋ย</span></a>
                 </li>
                 <li>
-                    <a href="info_diseases.php"><span class="las la-bookmark"></span>
-                        <span>โรคต่างๆของสุนัข</span></a>
+                    <a href="info_watering.php"><span class="las la-bookmark"></span>
+                        <span>การให้น้ำ</span></a>
                 </li>
                 <li>
-                    <a href="info_questions.php"><span class="las la-bookmark"></span>
-                        <span>คำถามที่พบบ่อย</span></a>
+                    <a href="info_soil_planter.php"><span class="las la-bookmark"></span>
+                        <span>ดินหรือเครื่องปลูก</span></a>
                 </li>
                 <li>
-                    <a href="info_vaccine.php"><span class="las la-bookmark"></span>
-                        <span>ตารางการให้วัดซีนของสุนัข</span></a>
+                    <a href="info_tree_care.php"><span class="las la-bookmark"></span>
+                        <span>การดูแลรักษาโดยทั่วไป</span></a>
                 </li>
                 <li>
-                    <a href="info_sickness.php"><span class="las la-bookmark"></span>
-                        <span>ข้อสังเกตสุนัขเมื่อป่วย</span></a>
+                    <a href="info_preventing.php"><span class="las la-bookmark"></span>
+                        <span>การป้องกันและกำจัดศัตรูพืช</span></a>
                 </li>
                 <li>
-                    <a href="info_choose_food.php"><span class="las la-bookmark"></span>
-                        <span>เลือกอาหารสุนัขให้เหมาะกับวัย</span></a>
-                </li>
-                <li>
-                    <a href="info_takecare.php"><span class="las la-bookmark"></span>
-                        <span>ข้อควรระวังในการเลี้ยงสุนัข</span></a>
-                </li>
-                <li>
-                    <a href="info_neuter.php"><span class="las la-bookmark"></span>
-                        <span>ข้อมูลการทำหมันสุนัข</span></a>
-                </li>
-                <li>
-                    <a href="info_type_food.php"><span class="las la-bookmark"></span>
-                        <span>ประเภทอาหารของสุนัข</span></a>
-                </li>
-                <li>
-                    <a href="info_vaccine_program.php"><span class="las la-bookmark"></span>
-                        <span>โปรแกรมวัคซีนในสุนัข</span></a>
+                    <a href="info_benefits_plant.php"><span class="las la-bookmark"></span>
+                        <span>ประโยชน์ของไม้กระถาง</span></a>
                 </li>
                 <li>
                     <a href="../../logout.php"><span class="las la-home"></span>
@@ -136,18 +119,18 @@ $result2 = mysqli_query($condb, $query2);
         <div class="container">
             <div class="card">
             <div class="card-body">
-            <h2>แก้ไขข้อมูลส่วนตัว</h2>
+            <h2>แก้ไขข้อมูลต้นไม้</h2>
             <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addInfo6">เพิ่มข้อมูล</button> -->
             </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                <form role="form" action="update_dtag_profile_db.php" method="post" class="form-horizontal"
+                <form role="form" action="update_ttag_profile_db.php" method="post" class="form-horizontal"
                         enctype="multipart/form-data">
             <div class="col-sm-10">
                             ________ ภาพปัจจุบัน ________
                             <br>
-                            <img src="../profileimg/dtag/<?php echo $row['DogPhoto'];?>" width="250px" height="250px" alt="">
+                            <img src="../profileimg/ttag/<?php echo $row['TreePhoto'];?>" width="250px" height="250px" alt="">
                             <br>
                         </div><br>
                     <div class="row">
@@ -155,7 +138,7 @@ $result2 = mysqli_query($condb, $query2);
                             <!-- text input -->
                             <div class="form-group">
                                 <label>ชื่อ</label>
-                                <input type="text" name="DogName" class="form-control"  value="<?php echo $row['DogName'];?>">
+                                <input type="text" name="TreeName" class="form-control"  value="<?php echo $row['TreeName'];?>">
                             </div>
                         </div>
                        
@@ -171,7 +154,7 @@ $result2 = mysqli_query($condb, $query2);
                                 <label for="exampleInputFile">รูปภาพ</label> (เลือกภาพใหม่)
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="DogPhoto" class="custom-file-input" 
+                                        <input type="file" name="TreePhoto" class="custom-file-input" 
                                             id="exampleInputFile"accept="image/*">
                                         <label class="custom-file-label" for="exampleInputFile">เลือกรูปภาพ</label>
                                     </div>
@@ -188,83 +171,22 @@ $result2 = mysqli_query($condb, $query2);
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                         </div>
-                                        <input type="date" name="DogBirthdate" class="form-control"
-                                            value="<?php echo $row['DogBirthdate'];?>">
+                                        <input type="date" name="TreeBirthdate" class="form-control"
+                                            value="<?php echo $row['TreeBirthdate'];?>">
                                     </div>
                                 </div>
                                 </div>
-                                <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>เพศ</label>
-                                    <select name="DogGender" class="form-control">
-                                        <option value="<?php echo $row['DogGender'];?>">-<?php echo $row['DogGender'];?>-
-                                        </option>
-                                        <option value="">--เลือกเพศ (Gender)--</option>
-                                        <option value="ผู้">- ผู้</option>
-                                        <option value="เมีย">- เมีย</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label>กรุ๊ปเลือด</label>
-                                    <select name="DogBlood" id="" class="form-control">
-                                        <option value="<?php echo $row['DogBlood'];?>">-<?php echo $row['DogBlood'];?>-
-                                        </option>
-                                        <option value="">--เลือกกรุ๊ปเลือด (Blood)--</option>
-                                                <option value="DEA 1.1">DEA 1.1</option>
-                                                <option value="DEA 1.2">DEA 1.2</option>
-                                                <option value="DEA 3">DEA 3</option>
-                                                <option value="DEA 4">DEA 4</option>
-                                                <option value="DEA 5">DEA 5</option>
-                                                <option value="DEA 6">DEA 6</option>
-                                                <option value="DEA 7">DEA 7</option>
-                                                <option value="DEA 8">DEA 8</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                            <!-- text input -->
-                            <div class="form-group">
-                                <label>สี</label>
-                                <input type="text" name="DogCoatColor" class="form-control"  value="<?php echo $row['DogCoatColor'];?>">
-                            </div>
-                        </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>ลักษณะนิสัย</label>
-                                    <select name="DogPersonality" id="" class="form-control">
-                                        <option value="<?php echo $row['DogPersonality'];?>">-<?php echo $row['DogPersonality'];?>-
-                                        </option>
-                                        <option value="">--เลือกลักษณะนิสัย (Personality)--</option>
-                                                <option value="ใจดี (Friendly)">ใจดี (Friendly)</option>
-                                                <option value="ขี้อ้อนชอบคนตามใจ (Eager to Please)">ขี้อ้อนชอบคนตามใจ (Eager to Please)</option>
-                                                <option value="ขี้เล่น (Playful)">ขี้เล่น (Playful)</option>
-                                                <option value="ตื่นเต้น/กระวนกระวาย (Nervous/Anxious)">ตื่นเต้น/กระวนกระวาย (Nervous/Anxious)</option>
-                                                <option value="หวงของ หวงเจ้าของ (Bossy)">หวงของ หวงเจ้าของ (Bossy)</option>
-                                                <option value="ดื้อ (Stubborn)">ดื้อ (Stubborn)</option>
-                                                <option value="ดุก้าวร้าว ไม่สุงสิงกับใคร (Aggressive)">ดุก้าวร้าว ไม่สุงสิงกับใคร (Aggressive)</option>
-                                                <option value="ขี้อาย/เรียบร้อย (Shy/Timid)">ขี้อาย/เรียบร้อย (Shy/Timid)</option>
-                                                <option value="เอาแน่เอานอนไม่ได้ แล้วแต่อารมณ์ (Unpredictable)">เอาแน่เอานอนไม่ได้ แล้วแต่อารมณ์ (Unpredictable)</option>
-                                                <option value="คึกคัก ร่าเริง (Alert)">คึกคัก ร่าเริง (Alert)</option>
-                                                <option value="ตกใจง่ายขี้กลัว (Easily Frightened)">ตกใจง่ายขี้กลัว (Easily Frightened)</option>
-                                                <option value="เข้าได้ง่ายกับทุกคน (Good with Everyone)">เข้าได้ง่ายกับทุกคน (Good with Everyone)</option>
-                                                <option value="ชอบกินมากที่สุด (Food Lover)">ชอบกินมากที่สุด (Food Lover)</option>
-                                                <option value="ขี้เซาที่สุด (Sleepyhead)">ขี้เซาที่สุด (Sleepyhead)</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>พันธุ์สุนัข</label>
-                                    <select name="Ref_DogBreedID" class="form-control">
-                                        <option value="<?php echo $row['Ref_DogBreedID'];?>">
-                                            -<?php echo $row['DogBreedName'];?>-
+                                    <select name="Ref_TreeBreedID" class="form-control">
+                                        <option value="<?php echo $row['Ref_TreeBreedID'];?>">
+                                            -<?php echo $row['TreeBreedName'];?>-
                                         </option>
                                         <option value="">--เลือกข้อมูล--</option>
                                         <?php foreach($result as $results){ ?>
-                                        <option value="<?php echo $results["DogBreedID"];?>">
-                                            - <?php echo $results["DogBreedName"];?>
+                                        <option value="<?php echo $results["TreeBreedID"];?>">
+                                            - <?php echo $results["TreeBreedName"];?>
                                         </option>
                                         <?php } ?>
                                     </select>
@@ -293,8 +215,8 @@ $result2 = mysqli_query($condb, $query2);
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <div class="float-right">
-                        <input type="hidden" name="DogPhoto2" value="<?php echo $row['DogPhoto'];?>">
-                        <input type="hidden" name="DogID" value="<?php echo $row['DogID'];?>">
+                        <input type="hidden" name="TreePhoto2" value="<?php echo $row['TreePhoto'];?>">
+                        <input type="hidden" name="TreeID" value="<?php echo $row['TreeID'];?>">
                         <button class="btn btn-info" type="submit">บันทึก</button>
                         <button class="btn btn-default" type="submit">ยกเลิก</button>
                         <!-- <button class="btn btn-default float-right" type="submit">Cancel</button> -->

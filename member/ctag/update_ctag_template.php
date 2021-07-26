@@ -6,24 +6,24 @@ include('./include_menu.php');
 
 $ID = $_GET['ID'];
 $sql = "
-SELECT * FROM tbl_dog as d
-INNER JOIN tbl_dog_breed as db ON d.Ref_DogBreedID = db.DogBreedID
+SELECT * FROM tbl_cat as d
+INNER JOIN tbl_cat_breed as db ON d.Ref_CatBreedID = db.CatBreedID
 INNER JOIN tbl_templates as t ON d.Ref_TemplateID = t.TemplateID
-WHERE d.DogID=$ID";
+WHERE d.CatID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);
 
-$Ref_DogBreedID = $row['Ref_DogBreedID'];
+$Ref_CatBreedID = $row['Ref_CatBreedID'];
 
-$query = "SELECT * FROM tbl_dog_breed
-WHERE DogBreedID!=$Ref_DogBreedID" or die("Error:" . mysqli_error());
+$query = "SELECT * FROM tbl_cat_breed
+WHERE CatBreedID!=$Ref_CatBreedID" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
 
 $Ref_TemplateID = $row['Ref_TemplateID'];
 
 $query2 = "SELECT * FROM tbl_templates
-WHERE TemplateID!=$Ref_TemplateID AND TemplateCategory = 'DTag' " or die("Error:" . mysqli_error());
+WHERE TemplateID!=$Ref_TemplateID AND TemplateCategory = 'CTag' " or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
 
 ?>
@@ -50,44 +50,43 @@ $result2 = mysqli_query($condb, $query2);
         </div>
 
         <div class="sidebar-menu">
-            <ul>
-
-            <li>
+        <ul>
+                <li>
                     <a href="../index.php" ><span class="las la-igloo"></span>
                         <span>หน้าหลัก</span></a>
                 </li>
                 <li>
-                <a class="active"><span class="las la-dog"></span>
-                        <span>ดูข้อมูลสุนัขทั่วไป</span></a>
+                <a class="active"><span class="las la-cat"></span>
+                        <span>ดูข้อมูลแมวทั่วไป</span></a>
                 </li>
                
                 <li>
                     <a href="info_body.php"><span class="las la-bookmark"></span>
-                        <span>กายวิภาคสุนัข</span></a>
+                        <span>กายวิภาคแมว</span></a>
                 </li>
                 <li>
                     <a href="info_ave_age.php"><span class="las la-bookmark"></span>
-                        <span>อายุเฉลี่ยสุนัข</span></a>
+                        <span>อายุเฉลี่ยแมว</span></a>
                 </li>
                 <li>
                     <a href="info_supplies.php"><span class="las la-bookmark"></span>
-                        <span>อุปกรณ์ในการเลี้ยงสุนัข</span></a>
+                        <span>อุปกรณ์ในการเลี้ยงแมว</span></a>
                 </li>
                 <li>
                     <a href="info_communicate.php"><span class="las la-bookmark"></span>
-                        <span>การสื่อสารเบื้องต้นของสุนัข</span></a>
+                        <span>การสื่อสารเบื้องต้นของแมว</span></a>
                 </li>
                 <li>
                     <a href="info_treat.php"><span class="las la-bookmark"></span>
-                        <span>การเลี้ยงดูสุนัขเบื้องต้น</span></a>
+                        <span>การเลี้ยงดูแมวเบื้องต้น</span></a>
                 </li>
                 <li>
                     <a href="info_cleaning.php"><span class="las la-bookmark"></span>
-                        <span>การทำความสะอาดสุนัข</span></a>
+                        <span>การทำความสะอาดแมว</span></a>
                 </li>
                 <li>
                     <a href="info_diseases.php"><span class="las la-bookmark"></span>
-                        <span>โรคต่างๆของสุนัข</span></a>
+                        <span>โรคต่างๆของแมว</span></a>
                 </li>
                 <li>
                     <a href="info_questions.php"><span class="las la-bookmark"></span>
@@ -95,31 +94,51 @@ $result2 = mysqli_query($condb, $query2);
                 </li>
                 <li>
                     <a href="info_vaccine.php"><span class="las la-bookmark"></span>
-                        <span>ตารางการให้วัดซีนของสุนัข</span></a>
+                        <span>ตารางการให้วัดซีนของแมว</span></a>
                 </li>
                 <li>
                     <a href="info_sickness.php"><span class="las la-bookmark"></span>
-                        <span>ข้อสังเกตสุนัขเมื่อป่วย</span></a>
+                        <span>ข้อสังเกตแมวเมื่อป่วย</span></a>
                 </li>
                 <li>
                     <a href="info_choose_food.php"><span class="las la-bookmark"></span>
-                        <span>เลือกอาหารสุนัขให้เหมาะกับวัย</span></a>
+                        <span>เลือกอาหารแมวให้เหมาะกับวัย</span></a>
                 </li>
                 <li>
                     <a href="info_takecare.php"><span class="las la-bookmark"></span>
-                        <span>ข้อควรระวังในการเลี้ยงสุนัข</span></a>
+                        <span>ข้อควรระวังในการเลี้ยงแมว</span></a>
                 </li>
                 <li>
                     <a href="info_neuter.php"><span class="las la-bookmark"></span>
-                        <span>ข้อมูลการทำหมันสุนัข</span></a>
+                        <span>ข้อมูลการทำหมันแมว</span></a>
                 </li>
                 <li>
                     <a href="info_type_food.php"><span class="las la-bookmark"></span>
-                        <span>ประเภทอาหารของสุนัข</span></a>
+                        <span>ประเภทอาหารของแมว</span></a>
                 </li>
                 <li>
-                    <a href="info_vaccine_program.php"><span class="las la-bookmark"></span>
-                        <span>โปรแกรมวัคซีนในสุนัข</span></a>
+                    <a href="info_healthy.php"><span class="las la-bookmark"></span>
+                        <span>แมวที่มีสุขภาพดี</span></a>
+                </li>
+                <li>
+                    <a href="info_fur_style.php"><span class="las la-bookmark"></span>
+                        <span>ลักษณะขนของแมว</span></a>
+                </li>
+                <li>
+                    <a href="info_intro.php"><span class="las la-bookmark"></span>
+                        <span>แนะนำแมวเข้าสู่บ้านใหม่</span></a>
+                </li>
+                <li>
+                    <a href="info_pamper.php"><span class="las la-bookmark"></span>
+                        <span>วิธีเอาใจแมว</span></a>
+                </li>
+                <li>
+                    <a href="info_raise.php"><span class="las la-bookmark"></span>
+                        <span>เลี้ยงแมวให้มีความสุข</span></a>
+                </li>
+                <li>
+                    <a href="info_hangout.php"><span class="las la-bookmark"></span>
+                        <span>ห้างพาแมวเที่ยวเล่น</span></a>
                 </li>
                 <li>
                     <a href="../../logout.php"><span class="las la-home"></span>
@@ -142,20 +161,20 @@ $result2 = mysqli_query($condb, $query2);
             </div>
             <div class="card">
                 <div class="card-body">
-                <form role="form" action="update_dtag_template_db.php" method="post" class="form-horizontal"
+                <form role="form" action="update_ctag_template_db.php" method="post" class="form-horizontal"
                         enctype="multipart/form-data">
                     <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>พันธุ์สุนัข</label>
-                                    <select name="Ref_DogBreedID" class="form-control">
-                                        <option value="<?php echo $row['Ref_DogBreedID'];?>">
-                                            -<?php echo $row['DogBreedName'];?>-
+                                    <select name="Ref_CatBreedID" class="form-control">
+                                        <option value="<?php echo $row['Ref_CatBreedID'];?>">
+                                            -<?php echo $row['CatBreedName'];?>-
                                         </option>
                                         <option value="">--เลือกข้อมูล--</option>
                                         <?php foreach($result as $results){ ?>
-                                        <option value="<?php echo $results["DogBreedID"];?>">
-                                            - <?php echo $results["DogBreedName"];?>
+                                        <option value="<?php echo $results["CatBreedID"];?>">
+                                            - <?php echo $results["CatBreedName"];?>
                                         </option>
                                         <?php } ?>
                                     </select>
@@ -184,7 +203,7 @@ $result2 = mysqli_query($condb, $query2);
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <div class="float-right">
-                        <input type="hidden" name="DogID" value="<?php echo $row['DogID'];?>">
+                        <input type="hidden" name="CatID" value="<?php echo $row['CatID'];?>">
                         <button class="btn btn-info" type="submit">บันทึก</button>
                         <button class="btn btn-default" type="submit">ยกเลิก</button>
                         <!-- <button class="btn btn-default float-right" type="submit">Cancel</button> -->

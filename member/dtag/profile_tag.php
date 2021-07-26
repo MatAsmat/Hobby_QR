@@ -23,7 +23,7 @@ extract($row);
                         <div class="card-header">
                             <h2>ข้อมูลแท็ก</h2>
                             <?php 
-                                echo "<a href='./update_dtag_profle.php?ID=".$row['DogID']."'>"." <button>แก้ไขข้อมูล <span class='las la-edit'></span></button>" ."</a>";
+                                echo "<a href='./update_dtag_profile.php?ID=".$row['DogID']."'>"." <button>แก้ไขข้อมูล <span class='las la-edit'></span></button>" ."</a>";
                          ?>
                             <!-- <button> แก้ไขข้อมูล <span class="las la-edit"></span></button> -->
                         </div>

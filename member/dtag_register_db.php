@@ -2,8 +2,8 @@
 <?php
 include('../condb.php'); 
 
-	$qrID=$_GET['qrID'];	
-	echo 'qrID'.$name1;
+	// $qrID=$_GET['qrID'];	
+	// echo 'qrID'.$name1;
     $OwnerID = $_POST["OwnerID"];
 	$Username = $_POST["Username"];
 	$Password = md5($_POST["Password"]);
@@ -51,14 +51,6 @@ include('../condb.php');
 		move_uploaded_file($_FILES['DogPhoto']['tmp_name'],$path_copy2);  
 	}
 
-	$checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName = '$qrID'"
-	$qrResults =  mysqli_query($condb, $checkQR) or die(mysqli_error());
-
-	echo "<script>";
-	echo "alert('$qrResults');";
-	echo "window.history.back();";
-	echo "</script>";
-	
     $check = "
 	SELECT Username 
 	FROM tbl_owner  
@@ -145,12 +137,12 @@ include('../condb.php');
 	if($result){
 	echo "<script type='text/javascript'>";
 	echo "alert('เพิ่มข้อมูลสำเร็จ');";
-	echo "window.location = 'profile.php'; ";
+	echo "window.location = 'profile_dtag.php'; ";
 	echo "</script>";
 	}else{
 	echo "<script type='text/javascript'>";
 	//echo "alert('Error!!');";
-	echo "window.location = 'profile.php'; ";
+	echo "window.location = 'profile_dtag.php'; ";
 	echo "</script>";
 }
 ?>

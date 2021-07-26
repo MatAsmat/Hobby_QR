@@ -22,7 +22,9 @@ extract($row);
                     <div class="card">
                         <div class="card-header">
                             <h2>ข้อมูลแท็ก</h2>
-                            <button> แก้ไขข้อมูล <span class="las la-edit"></span></button>
+                            <?php 
+                                echo "<a href='./update_ttag_profile.php?ID=".$row['TreeID']."'>"." <button>แก้ไขข้อมูล <span class='las la-edit'></span></button>" ."</a>";
+                         ?>
                         </div>
                         <div class="card-body">
                             <div class="profile">
@@ -49,8 +51,10 @@ extract($row);
                 <div class="customers">
                     <div class="template">
                         <div class="tem-header">
-                            <h3>นามบัตรสัตว์เลี้ยง</h3>
-                            <button>เปลี่ยนนามบัตร <span class="las la-exchange-alt"></span></button>
+                            <h3>นามบัตรต้นไม้</h3>
+                            <?php 
+                                echo "<a href='./update_ttag_template.php?ID=".$row['TreeID']."'>"." <button>เปลี่ยนนามบัตร <span class='las la-exchange-alt'></span></button>" ."</a>";
+                         ?>
                         </div>
                         <div class="flip-card">
                             <div class="flip-card-inner">

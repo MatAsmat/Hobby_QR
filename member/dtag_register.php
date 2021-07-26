@@ -2,30 +2,35 @@
 include('../condb.php');
 $qrID = $_GET['qrID'];
 echo 'qrID: ' . $qrID;
-
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
 echo ' qrStatus: ' . $qrStatus[1];
 
+function getImagePath($src) {
+    include('../condb.php');
+    $getTemplate = "SELECT TemplateID, 	TemplateFrontImageSample, TemplateBackImageSample FROM tbl_templates WHERE TemplateID = $src"  or die("Error:" . mysqli_error());
+    $templateResults =  mysqli_query($condb, $getTemplate);
+    $templateStatus = mysqli_fetch_row($templateResults);
+    return $templateStatus[1];
+};
+
+
 if (isset($_POST['Ref_QrCodeID'])) $qrID = $_POST['Ref_QrCodeID'];
     if ($qrStatus[1] == 'Yes') {
         echo "<script>";
         // ในอนาคตน่าจะต้องใช้แบบนี้ echo "window.location = 'profile.php?qrID=emHWnhwYqs'";
-        echo "window.location = 'profile.php?qrID=$qrID'";
+        echo "window.location = 'profile_dtag.php?qrID=$qrID'";
         echo "</script>";
     }
 
 $qrID=$_GET['qrID'];
-echo 'qrID'.$name1;
+// echo 'qrID'.$name1;
 
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName = '$qrID'";
 $qrResults =  mysqli_query($condb, $checkQR) or die(mysqli_error());
 
-echo "<script>";
-echo "alert('$qrID');";
-echo "window.history.back();";
-echo "</script>";
+
 
 $query = "SELECT * FROM tbl_dog_breed" or die("Error:" . mysqli_error());
 $result = mysqli_query($condb, $query);
@@ -405,12 +410,11 @@ $result3 = mysqli_query($condb, $query3);
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="Ref_TemplateID" id="" class="form-control" onchange="document.getElementById('code').innerHTML = this.value" required>
+                                            <select name="Ref_TemplateID" id="imageSelector" class="form-control">
                                                 <option value="Ref_TemplateID">เลือกนามบัตรสุนัข</option>
                                                 <?php foreach ($result2 as $results2) { ?>
-                                                    <option value="<img class='table-avatar' width='300px' alt='image' src='../admin/image/templates/<?php echo $results2["TemplateFrontImage"]; ?>'>">
+                                                    <option value="<?php echo $results2["TemplateID"]; ?> " >
                                                         <?php echo $results2["TemplateName"]; ?>
-                                                        <?php echo $results2["TemplateFrontImage"]; ?>
                                                     </option>
                                                 <?php } ?>
                                             </select>
@@ -419,10 +423,7 @@ $result3 = mysqli_query($condb, $query3);
                                 </div>
                             </div>
                         </div>
-                        <div id="code">
-                            <img class='table-avatar' width='300px' alt='image' src='code1.jpg'>
-                        </div>
-
+                        <div id="imagePreview"></div>
                         <!-- <div class="col-md-12">
                                 <div class="form-group">
                                     <textarea name="" id="" cols="30" rows="7" class="form-control"
@@ -495,6 +496,21 @@ $result3 = mysqli_query($condb, $query3);
 
 </html>
 
+<script>
+    $(document).ready(function() {
+    $("#imageSelector").change(function() {
+        var src = $(this).val();
+        $.ajax({
+            type:'POST',
+            url : 'getPath.php',
+            data : {templateID:src},
+            success : function(data){
+            $("#imagePreview").html(src ? "<img  width='300px' alt='image' src= '../admin/image/templates/" + data + "'>" : "");
+                }
+            });      
+        });
+    });
+</script>
 <script type="text/javascript">
     var gRandLength = 7;
 

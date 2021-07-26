@@ -6,11 +6,11 @@ $sql = "
 SELECT * ,YEAR( FROM_DAYS( DATEDIFF( NOW( ) , CatBirthdate ) ) ) as age FROM tbl_cat as c
 INNER JOIN tbl_cat_breed as cb ON c.Ref_CatBreedID = cb.CatBreedID
 INNER JOIN tbl_templates as t ON c.Ref_TemplateID = t.TemplateID
-INNER JOIN tbl_owner as o ON c.Ref_OwnerID = o.OwnerID
 WHERE c.CatID=$ID";
 $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);
+
 
 ?>
     <div class="main-content">
@@ -23,7 +23,9 @@ extract($row);
                     <div class="card">
                         <div class="card-header">
                             <h2>ข้อมูลแท็ก</h2>
-                            <button> แก้ไขข้อมูล <span class="las la-edit"></span></button>
+                            <?php 
+                                echo "<a href='./update_ctag_profile.php?ID=".$row['CatID']."'>"." <button>แก้ไขข้อมูล <span class='las la-edit'></span></button>" ."</a>";
+                         ?>
                         </div>
                         <div class="card-body">
                             <div class="profile">
@@ -56,7 +58,9 @@ extract($row);
                     <div class="template">
                         <div class="tem-header">
                             <h3>นามบัตรสัตว์เลี้ยง</h3>
-                            <button>เปลี่ยนนามบัตร <span class="las la-exchange-alt"></span></button>
+                            <?php 
+                                echo "<a href='./update_ctag_template.php?ID=".$row['CatID']."'>"." <button>เปลี่ยนนามบัตร <span class='las la-exchange-alt'></span></button>" ."</a>";
+                         ?>
                         </div>
                         <div class="flip-card">
                             <div class="flip-card-inner">
