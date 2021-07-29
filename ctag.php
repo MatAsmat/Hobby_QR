@@ -117,7 +117,7 @@
 							</div>
 							<!-- <div id="accordion" class="myaccordion w-100" aria-multiselectable="true"> -->
 
-								<div class="card">
+							<div class="card">
 									<div class="card-header p-0" id="headingTwo" role="tab">
 									<h2 class="mb-0">
 										<button href="#collapseTwo" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
@@ -129,11 +129,13 @@
 									<div class="collapse" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="card-body py-3 px-0">
 										<ol>
-											<li>Far far away, behind the word mountains</li>
-											<li>Consonantia, there live the blind texts</li>
-											<li>When she reached the first hills of the Italic Mountains</li>
-											<li>Bookmarksgrove, the headline of Alphabet Village</li>
-											<li>Separated they live in Bookmarksgrove right</li>
+											<li>Scan Tag ของคุณ</li>
+											<li>คลิกที่ปุ่ม CLICK HERE!</li>
+											<li>คลิกที่ข้อความ Forgot Password?</li>
+											<li>ป้อน Email ของคุณ</li>
+											<li>เช็ค Code ในอีเมล </li>
+											<li>มาใส่ใน Code Verification </li>
+											<li>สร้างรหัสผ่านใหม่ </li>
 										</ol>
 									</div>
 									</div>
@@ -150,11 +152,10 @@
 									<div class="collapse" id="collapseThree" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="card-body py-3 px-0">
 										<ol>
-											<li>Far far away, behind the word mountains</li>
-											<li>Consonantia, there live the blind texts</li>
-											<li>When she reached the first hills of the Italic Mountains</li>
-											<li>Bookmarksgrove, the headline of Alphabet Village</li>
-											<li>Separated they live in Bookmarksgrove right</li>
+											<li>ซื้อ Tag ของคุณใหม่</li>
+											<li>Scan Tag ของคุณ</li>
+											<li>คลิกที่ปุ่ม CLICK HERE!</li>
+											<li>เข้าสู่ระบบด้วย Username และ Password เดิมของคุณ</li>
 										</ol>
 									</div>
 									</div>
@@ -171,11 +172,7 @@
 									<div class="collapse" id="collapsefour" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="card-body py-3 px-0">
 										<ol>
-											<li>Far far away, behind the word mountains</li>
-											<li>Consonantia, there live the blind texts</li>
-											<li>When she reached the first hills of the Italic Mountains</li>
-											<li>Bookmarksgrove, the headline of Alphabet Village</li>
-											<li>Separated they live in Bookmarksgrove right</li>
+											<li>ซื้อ Tag ของคุณใหม่ แล้วสร้าง Account ใหม่</li>
 										</ol>
 									</div>
 									</div>
@@ -184,7 +181,7 @@
 									<div class="card-header p-0" id="headingTwo" role="tab">
 									<h2 class="mb-0">
 										<button href="#collapsefive" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-											<p class="mb-0">เราเป็นเจ้าของหมาหลายตัวต้องทำอย่างไร?</p>
+											<p class="mb-0">เราเป็นเจ้าของแมวหลายตัวต้องทำอย่างไร?</p>
 										<i class="fa" aria-hidden="true"></i>
 										</button>
 									</h2>
@@ -192,16 +189,14 @@
 									<div class="collapse" id="collapsefive" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="card-body py-3 px-0">
 										<ol>
-											<li>Far far away, behind the word mountains</li>
-											<li>Consonantia, there live the blind texts</li>
-											<li>When she reached the first hills of the Italic Mountains</li>
-											<li>Bookmarksgrove, the headline of Alphabet Village</li>
-											<li>Separated they live in Bookmarksgrove right</li>
+											<li>ถ้าคุณมีแมวมากกว่า 1 ตัว ต้องซื้อ Tag อย่างละตัว</li>
+											<li>Scan Tag ของคุณ</li></li>
+											<li>กรอกข้อมูลแมว โดยการคลิกข้อความ "หรือหากคุณมี Account อยู่แล้วคลิกที่นี่"</li>
 										</ol>
 									</div>
 									</div>
 								</div>
-								</div>
+							</div>
 	        			</div>
         </div>
     	</div>

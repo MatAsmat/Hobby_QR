@@ -43,7 +43,7 @@ extract($row);
                          <div class="card-header">
                          <?php 
                                 echo "<a href='./info_breed.php?ID=".$row['TreeID']."'>"." <button>ดูข้อมูลเกี่ยวกับพันธุ์ <span class='lab la-readme'></span></button>" ."</a>";
-                                echo "<a href='./create_info_ttag.php?ID=".$row['TreeID']."'>"." <button>บันทึกข้อมูลสัตว์เลี้ยง <span class='lab la-save'></span></button>" ."</a>";
+                                echo "<a href='./create_info_ttag.php?ID=".$row['TreeID']."'>"." <button>บันทึกข้อมูลต้นไม้ <span class='lab la-save'></span></button>" ."</a>";
                          ?>
                         </div>
                     </div>

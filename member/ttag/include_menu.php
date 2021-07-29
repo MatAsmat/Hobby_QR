@@ -139,10 +139,10 @@ extract($row);
                     <a href="info_structure.php"><span class="las la-bookmark"></span>
                         <span>โครงสร้างของพืช</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="info_potted_plant.php"><span class="las la-bookmark"></span>
                         <span>ข้อมูลการปลูกต้นไม้กระถาง</span></a>
-                </li>
+                </li> -->
                 <li>
                     <a href="info_pot_plant.php"><span class="las la-bookmark"></span>
                         <span>กระถางหรือภาชนะปลูก</span></a>

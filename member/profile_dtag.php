@@ -8,6 +8,22 @@ $checkTBLDog = "SELECT Ref_TemplateID, Ref_QrCodeID FROM tbl_dog WHERE Ref_QrCod
 $tblResultsDog =  mysqli_query($condb, $checkTBLDog);
 $tblStatus = mysqli_fetch_row($tblResultsDog);
 
+// $ID = $_GET['ID'];
+// echo 'ID: ' . $ID;
+
+$sql1 = "SELECT * FROM tbl_dog  as d 
+INNER JOIN tbl_owner as o ON d.Ref_OwnerID = o.OwnerID
+WHERE d.Ref_QrCodeID='$qrID';
+";
+
+$result = mysqli_query($condb, $sql1) or die ("Error in query: $sql1 " . mysqli_error());
+$row = mysqli_fetch_array($result);
+extract($row);
+
+$sql2 = "SELECT * FROM tbl_dog WHERE Ref_QrCodeID='$qrID';";
+$result2 = mysqli_query($condb, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+$row2 = mysqli_fetch_array($result2);
+echo "    profile image:  " .$ownerPhoto;
 // เก็บไว้ใช้ Check Table แมว ต้นไม้ 
 
 // if (is_null($tblStatus)) {
@@ -22,16 +38,21 @@ $tblStatus = mysqli_fetch_row($tblResultsDog);
 // 	echo '/n Tree Checker: ' . $tblStatus;
 // }
 
-echo ' tblStatus: ' . $tblStatus[0];
+echo ' row: ' . $row[0];
 
 $checkImagePath = "SELECT TemplateID, TemplateFrontImage, TemplateBackImage FROM tbl_templates WHERE TemplateID ='$tblStatus[0]'" or die("Error:" . mysqli_error());
 $imageResult =  mysqli_query($condb, $checkImagePath);
 $imageStatus = mysqli_fetch_row($imageResult);
 
 echo 'imageStatus: ' . $imageStatus[1];
-
+$base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http') . '://' .  $_SERVER['HTTP_HOST'];
+$url = $base_url . $_SERVER["REQUEST_URI"];
+echo '   URL: ' .$url; 
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,8 +80,7 @@ echo 'imageStatus: ' . $imageStatus[1];
 	<link rel="stylesheet" type="text/css" href="../assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 	<!--===============================================================================================-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/animate.css">
 	<link rel="stylesheet" href="../css/owl.carousel.min.css">
@@ -87,7 +107,7 @@ echo 'imageStatus: ' . $imageStatus[1];
 		perspective: 500px;
 	}
 
-	#card{
+	#card {
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -98,21 +118,22 @@ echo 'imageStatus: ' . $imageStatus[1];
 
 	#card figure {
 		margin: 0;
-		display: block;
+		/* display: block; */
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		color: white;
-		text-align: center;
+		/* text-align: center; */
 		font-weight: bold;
 		font-size: 50px;
 		backface-visibility: hidden;
 	}
 
-	#card .front {
-  /* background-color: #333; */
-  -webkit-backface-visibility: hidden;
- }
+	#card .front, #card .back {
+		/* background-color: #333; */
+		-webkit-backface-visibility: hidden;
+    	backface-visibility: hidden;
+	}
 
 	#card .back {
 		/* background-color: #000; */
@@ -131,7 +152,35 @@ echo 'imageStatus: ' . $imageStatus[1];
 		width: 100%;
 	}
 
+	#info-data{
+		position: absolute; 
+		bottom: 60px; 
+		left:150px; 
+	}
 
+	#info-top {
+		margin-bottom: 30px;
+	}
+
+	#info-top > p {
+		font-size: 14px; 
+		line-height: 60%;
+	}
+
+	#info-bottom > p {
+		font-size: 14px; 
+		line-height: 60%;
+
+	}
+
+	#img-tag {
+	position: absolute;
+   	top: 40%;
+	left: 15%;
+	width:250px;
+	height:250px;
+	}
+	
 </style>
 
 <body>
@@ -147,14 +196,10 @@ echo 'imageStatus: ' . $imageStatus[1];
 				<div class="col-md-6 d-flex justify-content-md-end">
 					<div class="social-media">
 						<p class="mb-0 d-flex">
-							<a href="#" class="d-flex align-items-center justify-content-center"><span
-									class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-							<a href="#" class="d-flex align-items-center justify-content-center"><span
-									class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-							<a href="#" class="d-flex align-items-center justify-content-center"><span
-									class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-							<a href="#" class="d-flex align-items-center justify-content-center"><span
-									class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
 						</p>
 					</div>
 				</div>
@@ -164,8 +209,7 @@ echo 'imageStatus: ' . $imageStatus[1];
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="../index.php"><span class="fa fa-qrcode mr-2"></span>HobbyQR</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="fa fa-bars"></span> Menu
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
@@ -187,23 +231,43 @@ echo 'imageStatus: ' . $imageStatus[1];
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+				<div class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
 						Profile
 					</span>
+
 					<section class="container-template">
 						<div id="card">
 							<figure class="front">
-								<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
-								<p><?php  echo $FirstName;?></p>  
-								<p><?php echo $Telephone;?></p>
-								<p><?php echo $Line;?></p>
+								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+								<div style="position: absolute;">
+										<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
+									</div>
+									<div id="info-data">
+										<div id="info-top">
+										<p ><?php echo $FirstName; ?></p>
+										<p><?php echo $Telephone; ?></p>
+										<p><?php echo $Line; ?></p>
+										</div>
+										<div id="info-bottom">
+										<p><?php echo $DogName; ?></p>
+										<p><?php echo $DogBlood; ?></p>
+										<p><?php echo $DogBirthdate; ?></p>
+										</div>
+									</div>
+								</div>
 							</figure>
 							<figure class="back">
-								<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
-								<p><?php echo $DogName;?></p>
-								<p><?php echo $DogBlood;?></p>
-								<p><?php echo $DogBirthdate;?></p>  
+							<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+								<div style="position: absolute;">
+										<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
+									</div>
+									<div id="img-tag">
+									<img  src="./profileimg/dtag/<?php echo $row['DogPhoto']; ?>"  alt="template">
+									</div>
+								</div>
+								
+					
 							</figure>
 						</div>
 					</section>
@@ -233,11 +297,10 @@ echo 'imageStatus: ' . $imageStatus[1];
 
 
 
-					<div class="flex-col-c p-t-50 p-b-40">
-						<span class="txt1 p-b-9">
-							share profile
-						</span>
 
+					<div class="flex-col-c p-t-50 p-b-40">
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+						<button class="btn" id='answer-example-share-button'>Share!</button>
 						<div class="share-icon">
 							<a href="#" class="fa fa-facebook"></a>
 							<a href="#" class="fa fa-twitter"></a>
@@ -247,10 +310,10 @@ echo 'imageStatus: ' . $imageStatus[1];
 						<br>
 						<p class="txt3">Go to Memeber Login Page</p>
 						<div class="container-login100-form-btn">
-							<a style="color: #fff;" class="login100-form-btn"  href="member_login.php">Click Here!</a>
+							<a style="color: #fff;" class="login100-form-btn" href="member_login.php">Click Here!</a>
 						</div>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -285,10 +348,27 @@ echo 'imageStatus: ' . $imageStatus[1];
 	<script src="../js/owl.carousel.min.js"></script>
 	<script src="../js/jquery.magnific-popup.min.js"></script>
 	<script src="../js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="../js/google-map.js"></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+	<!-- <script src="../js/google-map.js"></script> -->
 	<script src="../js/main.js"></script>
+	<script>
+		$('#answer-example-share-button').on('click', () => {
+			if (navigator.share) {
+
+				console.log('share work');
+				console.log("<?php echo $url ?>")
+				navigator.share({
+						title: 'Share your Dog Tag right now !',
+						text: 'Please contract me if there is any problem.',
+						url: '<?php echo $url ?>',
+					})
+					.then(() => console.log('Successful share'))
+					.catch((error) => console.log('Error sharing', error));
+			} else {
+				console.log('Share not supported on this browser, do it the old way.');
+			}
+		});
+	</script>
 
 </body>
 

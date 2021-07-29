@@ -189,13 +189,13 @@ echo 'imageStatus: ' . $imageStatus[1];
 			<div class="wrap-login100">
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
-						Profile
+						Profile Dtag
 					</span>
 					<section class="container-template">
 						<div id="card">
 							<figure class="front">
 								<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
-								<p><?php  echo $FirstName;?></p>  
+								<p><?php echo $FirstName;?></p>  
 								<p><?php echo $Telephone;?></p>
 								<p><?php echo $Line;?></p>
 							</figure>
