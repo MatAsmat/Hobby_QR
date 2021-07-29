@@ -1,14 +1,14 @@
 <?php
 include('../condb.php');
 $qrID = $_GET['qrID'];
-echo 'qrID: ' . $qrID;
+// echo 'qrID: ' . $qrID;
 $ownerID = $_GET['ownerID'];
-echo '$ownerID: ' . $ownerID;
+// echo '$ownerID: ' . $ownerID;
 
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
-echo ' qrStatus: ' . $qrStatus[1];
+// echo ' qrStatus: ' . $qrStatus[1];
 
 if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
 if($qrStatus[1] == 'Yes')
@@ -190,7 +190,7 @@ $result2 = mysqli_query($condb, $query2);
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="CatName" class="form-control" placeholder="ชื่อแมว (Name)" required>
+                                    <input type="text" name="CatName" class="form-control" placeholder="* ชื่อแมว (Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -200,10 +200,10 @@ $result2 = mysqli_query($condb, $query2);
                                 </div>
                             </div>
                             <div class="col-md-6">
-                            <label>วัน เดือน ปีเกิด</label>
+                            <label>* วัน เดือน ปีเกิด</label>
                             <div class="form-group">
                                     <div class="input-group">
-                                        <input type="date" name="CatBirthdate" class="form-control">
+                                        <input type="date" name="CatBirthdate" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -222,11 +222,12 @@ $result2 = mysqli_query($condb, $query2);
                                 </div>
                             </div>
                             <div class="col-md-6">
+                            <label>* กรุ๊ปเลือด</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="CatBlood" id="" class="form-control">
+                                            <select name="CatBlood" id="" class="form-control" required>
                                                 <option value="">เลือกกรุ๊ปเลือด (Blood)</option>
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>

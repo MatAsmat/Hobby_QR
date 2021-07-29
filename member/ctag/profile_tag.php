@@ -66,25 +66,24 @@ extract($row);
                         echo "<a href='./update_ctag_template.php?ID=" . $row['CatID'] . "'>" . " <button>เปลี่ยนนามบัตร <span class='las la-exchange-alt'></span></button>" . "</a>";
                         ?>
                     </div>
-                    <div class="flip-card" ontouchstart="">
-                        <div class="flip-card-inner" ontouchstart="">
-                            <figure class="flip-card-front">
-                                <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample']; ?>" width="250px" alt="template">
+                    <div class="flip-card1" ontouchstart="">
+                        <div class="flip-card-inner1" ontouchstart="">
+                            <figure class="flip-card-front1">
+                                <img class="img-front1" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample']; ?>" width="250px" alt="">
                                 <div style="text-align:left;" class="data-ft">
                                     <p><?php echo $FirstName; ?></p>
                                     <p><?php echo $Telephone; ?></p>
                                     <p><?php echo $Line; ?></p>
-                                    <br>
                                     <br>
                                     <p><?php echo $CatName; ?></p>
                                     <p><?php echo $CatBlood; ?></p>
                                     <p><?php echo $CatBirthdate; ?></p>
                                 </div>
                             </figure>
-                            <figure class="flip-card-back">
-                                <img class="img-back" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample']; ?>" width="250px" alt="template">
-                                <div class="data-bk" ontouchend="imgWindows()" onclick="imgWindows()">
-                                    <img src="../profileimg/dtag/<?php echo $row['CatPhoto']; ?>" width="200px" alt="template">
+                            <figure class="flip-card-back1">
+                                <img class="img-back1" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample']; ?>" width="250px" alt="">
+                                <div class="data-bk1" ontouchend="imgWindows()" onclick="imgWindows()">
+                                    <img src="../profileimg/ctag/<?php echo $row['CatPhoto']; ?>"  width="160px" height="160px" alt="">
                                 </div>
                             </figure>
 

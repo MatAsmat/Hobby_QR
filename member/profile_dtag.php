@@ -2,7 +2,7 @@
 
 include('../condb.php');
 $qrID = $_GET['qrID'];
-echo 'qrID: ' . $qrID;
+// echo 'qrID: ' . $qrID;
 
 $checkTBLDog = "SELECT Ref_TemplateID, Ref_QrCodeID FROM tbl_dog WHERE Ref_QrCodeID ='$qrID'" or die("Error:" . mysqli_error());
 $tblResultsDog =  mysqli_query($condb, $checkTBLDog);
@@ -16,14 +16,14 @@ INNER JOIN tbl_owner as o ON d.Ref_OwnerID = o.OwnerID
 WHERE d.Ref_QrCodeID='$qrID';
 ";
 
-$result = mysqli_query($condb, $sql1) or die ("Error in query: $sql1 " . mysqli_error());
+$result = mysqli_query($condb, $sql1) or die("Error in query: $sql1 " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);
 
 $sql2 = "SELECT * FROM tbl_dog WHERE Ref_QrCodeID='$qrID';";
-$result2 = mysqli_query($condb, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+$result2 = mysqli_query($condb, $sql2) or die("Error in query: $sql2 " . mysqli_error());
 $row2 = mysqli_fetch_array($result2);
-echo "    profile image:  " .$ownerPhoto;
+// echo "    profile image:  " . $ownerPhoto;
 // เก็บไว้ใช้ Check Table แมว ต้นไม้ 
 
 // if (is_null($tblStatus)) {
@@ -38,20 +38,18 @@ echo "    profile image:  " .$ownerPhoto;
 // 	echo '/n Tree Checker: ' . $tblStatus;
 // }
 
-echo ' row: ' . $row[0];
+// echo ' row: ' . $row[0];
 
 $checkImagePath = "SELECT TemplateID, TemplateFrontImage, TemplateBackImage FROM tbl_templates WHERE TemplateID ='$tblStatus[0]'" or die("Error:" . mysqli_error());
 $imageResult =  mysqli_query($condb, $checkImagePath);
 $imageStatus = mysqli_fetch_row($imageResult);
 
-echo 'imageStatus: ' . $imageStatus[1];
+// echo 'imageStatus: ' . $imageStatus[1];
 $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http') . '://' .  $_SERVER['HTTP_HOST'];
 $url = $base_url . $_SERVER["REQUEST_URI"];
-echo '   URL: ' .$url; 
+// echo '   URL: ' . $url;
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +58,7 @@ echo '   URL: ' .$url;
 	<title>Profile</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
 	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="../assets/images/icons/favicon.ico" />
 	<!--===============================================================================================-->
@@ -129,10 +128,11 @@ echo '   URL: ' .$url;
 		backface-visibility: hidden;
 	}
 
-	#card .front, #card .back {
+	#card .front,
+	#card .back {
 		/* background-color: #333; */
 		-webkit-backface-visibility: hidden;
-    	backface-visibility: hidden;
+		backface-visibility: hidden;
 	}
 
 	#card .back {
@@ -152,35 +152,31 @@ echo '   URL: ' .$url;
 		width: 100%;
 	}
 
-	#info-data{
-		position: absolute; 
-		bottom: 60px; 
-		left:150px; 
+	#info-data {
+		position: absolute;
+		bottom: 50px;
+		left: 150px;
 	}
 
 	#info-top {
-		margin-bottom: 30px;
+		margin-bottom : 35px;
 	}
 
 	#info-top > p {
-		font-size: 14px; 
-		line-height: 60%;
+		line-height : 60%;
 	}
 
 	#info-bottom > p {
-		font-size: 14px; 
-		line-height: 60%;
-
+		line-height : 60%;
 	}
 
 	#img-tag {
-	position: absolute;
-   	top: 40%;
-	left: 15%;
-	width:250px;
-	height:250px;
+		position: absolute;
+		top: 10%;
+		left: 15%;
+		width: 250px;
+		height: 250px;
 	}
-	
 </style>
 
 <body>
@@ -240,34 +236,30 @@ echo '   URL: ' .$url;
 						<div id="card">
 							<figure class="front">
 								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
-								<div style="position: absolute;">
-										<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
-									</div>
+									<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
 									<div id="info-data">
-										<div id="info-top">
-										<p ><?php echo $FirstName; ?></p>
-										<p><?php echo $Telephone; ?></p>
-										<p><?php echo $Line; ?></p>
+										<div id="info-top" style="-webkit-backface-visibility: hidden; backface-visibility: hidden;" >
+											<p><?php echo $FirstName; ?></p>
+											<p><?php echo $Telephone; ?></p>
+											<p><?php echo $Line; ?></p>
 										</div>
-										<div id="info-bottom">
-										<p><?php echo $DogName; ?></p>
-										<p><?php echo $DogBlood; ?></p>
-										<p><?php echo $DogBirthdate; ?></p>
+										<div id="info-bottom"  style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+											<p><?php echo $DogName; ?></p>
+											<p><?php echo $DogBlood; ?></p>
+											<p><?php echo $DogBirthdate; ?></p>
 										</div>
 									</div>
 								</div>
 							</figure>
 							<figure class="back">
-							<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
-								<div style="position: absolute;">
+								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+									<div style="position: absolute;">
 										<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
 									</div>
 									<div id="img-tag">
-									<img  src="./profileimg/dtag/<?php echo $row['DogPhoto']; ?>"  alt="template">
+										<img src="./profileimg/dtag/<?php echo $row['DogPhoto']; ?>" alt="template">
 									</div>
 								</div>
-								
-					
 							</figure>
 						</div>
 					</section>

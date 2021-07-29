@@ -113,10 +113,11 @@ extract($row);
             position: absolute;
             /* top: 110px;
   left: 60px; */
-            bottom: 65px;
-            left: 100px;
+            white-space: nowrap;
+            bottom: 145px;
+            left: 110px;
             font-size: 14px;
-            line-height: 100%;
+            line-height: 120%;
             /* transform: translate(-50%, -50%);  */
             z-index: -1;
         }
@@ -126,6 +127,13 @@ extract($row);
             /* transform: translate(-50%, -50%); */
             z-index: 999;
       
+        }
+
+        .data-bk1 {
+        padding-left:25%;
+        padding-top:105%;
+        /* width:160px; 
+        height:160px; */
         }
 
         .data-left {}

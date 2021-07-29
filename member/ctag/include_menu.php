@@ -32,45 +32,61 @@ extract($row);
     <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 420px;
-    perspective: 1000px;
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
-  }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  /* .flip-card-front {
+        .flip-card1 {
+            text-align: center;
+            background-color: transparent;
+            height: 500px;
+            position: relative;
+            perspective: 500px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .flip-card-inner1 {
+            width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    transform-style: preserve-3d;
+		    transform-origin: center;
+		    transition: transform 1s;
+        }
+
+        .flip-card1:hover .flip-card-inner1,.flip-card1:focus .flip-card-inner1 {
+            transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            z-index: 998;
+        }
+
+        .flip-card-front1,
+        .flip-card-back1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            z-index: 998;
+        }
+
+        /* .flip-card-front {
     background-color: #fff;
   } */
-  
-  .flip-card-back {
-    /* background-color: #fff; */
-    transform: rotateY(180deg);
-  }
 
-  /* .data-template {
+        .flip-card-back1 {
+            /* background-color: #fff; */
+            transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+
+        }
+
+        /* .data-template {
     position: absolute;
   }
 
@@ -78,45 +94,53 @@ extract($row);
     position: absolute;
   } */
 
-  .img-front {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-  }
+        .img-front1 {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+        }
 
-  .img-back {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    z-index: -1;
-  }
+        .img-back1 {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
 
-  .data-ft {
-  position: absolute;
-  /* top: 110px;
+        }
+
+        .data-ft {
+            position: absolute;
+            /* top: 110px;
   left: 60px; */
-  bottom: 65px;
-  left: 100px;
-  font-size: 14px;
-  line-height: 100%;
-  /* transform: translate(-50%, -50%);  */
-  }
+            white-space: nowrap;
+            bottom: 145px;
+            left: 110px;
+            font-size: 14px;
+            line-height: 120%;
+            /* transform: translate(-50%, -50%);  */
+            z-index: -1;
+        }
 
-  .data-bk {
-  position: absolute;
-  top: 50%;
-  left: 66%;
-  text-align: center;
-  transform: translate(-50%, -50%); 
-  }
+        .data-bk {
+            position: absolute;
+            /* transform: translate(-50%, -50%); */
+            z-index: 999;
+      
+        }
 
-  .data-left {
+        .data-bk1 {
+        padding-left:25%;
+        padding-top:50%;
+        /* width:160px; 
+        height:160px; */
+        }
 
-  }
+        .data-left {}
 
-  .data-right {
-  }
+        .data-right {}
+
+   
     </style>
 </head>
 <body>

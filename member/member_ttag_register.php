@@ -1,14 +1,14 @@
 <?php
 include('../condb.php');
 $qrID = $_GET['qrID'];
-echo 'qrID: ' . $qrID;
+// echo 'qrID: ' . $qrID;
 $ownerID = $_GET['ownerID'];
-echo '$ownerID: ' . $ownerID;
+// echo '$ownerID: ' . $ownerID;
 
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
-echo ' qrStatus: ' . $qrStatus[1];
+// echo ' qrStatus: ' . $qrStatus[1];
 
 if(isset($_POST['Ref_QrCodeID'])) $qrID=$_POST['Ref_QrCodeID'];
 if($qrStatus[1] == 'Yes')
@@ -285,7 +285,7 @@ $result2 = mysqli_query($condb, $query2);
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="TreeName" class="form-control" placeholder="ชื่อต้นไม้ (Name)" required>
+                                    <input type="text" name="TreeName" class="form-control" placeholder="* ชื่อต้นไม้ (Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -296,7 +296,7 @@ $result2 = mysqli_query($condb, $query2);
                             </div>
                             <div class="col-md-6">
                             <div class="form-group">
-                            <label>วัน เดือน ปีเกิด</label>
+                            <label>*วัน เดือน ปีเกิด</label>
                                     <div class="input-group">
                                         <input type="date" name="TreeBirthdate" class="form-control">
                                     </div>

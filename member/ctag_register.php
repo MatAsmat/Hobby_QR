@@ -1,11 +1,11 @@
 <?php
 include('../condb.php');
 $qrID = $_GET['qrID'];
-echo 'qrID: ' . $qrID;
+// echo 'qrID: ' . $qrID;
 $checkQR = "SELECT QrCodeName, QRStatus FROM tbl_qrcode WHERE QrCodeName ='$qrID'" or die("Error:" . mysqli_error());
 $qrResults =  mysqli_query($condb, $checkQR);
 $qrStatus = mysqli_fetch_row($qrResults);
-echo ' qrStatus: ' . $qrStatus[1];
+// echo ' qrStatus: ' . $qrStatus[1];
 
 function getImagePath($src) {
     include('../condb.php');
@@ -182,12 +182,12 @@ $result3 = mysqli_query($condb, $query3);
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Telephone" class="form-control" placeholder="เบอร์โทรศัพท์ (Telephone)">
+                                    <input type="text" name="Telephone" class="form-control" placeholder="* เบอร์โทรศัพท์ (Telephone)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="Line" class="form-control" placeholder="ไลน์ (Line)">
+                                    <input type="text" name="Line" class="form-control" placeholder="* ไลน์ (Line)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -206,7 +206,7 @@ $result3 = mysqli_query($condb, $query3);
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="CatName" class="form-control" placeholder="ชื่อแมว (Name)" required>
+                                    <input type="text" name="CatName" class="form-control" placeholder="* ชื่อแมว (Name)" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -216,10 +216,10 @@ $result3 = mysqli_query($condb, $query3);
                                 </div>
                             </div>
                             <div class="col-md-6">
-                            <label>วัน เดือน ปีเกิด</label>
+                            <label>* วัน เดือน ปีเกิด</label>
                             <div class="form-group">
                                     <div class="input-group">
-                                        <input type="date" name="CatBirthdate" class="form-control">
+                                        <input type="date" name="CatBirthdate" class="form-control" required> 
                                     </div>
                                 </div>
                             </div>
@@ -238,11 +238,12 @@ $result3 = mysqli_query($condb, $query3);
                                 </div>
                             </div>
                             <div class="col-md-6">
+                            <label>* กรุ๊ปเลือด</label>
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="CatBlood" id="" class="form-control">
+                                            <select name="CatBlood" id="" class="form-control" required> 
                                                 <option value="">เลือกกรุ๊ปเลือด (Blood)</option>
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>
@@ -293,7 +294,6 @@ $result3 = mysqli_query($condb, $query3);
                             </div>
                             <div class="col-md-12">
                         <label>* พันธุ์แมว</label>
-
                                 <div class="form-group">
                                     <div class="form-field">
                                         <div class="select-wrap">

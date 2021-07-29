@@ -51,8 +51,6 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,6 +58,7 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 	<title>Profile</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
 	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="../assets/images/icons/favicon.ico" />
 	<!--===============================================================================================-->
@@ -126,14 +125,15 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 		/* text-align: center; */
 		font-weight: bold;
 		font-size: 50px;
-		/* backface-visibility: hidden; */
+		backface-visibility: hidden;
 	}
 
-	#card .front, #card .back {
-		/* -webkit-backface-visibility: hidden; */
-    	backface-visibility: hidden;
+	#card .front,
+	#card .back {
+		/* background-color: #333; */
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
 	}
-
 
 	#card .back {
 		/* background-color: #000; */
@@ -152,35 +152,31 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 		width: 100%;
 	}
 
-	#info-data{
-		position: absolute; 
-		bottom: 60px; 
-		left:150px; 
+	#info-data {
+		position: absolute;
+		bottom: 50px;
+		left: 150px;
 	}
 
 	#info-top {
-		margin-bottom: 30px;
+		margin-bottom : 35px;
 	}
 
 	#info-top > p {
-		font-size: 14px; 
-		line-height: 60%;
+		line-height : 60%;
 	}
 
 	#info-bottom > p {
-		font-size: 14px; 
-		line-height: 60%;
-
+		line-height : 60%;
 	}
 
 	#img-tag {
-	position: absolute;
-   	top: 10%;
-	left: 15%;
-	width:250px;
-	height:250px;
+		position: absolute;
+		top: 15%;
+		left: 15%;
+		width: 250px;
+		height: 250px;
 	}
-	
 </style>
 
 <body>
@@ -240,34 +236,32 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 						<div id="card">
 							<figure class="front">
 								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
-								<div style="position: absolute;">
-										<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
-									</div>
+									<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
 									<div id="info-data">
-										<div id="info-top">
-										<p ><?php echo $FirstName; ?></p>
-										<p><?php echo $Telephone; ?></p>
-										<p><?php echo $Line; ?></p>
+										<div id="info-top" style="-webkit-backface-visibility: hidden; backface-visibility: hidden;" >
+											<p><?php echo $FirstName; ?></p>
+											<p><?php echo $Telephone; ?></p>
+											<p><?php echo $Line; ?></p>
 										</div>
-										<div id="info-bottom">
-										<p><?php echo $CatName; ?></p>
-										<p><?php echo $CatBlood; ?></p>
-										<p><?php echo $CatBirthdate; ?></p>
+										<div id="info-bottom"  style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+											<p><?php echo $CatName; ?></p>
+											<p><?php echo $CatBlood; ?></p>
+											<p><?php echo $CatBirthdate; ?></p>
 										</div>
 									</div>
 								</div>
 							</figure>
 							<figure class="back">
-							<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
-								<div style="position: absolute;">
+								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+									<div style="position: absolute;">
 										<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
 									</div>
 									<div id="img-tag">
-									<img  src="./profileimg/ctag/<?php echo $row['CatPhoto']; ?>"  alt="template">
+										<img src="./profileimg/ctag/<?php echo $row['CatPhoto']; ?>" alt="template">
 									</div>
 								</div>
-								
-					
+
+
 							</figure>
 						</div>
 					</section>

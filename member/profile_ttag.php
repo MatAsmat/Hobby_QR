@@ -11,8 +11,9 @@ $tblStatus = mysqli_fetch_row($tblResultsTree);
 // $ID = $_GET['ID'];
 // echo 'ID: ' . $ID;
 
-$sql1 = "SELECT * FROM tbl_tree  as d 
+$sql1 = "SELECT  * ,YEAR( FROM_DAYS( DATEDIFF( NOW( ) , TreeBirthdate ) ) ) as age FROM tbl_tree  as d 
 INNER JOIN tbl_owner as o ON d.Ref_OwnerID = o.OwnerID
+INNER JOIN tbl_tree_breed as tb ON d.Ref_TreeBreedID = tb.TreeBreedID
 WHERE d.Ref_QrCodeID='$qrID';
 ";
 
@@ -129,10 +130,11 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 		backface-visibility: hidden;
 	}
 
-	#card .front, #card .back {
+	#card .front,
+	#card .back {
 		/* background-color: #333; */
 		-webkit-backface-visibility: hidden;
-    	backface-visibility: hidden;
+		backface-visibility: hidden;
 	}
 
 	#card .back {
@@ -151,44 +153,30 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 	img {
 		width: 100%;
 	}
-
-	#info-data{
-		position: absolute; 
-		bottom: 60px; 
-		left:150px; 
-	}
-
-	#info-top {
-		margin-bottom: 30px;
-	}
-
-	#info-top > p {
-		font-size: 14px; 
-		line-height: 60%;
-	}
-
-	#info-bottom > p {
-		font-size: 14px; 
-		line-height: 60%;
-
-	}
-
+	
 	#img-tag {
 	position: absolute;
-   	top: 40%;
+   	top: 15%;
 	left: 15%;
 	width:250px;
 	height:250px;
 	}
 
 	.data-ft {
-  position: absolute;
-  top: 110px;
-  left: 60px;
-  text-align: center;
-  font-size: 14px;
-  line-height: 270%;
+  	position: absolute;
+ 	white-space: nowrap;
+  	top: 160px;
+  	left: 85px;
+  	line-height: 100%;
+  	text-align: center;
   /* transform: translate(-50%, -50%);  */
+	width: 180px; 
+	height: 180px;
+  }
+
+
+  #fz {
+	  font-size: 18px;
   }
 	
 </style>
@@ -250,30 +238,27 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 						<div id="card">
 							<figure class="front">
 								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
-								<div style="position: absolute;">
 										<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
-									</div>
-									<div class="data-ft">
-                                            <p><?php  echo $TreeName .'/'. $TreeBreedName;?></p> <br> 
-                                            <img src="./../admin/image/water_sunlight/<?php echo $row['TreeWaterImg'];?>" width="100px" alt="water">  <br>
-                                            <img src="./../admin/image/water_sunlight/<?php echo $row['TreeSunLightImg'];?>" width="100px" alt="sunlight">
+										<div class="data-ft" style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+                                            <p style="margin-top:15px;" id="fz"><?php  echo $TreeName .'/'. $TreeBreedName;?></p>
+                                            <img style=" margin-top:25px;" src="./../admin/image/water_sunlight/<?php echo $row['TreeWaterImg'];?>"  alt="water">  <br>
+                                            <img src="./../admin/image/water_sunlight/<?php echo $row['TreeSunLightImg'];?>"  alt="sunlight">
                                             <br>
-                                            <p><?php echo $age;?></p>
-                                            <p><?php echo $TreeBirthdate;?></p>
+                                            <br>
+                                            <p id="fz"><?php echo $age;?></p>
+                                            <p id="fz"><?php echo $TreeBirthdate;?></p>
                                         </div>
 								</div>
 							</figure>
 							<figure class="back">
-							<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
-								<div style="position: absolute;">
+								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
+									<div style="position: absolute;">
 										<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
 									</div>
 									<div id="img-tag">
-									<img  src="./profileimg/ttag/<?php echo $row['TreePhoto']; ?>"  alt="template">
+										<img src="./profileimg/ttag/<?php echo $row['TreePhoto']; ?>" alt="template">
 									</div>
 								</div>
-								
-					
 							</figure>
 						</div>
 					</section>

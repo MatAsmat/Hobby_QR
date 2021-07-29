@@ -74,7 +74,6 @@ extract($row);
                                     <p><?php echo $Telephone; ?></p>
                                     <p><?php echo $Line; ?></p>
                                     <br>
-                                    <br>
                                     <p><?php echo $DogName; ?></p>
                                     <p><?php echo $DogBlood; ?></p>
                                     <p><?php echo $DogBirthdate; ?></p>
@@ -83,7 +82,7 @@ extract($row);
                             <figure class="flip-card-back1">
                                 <img class="img-back1" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample']; ?>" width="250px" alt="">
                                 <div class="data-bk1" ontouchend="imgWindows()" onclick="imgWindows()">
-                                    <img src="../profileimg/dtag/<?php echo $row['DogPhoto']; ?>" width="200px" height="250px" alt="" style="padding-right:20%;padding-top:40%;">
+                                    <img src="../profileimg/dtag/<?php echo $row['DogPhoto']; ?>"  width="160px" height="160px" alt="">
                                 </div>
                             </figure>
 

@@ -31,43 +31,59 @@ extract($row);
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 420px;
-    perspective: 1000px;
-  }
+   .flip-card1 {
+            text-align: center;
+            background-color: transparent;
+            height: 500px;
+            position: relative;
+            perspective: 500px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        
+        .flip-card-inner1 {
+            width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    transform-style: preserve-3d;
+		    transform-origin: center;
+		    transition: transform 1s;
+        }
   
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
-  }
+        .flip-card1:hover .flip-card-inner1,.flip-card1:focus .flip-card-inner1 {
+            transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            z-index: 998;
+        }
   
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+        .flip-card-front1,
+        .flip-card-back1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            z-index: 998;
+        }
   
   /* .flip-card-front {
     background-color: #fff;
   } */
   
-  .flip-card-back {
-    /* background-color: #fff; */
-    transform: rotateY(180deg);
-  }
+  .flip-card-back1 {
+            /* background-color: #fff; */
+            transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+
+        }
 
   /* .data-template {
     position: absolute;
@@ -77,34 +93,37 @@ extract($row);
     position: absolute;
   } */
 
-  .img-front {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-  }
+ 
+  .img-front1 {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+        }
 
-  .img-back {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    z-index: -1;
-  }
+        .img-back1 {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+
+        }
 
   .data-ft {
   position: absolute;
-  top: 110px;
-  left: 60px;
+  white-space: nowrap;
+  top: 55px;
+  left: 25px;
   text-align: center;
   font-size: 14px;
   line-height: 270%;
   /* transform: translate(-50%, -50%);  */
   }
 
-  .data-bk {
+  .data-bk1 {
   position: absolute;
-  top: 40%;
-  left: 65%;
+  top: 30%;
+  left: 70%;
   text-align: center;
   transform: translate(-50%, -50%); 
   }

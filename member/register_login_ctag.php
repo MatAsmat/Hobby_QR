@@ -1,7 +1,7 @@
 <?php
 include('../condb.php'); 
 $qrID = $_GET['qrID'];
-echo 'qrID: ' . $qrID;
+// echo 'qrID: ' . $qrID;
 ?>
 <!DOCTYPE html>
 <html lang="en">

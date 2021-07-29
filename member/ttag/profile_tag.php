@@ -56,34 +56,57 @@ extract($row);
                                 echo "<a href='./update_ttag_template.php?ID=".$row['TreeID']."'>"." <button>เปลี่ยนนามบัตร <span class='las la-exchange-alt'></span></button>" ."</a>";
                          ?>
                         </div>
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                        <img class="img-front" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample'];?>" width="250px"  alt="template">
-                                        <div class="data-ft">
-                                            <p><?php  echo $TreeName .'/'. $TreeBreedName;?></p> <br> 
+                        <div class="flip-card1" ontouchstart="">
+                        <div class="flip-card-inner1" ontouchstart="">
+                            <figure class="flip-card-front1">
+                                <img class="img-front1" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample']; ?>" width="250px" alt="">
+                                <div style="text-align:left;" class="data-ft">
+                                     <div class="data-ft">
+                                            <p><?php  echo $TreeName .'/'. $TreeBreedName;?></p> <br>
                                             <img src="./../../admin/image/water_sunlight/<?php echo $row['TreeWaterImg'];?>" width="100px"> <br>
                                             <img src="./../../admin/image/water_sunlight/<?php echo $row['TreeSunLightImg'];?>" width="100px">
                                             <br>
-                                            <p><?php echo $age;?></p>
+                                            <p style="margin-top:18px;"><?php echo $age;?></p>
                                             <p><?php echo $TreeBirthdate;?></p>
                                         </div>
                                 </div>
-                                <div class="flip-card-back">
-                                <img class="img-back" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample'];?>" width="250px"  alt="template">
-                                <div class="data-bk">
-                                <img src="../profileimg/ttag/<?php echo $row['TreePhoto'];?>" width="200px"  alt="template">
+                            </figure>
+                            <figure class="flip-card-back1">
+                                <img class="img-back1" src="./../../admin/image/templates/<?php echo $row['TemplateBackImageSample']; ?>" width="250px" alt="">
+                                <div class="data-bk1" ontouchend="imgWindows()" onclick="imgWindows()">
+                                    <img src="../profileimg/ttag/<?php echo $row['TreePhoto']; ?>"  width="160px" height="160px" alt="">
                                 </div>
-                                </div>
-                            </div>
+                            </figure>
+
                         </div>
+                    </div>
+                    <div style=" display: flex;align-items: center;justify-content: center; padding-bottom: 4%;">
+                        <div id="toggle" onclick="imgWindows()" style="color: white;">พลิกนามบัตร</div>
                     </div>
                 </div>
             </div>
-            <?php
-           include('../include_card_list.php');
-            ?>
-        </main>
-    </div>
-    </body>
+        </div>
+        <?php
+        include('../include_card_list.php');
+        ?>
+    </main>
+</div>
+</body>
+
 </html>
+
+<script>
+    var tooltip = document.getElementById('flip-card-back');
+    var toggle = document.getElementById('toggle');
+    var tooltips2 = document.getElementById('flip-card');
+    
+    function imgWindows() {
+            console.log('click work !');
+            // tooltip.classList.add('hover');
+            // tooltip2.classList.add('hover');
+            var isHover = false;
+            tooltip.classList.remove('hover');
+            tooltip2.classList.remove('hover');
+
+    };
+</script>
