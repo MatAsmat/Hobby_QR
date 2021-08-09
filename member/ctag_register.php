@@ -36,7 +36,7 @@ $result = mysqli_query($condb, $query);
 $query2 = "SELECT * FROM tbl_templates WHERE TemplateCategory = 'CTag'" or die("Error:" . mysqli_error());
 $result2 = mysqli_query($condb, $query2);
 
-$query3 = "SELECT * FROM tbl_dog" or die("Error:" . mysqli_error());
+$query3 = "SELECT * FROM tbl_cat" or die("Error:" . mysqli_error());
 $result3 = mysqli_query($condb, $query3);
 
 ?>
@@ -44,7 +44,7 @@ $result3 = mysqli_query($condb, $query3);
 <html lang="en">
 
 <head>
-    <title>Member Register DTag Page</title>
+    <title>Member Register CTag Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap"

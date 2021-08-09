@@ -198,7 +198,7 @@ $result2 = mysqli_query($condb, $query);
 
 <script>
 $(document).ready(function() {
-    $('a[href^="./table_pro_dtag.php"]').addClass('nav-item has-treeview menu-open nav-link active ');
+    $('a[href^="./table_pro_ctag.php"]').addClass('nav-item has-treeview menu-open nav-link active ');
 });
 </script>
 

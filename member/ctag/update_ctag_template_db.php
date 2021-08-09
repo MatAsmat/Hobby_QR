@@ -3,12 +3,12 @@
 //condb
 include('../../condb.php'); 
 
-	$Ref_CatBreedID = $_POST["Ref_CatBreedID"];
+	// $Ref_CatBreedID = $_POST["Ref_CatBreedID"];
 	$Ref_TemplateID = $_POST["Ref_TemplateID"];
 	$CatID  = $_POST["CatID"];
 
 	$sql = "UPDATE tbl_cat SET 
-	Ref_CatBreedID='$Ref_CatBreedID',
+	-- Ref_CatBreedID='$Ref_CatBreedID',
 	Ref_TemplateID='$Ref_TemplateID'
 	WHERE CatID=$CatID
 	 ";

@@ -178,7 +178,7 @@ $result2 = mysqli_query($condb, $query2);
                                 </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>พันธุ์สุนัข</label>
+                                    <label>พันธุ์ต้นไม้</label>
                                     <select name="Ref_TreeBreedID" class="form-control">
                                         <option value="<?php echo $row['Ref_TreeBreedID'];?>">
                                             -<?php echo $row['TreeBreedName'];?>-
@@ -195,7 +195,7 @@ $result2 = mysqli_query($condb, $query2);
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>นามบัตรสุนัข</label>
+                                    <label>นามบัตรต้นไม้</label>
                                     <select name="Ref_TemplateID" class="form-control">
                                         <option value="<?php echo $row['Ref_TemplateID'];?>">
                                             -<?php echo $row['TemplateName'];?>-
@@ -241,7 +241,7 @@ $result2 = mysqli_query($condb, $query2);
           <!-- DataTables -->
         <!-- <script src="../plugins/datatables/jquery.dataTables.js"></script>
         <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>        -->
-        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> -->
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
         <script>
             $(function() {

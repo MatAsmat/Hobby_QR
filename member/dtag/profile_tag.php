@@ -41,7 +41,9 @@ extract($row);
                                 <!-- <p><span class="las la-chevron-circle-right"></span> น้ำหนัก : <?php echo $age; ?></p> -->
                                 <p><span class="las la-chevron-circle-right"></span> เพศ : <?php echo $DogGender; ?></p>
                                 <p><span class="las la-chevron-circle-right"></span> กรุ๊ปเลือด : <?php echo $DogBlood; ?></p>
-                                <p><span class="las la-chevron-circle-right"></span> วันเกิด : <?php echo date('d/m/Y', strtotime($row["DogBirthdate"])); ?></p>
+                                <p><span class="las la-chevron-circle-right"></span> วันเกิด : <?php echo date('d/m/',strtotime($row['DogBirthdate']));
+                                     $y = date('Y',strtotime($row['DogBirthdate']));
+                                     echo $y+543; ?></p>
                                 <!-- <div class="firstline"> -->
                                 <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : <?php echo $DogCoatColor; ?></p>
                                 <p><span class="las la-chevron-circle-right"></span> นิสัย : <?php echo $DogPersonality; ?></p>
@@ -76,7 +78,9 @@ extract($row);
                                     <br>
                                     <p><?php echo $DogName; ?></p>
                                     <p><?php echo $DogBlood; ?></p>
-                                    <p><?php echo $DogBirthdate; ?></p>
+                                    <p><?php echo date('d/m/',strtotime($row['DogBirthdate']));
+                                     $y = date('Y',strtotime($row['DogBirthdate']));
+                                     echo $y+543; ?></p>
                                 </div>
                             </figure>
                             <figure class="flip-card-back1">

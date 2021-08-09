@@ -3,12 +3,12 @@
 //condb
 include('../../condb.php'); 
 
-	$Ref_TreeBreedID = $_POST["Ref_TreeBreedID"];
+	// $Ref_TreeBreedID = $_POST["Ref_TreeBreedID"];
 	$Ref_TemplateID = $_POST["Ref_TemplateID"];
 	$TreeID  = $_POST["TreeID"];
 
 	$sql = "UPDATE tbl_tree SET 
-	Ref_TreeBreedID='$Ref_TreeBreedID',
+	-- Ref_TreeBreedID='$Ref_TreeBreedID',
 	Ref_TemplateID='$Ref_TemplateID'
 	WHERE TreeID=$TreeID
 	 ";

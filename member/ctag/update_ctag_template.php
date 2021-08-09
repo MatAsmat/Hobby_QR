@@ -164,9 +164,9 @@ $result2 = mysqli_query($condb, $query2);
                 <form role="form" action="update_ctag_template_db.php" method="post" class="form-horizontal"
                         enctype="multipart/form-data">
                     <div class="row">
-                            <div class="col-sm-6">
+                            <!-- <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>พันธุ์สุนัข</label>
+                                    <label>พันธุ์แมว</label>
                                     <select name="Ref_CatBreedID" class="form-control">
                                         <option value="<?php echo $row['Ref_CatBreedID'];?>">
                                             -<?php echo $row['CatBreedName'];?>-
@@ -180,10 +180,10 @@ $result2 = mysqli_query($condb, $query2);
                                     </select>
                                     
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>นามบัตรสุนัข</label>
+                                    <label>นามบัตรแมว</label>
                                     <select name="Ref_TemplateID" class="form-control">
                                         <option value="<?php echo $row['Ref_TemplateID'];?>">
                                             -<?php echo $row['TemplateName'];?>-
@@ -228,7 +228,7 @@ $result2 = mysqli_query($condb, $query2);
           <!-- DataTables -->
         <!-- <script src="../plugins/datatables/jquery.dataTables.js"></script>
         <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>        -->
-        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> -->
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
         <script>
             $(function() {

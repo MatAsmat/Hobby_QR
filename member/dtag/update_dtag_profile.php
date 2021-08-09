@@ -319,7 +319,7 @@ $result2 = mysqli_query($condb, $query2);
           <!-- DataTables -->
         <!-- <script src="../plugins/datatables/jquery.dataTables.js"></script>
         <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>        -->
-        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> -->
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
         <script>
             $(function() {

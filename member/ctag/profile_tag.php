@@ -42,7 +42,9 @@ extract($row);
                                 <!-- <p><span class="las la-chevron-circle-right"></span> น้ำหนัก : <?php echo $age; ?></p> -->
                                 <p><span class="las la-chevron-circle-right"></span> เพศ : <?php echo $CatGender; ?></p>
                                 <p><span class="las la-chevron-circle-right"></span> กรุ๊ปเลือด : <?php echo $CatBlood; ?></p>
-                                <p><span class="las la-chevron-circle-right"></span> วันเกิด : <?php echo date('d/m/Y', strtotime($row["CatBirthdate"])); ?></p>
+                                <p><span class="las la-chevron-circle-right"></span> วันเกิด : <?php echo date('d/m/',strtotime($row['CatBirthdate']));
+                                     $y = date('Y',strtotime($row['CatBirthdate']));
+                                     echo $y+543; ?></p>
                                 <!-- <div class="firstline"> -->
                                 <p><span class="las la-chevron-circle-right"></span> ลักษณะภายนอก : <?php echo $CatCoatColor; ?></p>
                                 <p><span class="las la-chevron-circle-right"></span> นิสัย : <?php echo $CatPersonality; ?></p>
@@ -77,7 +79,9 @@ extract($row);
                                     <br>
                                     <p><?php echo $CatName; ?></p>
                                     <p><?php echo $CatBlood; ?></p>
-                                    <p><?php echo $CatBirthdate; ?></p>
+                                    <p><?php echo date('d/m/',strtotime($row['CatBirthdate']));
+                                     $y = date('Y',strtotime($row['CatBirthdate']));
+                                     echo $y+543; ?></p>
                                 </div>
                             </figure>
                             <figure class="flip-card-back1">

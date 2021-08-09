@@ -47,42 +47,223 @@ include('./include_menu.php');
                                 </div>
                             </div>
                             <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>ข้อมูลทั่วไปและลักษณะนิสัย</label>
-                                    <textarea name="DogBreedPersonality" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                    <label>ข้อมูลทั่วไปและลักษณะนิสัย 1</label>
+                                    <textarea name="DogBreedPersonality1" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>บุคลิก</label>
-                                    <textarea name="DogBreedCharacter" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                    <label>ข้อมูลทั่วไปและลักษณะนิสัย 2</label>
+                                    <textarea name="DogBreedPersonality2" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>วิธีดูแล</label>
-                                    <textarea name="DogBreedCare" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                    <label>ข้อมูลทั่วไปและลักษณะนิสัย 3</label>
+                                    <textarea name="DogBreedPersonality3" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>ผู้เลี้ยงที่เหมาะกับสายพันธ์ุ</label>
-                                    <textarea name="DogBreedHerdsman" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                    <label>ข้อมูลทั่วไปและลักษณะนิสัย 4</label>
+                                    <textarea name="DogBreedPersonality4" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>ภาวะปัญหาสุขภาพของสายพันธุ์</label>
-                                    <textarea name="DogBreedHealthIssues" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                    <label>ข้อมูลทั่วไปและลักษณะนิสัย 5</label>
+                                    <textarea name="DogBreedPersonality5" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>ความต้องการด้านสารอาหารของสุนัข</label>
-                                    <textarea name="DogBreedNutrients" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                    <label>ข้อมูลทั่วไปและลักษณะนิสัย 6</label>
+                                    <textarea name="DogBreedPersonality6" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
                                 </div>
                             </div>
-                       
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>บุคลิก 1</label>
+                                    <textarea name="DogBreedCharacter1" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>บุคลิก 2</label>
+                                    <textarea name="DogBreedCharacter2" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>บุคลิก 3</label>
+                                    <textarea name="DogBreedCharacter3" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>บุคลิก 4</label>
+                                    <textarea name="DogBreedCharacter4" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>บุคลิก 5</label>
+                                    <textarea name="DogBreedCharacter5" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>บุคลิก  6</label>
+                                    <textarea name="DogBreedCharacter6" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>วิธีดูแล 1</label>
+                                    <textarea name="DogBreedCare1" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>วิธีดูแล 2</label>
+                                    <textarea name="DogBreedCare2" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>วิธีดูแล 3</label>
+                                    <textarea name="DogBreedCare3" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>วิธีดูแล 4</label>
+                                    <textarea name="DogBreedCare4" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>วิธีดูแล 5</label>
+                                    <textarea name="DogBreedCare5" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>วิธีดูแล 6</label>
+                                    <textarea name="DogBreedCare6" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ผู้เลี้ยงที่เหมาะกับสายพันธ์ุ 1</label>
+                                    <textarea name="DogBreedHerdsman1" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ผู้เลี้ยงที่เหมาะกับสายพันธ์ุ 2</label>
+                                    <textarea name="DogBreedHerdsman2" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ผู้เลี้ยงที่เหมาะกับสายพันธ์ุ 3</label>
+                                    <textarea name="DogBreedHerdsman3" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ผู้เลี้ยงที่เหมาะกับสายพันธ์ุ 4</label>
+                                    <textarea name="DogBreedHerdsman4" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ผู้เลี้ยงที่เหมาะกับสายพันธ์ุ 5</label>
+                                    <textarea name="DogBreedHerdsman5" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ผู้เลี้ยงที่เหมาะกับสายพันธ์ุ 6</label>
+                                    <textarea name="DogBreedHerdsman6" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ภาวะปัญหาสุขภาพของสายพันธุ์ 1</label>
+                                    <textarea name="DogBreedHealthIssues1" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ภาวะปัญหาสุขภาพของสายพันธุ์ 2</label>
+                                    <textarea name="DogBreedHealthIssues2" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ภาวะปัญหาสุขภาพของสายพันธุ์ 3</label>
+                                    <textarea name="DogBreedHealthIssues3" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ภาวะปัญหาสุขภาพของสายพันธุ์ 4</label>
+                                    <textarea name="DogBreedHealthIssues4" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ภาวะปัญหาสุขภาพของสายพันธุ์ 5</label>
+                                    <textarea name="DogBreedHealthIssues5" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ภาวะปัญหาสุขภาพของสายพันธุ์ 6</label>
+                                    <textarea name="DogBreedHealthIssues6" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ความต้องการด้านสารอาหารของสุนัข 1</label>
+                                    <textarea name="DogBreedNutrients1" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ความต้องการด้านสารอาหารของสุนัข 2</label>
+                                    <textarea name="DogBreedNutrients2" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ความต้องการด้านสารอาหารของสุนัข 3</label>
+                                    <textarea name="DogBreedNutrients3" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ความต้องการด้านสารอาหารของสุนัข 4</label>
+                                    <textarea name="DogBreedNutrients4" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ความต้องการด้านสารอาหารของสุนัข 5</label>
+                                    <textarea name="DogBreedNutrients5" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ความต้องการด้านสารอาหารของสุนัข 6</label>
+                                    <textarea name="DogBreedNutrients6" class="form-control" rows="1" placeholder="ป้อน . . ."></textarea>
+                                </div>
+                            </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

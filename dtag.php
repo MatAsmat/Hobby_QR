@@ -104,19 +104,18 @@
 										<ol>
 											<li>SCAN QR CODE ที่ผลิตภัณฑ์ของท่านเพื่อลงทะเบียน</li>
 											<li>ลงทะเบียนสมัครสมาชิก (กรอกข้อมูลเจ้าของ) และเลือกชนิดพันธุ์ของสุนัข</li>
-											<li>กรอกข้อมูลน้องหมาของเรา</li>
+											<li>กรอกข้อมูลน้องสุนัขของเรา</li>
 											<li>เลือกเทมเพลตนามบัตร</li>
 										</ol>
 									</div>
 									</div>
 								</div>
-		<br>
+								<br>
 								<div class="heading-section mb-5 mt-5 mt-lg-0">
 						<h2 class="mb-3">คำถามที่พบบ่อย</h2>
 						<!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
 							</div>
 							<!-- <div id="accordion" class="myaccordion w-100" aria-multiselectable="true"> -->
-
 								<div class="card">
 									<div class="card-header p-0" id="headingTwo" role="tab">
 									<h2 class="mb-0">
@@ -134,8 +133,8 @@
 											<li>คลิกที่ข้อความ Forgot Password?</li>
 											<li>ป้อน Email ของคุณ</li>
 											<li>เช็ค Code ในอีเมล </li>
-											<li>มาใส่ใน Code Verification </li>
-											<li>สร้างรหัสผ่านใหม่ </li>
+											<li>นำ Code ที่ได้รับมาใส่ใน Code Verification </li>
+											<li>ดำเนินการสร้างรหัสผ่านใหม่ </li>
 										</ol>
 									</div>
 									</div>
@@ -154,8 +153,10 @@
 										<ol>
 											<li>ซื้อ Tag ของคุณใหม่</li>
 											<li>Scan Tag ของคุณ</li>
-											<li>คลิกที่ปุ่ม CLICK HERE!</li>
+											<li>คลิกข้อความ "หรือหากคุณมี Account อยู่แล้วคลิกที่นี่"</li>
 											<li>เข้าสู่ระบบด้วย Username และ Password เดิมของคุณ</li>
+											<li>คลิกที่ "ทำ Tag หาย"</li>
+											<li>เลือกชื่อสุนัขที่คุณทำหาย</li>
 										</ol>
 									</div>
 									</div>
@@ -172,7 +173,14 @@
 									<div class="collapse" id="collapsefour" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="card-body py-3 px-0">
 										<ol>
-											<li>ซื้อ Tag ของคุณใหม่ แล้วสร้าง Account ใหม่</li>
+											<li>ซื้อ Tag ของคุณใหม่</li>
+											<li>Scan Tag ของคุณ</li>
+											<li>คลิกที่ปุ่ม CLICK HERE!</li>
+											<li>คลิกที่ข้อความ Forgot Password?</li>
+											<li>ป้อน Email ของคุณ</li>
+											<li>เช็ค Code ในอีเมล </li>
+											<li>นำ Code ที่ได้รับมาใส่ใน Code Verification </li>
+											<li>ดำเนินการสร้างรหัสผ่านใหม่ </li>
 										</ol>
 									</div>
 									</div>
@@ -181,7 +189,7 @@
 									<div class="card-header p-0" id="headingTwo" role="tab">
 									<h2 class="mb-0">
 										<button href="#collapsefive" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-											<p class="mb-0">เราเป็นเจ้าของหมาหลายตัวต้องทำอย่างไร?</p>
+											<p class="mb-0">เราเป็นเจ้าของสุนัขหลายตัวต้องทำอย่างไร?</p>
 										<i class="fa" aria-hidden="true"></i>
 										</button>
 									</h2>
@@ -192,17 +200,18 @@
 											<li>ถ้าคุณมีสุนัขมากกว่า 1 ตัว ต้องซื้อ Tag อย่างละตัว</li>
 											<li>Scan Tag ของคุณ</li></li>
 											<li>กรอกข้อมูลสุนัข โดยการคลิกข้อความ "หรือหากคุณมี Account อยู่แล้วคลิกที่นี่"</li>
+											<li>หลังจากนั้น กรอกข้อมูลสุนัขตัวใหม่ลงไป</li>
+											<li>ลอง Scan Tag แล้ว Login คุณจะพบว่าตอนนี้คุณมี Tag มากกว่า 1 ตัว ใน Profile </li>
+											<li>เลือกกดดู Tag ที่คุณสนใจได้เลย</li>
 										</ol>
 									</div>
 									</div>
 								</div>
 							</div>
 	        			</div>
-        </div>
-    	</div>
-    </section>
-
-	
+        			</div>
+    			</div>
+   			</section>
 	<section class="ftco-section testimony-section" style="background-image: url('images/dog/dogs.jpg');">
     	<div class="overlay"></div>
       <div class="container">
@@ -290,11 +299,6 @@
       </div>
     </section>
 
-	
-	
-
-   
-    
 	<footer class="footer">
 		<div class="container">
 	  <div class="col-md-12 text-center">
@@ -304,12 +308,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	  </div>
 		</div>
 	</footer>
-    
-  
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -327,7 +328,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
-    
   </body>
 </html>

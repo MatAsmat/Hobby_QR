@@ -159,7 +159,7 @@ extract($row);
                             </div>
                             <div class="form-group">
                                 <label>น้ำหนัก</label>
-                                <input type="number" name="DogWeight" id="DogWeight" class="form-control" placeholder="ป้อนข้อมูล...">
+                                <input type="number" step="0.01" name="DogWeight" id="DogWeight" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             </div>
                             <div class="modal-footer">
@@ -187,7 +187,7 @@ extract($row);
                             </div>
                             <div class="form-group">
                                 <label>น้ำหนัก</label>
-                                <input type="number" name="DogWeight" class="form-control" placeholder="ป้อนข้อมูล...">
+                                <input type="number" step="0.01" name="DogWeight" class="form-control" placeholder="ป้อนข้อมูล...">
                             </div>
                             </div>
                             <div class="modal-footer">

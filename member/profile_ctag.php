@@ -93,8 +93,28 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
+	.btn {
+	background-color: #ddd;
+	border: none;
+	color: black;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+	margin: 4px 2px;
+	transition: 0.3s;
+	}
+
+	.btn:hover {
+	background-color: #002d2e;
+	color: white;
+	}
+
 	.share-icon {
 		font-size: 20px;
+	}
+
+	.share-icon > a:hover {
+    cursor: text;
 	}
 
 	.container-template {
@@ -172,10 +192,11 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 
 	#img-tag {
 		position: absolute;
-		top: 15%;
-		left: 15%;
-		width: 250px;
-		height: 250px;
+  top: 40%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%); 
+		
 	}
 </style>
 
@@ -246,7 +267,9 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 										<div id="info-bottom"  style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
 											<p><?php echo $CatName; ?></p>
 											<p><?php echo $CatBlood; ?></p>
-											<p><?php echo $CatBirthdate; ?></p>
+											<p><?php echo date('d/m/',strtotime($row['CatBirthdate']));
+                                     $y = date('Y',strtotime($row['CatBirthdate']));
+                                     echo $y+543; ?></p>
 										</div>
 									</div>
 								</div>
@@ -257,7 +280,7 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 										<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
 									</div>
 									<div id="img-tag">
-										<img src="./profileimg/ctag/<?php echo $row['CatPhoto']; ?>" alt="template">
+										<img src="./profileimg/ctag/<?php echo $row['CatPhoto']; ?>" width="160px" height="160px" style="object-fit:contain; width:250px; height:250px;" alt="template">
 									</div>
 								</div>
 

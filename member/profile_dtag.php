@@ -93,8 +93,28 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
+	.btn {
+	background-color: #ddd;
+	border: none;
+	color: black;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+	margin: 4px 2px;
+	transition: 0.3s;
+	}
+
+	.btn:hover {
+	background-color: #002d2e;
+	color: white;
+	}
+
 	.share-icon {
 		font-size: 20px;
+	}
+
+	.share-icon > a:hover {
+    cursor: text;
 	}
 
 	.container-template {
@@ -246,7 +266,9 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 										<div id="info-bottom"  style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
 											<p><?php echo $DogName; ?></p>
 											<p><?php echo $DogBlood; ?></p>
-											<p><?php echo $DogBirthdate; ?></p>
+											<p><?php echo date('d/m/',strtotime($row['DogBirthdate']));
+                                     $y = date('Y',strtotime($row['DogBirthdate']));
+                                     echo $y+543; ?></p>
 										</div>
 									</div>
 								</div>
@@ -257,7 +279,7 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 										<img src="../admin/image/templates/<?php echo $imageStatus[2]; ?>" alt="">
 									</div>
 									<div id="img-tag">
-										<img src="./profileimg/dtag/<?php echo $row['DogPhoto']; ?>" alt="template">
+										<img src="./profileimg/dtag/<?php echo $row['DogPhoto']; ?>" width="160px" height="160px" alt="template">
 									</div>
 								</div>
 							</figure>

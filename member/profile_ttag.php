@@ -95,8 +95,28 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
+	.btn {
+	background-color: #ddd;
+	border: none;
+	color: black;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+	margin: 4px 2px;
+	transition: 0.3s;
+	}
+
+	.btn:hover {
+	background-color: #002d2e;
+	color: white;
+	}
+
 	.share-icon {
 		font-size: 20px;
+	}
+
+	.share-icon > a:hover {
+    cursor: text;
 	}
 
 	.container-template {
@@ -240,13 +260,15 @@ $url = $base_url . $_SERVER["REQUEST_URI"];
 								<div style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
 										<img src="../admin/image/templates/<?php echo $imageStatus[1]; ?>" alt="">
 										<div class="data-ft" style="-webkit-backface-visibility: hidden; backface-visibility: hidden;">
-                                            <p style="margin-top:15px;" id="fz"><?php  echo $TreeName .'/'. $TreeBreedName;?></p>
+                                            <p style="margin-top:15px;" id="fz"><?php  echo $TreeBreedName;?></p>
                                             <img style=" margin-top:25px;" src="./../admin/image/water_sunlight/<?php echo $row['TreeWaterImg'];?>"  alt="water">  <br>
                                             <img src="./../admin/image/water_sunlight/<?php echo $row['TreeSunLightImg'];?>"  alt="sunlight">
                                             <br>
                                             <br>
                                             <p id="fz"><?php echo $age;?></p>
-                                            <p id="fz"><?php echo $TreeBirthdate;?></p>
+                                            <p id="fz"><?php echo date('d/m/',strtotime($row['TreeBirthdate']));
+                                     $y = date('Y',strtotime($row['TreeBirthdate']));
+                                     echo $y+543; ?></p>
                                         </div>
 								</div>
 							</figure>

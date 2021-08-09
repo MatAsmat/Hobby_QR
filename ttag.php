@@ -101,7 +101,7 @@
 									</div>
 									<div class="collapse show" id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
 									<div class="card-body py-3 px-0">
-										<ol>
+									<ol>
 											<li>SCAN QR CODE ที่ผลิตภัณฑ์ของท่านเพื่อลงทะเบียน</li>
 											<li>ลงทะเบียนสมัครสมาชิก (กรอกข้อมูลเจ้าของ) และเลือกชนิดพันธุ์ของต้นไม้</li>
 											<li>กรอกข้อมูลต้นไม้ของเรา</li>
@@ -110,14 +110,13 @@
 									</div>
 									</div>
 								</div>
-		<br>
+								<br>
 								<div class="heading-section mb-5 mt-5 mt-lg-0">
 						<h2 class="mb-3">คำถามที่พบบ่อย</h2>
 						<!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
 							</div>
 							<!-- <div id="accordion" class="myaccordion w-100" aria-multiselectable="true"> -->
-
-							<div class="card">
+								<div class="card">
 									<div class="card-header p-0" id="headingTwo" role="tab">
 									<h2 class="mb-0">
 										<button href="#collapseTwo" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
@@ -134,8 +133,8 @@
 											<li>คลิกที่ข้อความ Forgot Password?</li>
 											<li>ป้อน Email ของคุณ</li>
 											<li>เช็ค Code ในอีเมล </li>
-											<li>มาใส่ใน Code Verification </li>
-											<li>สร้างรหัสผ่านใหม่ </li>
+											<li>นำ Code ที่ได้รับมาใส่ใน Code Verification </li>
+											<li>ดำเนินการสร้างรหัสผ่านใหม่ </li>
 										</ol>
 									</div>
 									</div>
@@ -154,8 +153,10 @@
 										<ol>
 											<li>ซื้อ Tag ของคุณใหม่</li>
 											<li>Scan Tag ของคุณ</li>
-											<li>คลิกที่ปุ่ม CLICK HERE!</li>
+											<li>คลิกข้อความ "หรือหากคุณมี Account อยู่แล้วคลิกที่นี่"</li>
 											<li>เข้าสู่ระบบด้วย Username และ Password เดิมของคุณ</li>
+											<li>คลิกที่ "ทำ Tag หาย"</li>
+											<li>เลือกชื่อต้นไม้ที่คุณทำหาย</li>
 										</ol>
 									</div>
 									</div>
@@ -172,7 +173,14 @@
 									<div class="collapse" id="collapsefour" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="card-body py-3 px-0">
 										<ol>
-											<li>ซื้อ Tag ของคุณใหม่ แล้วสร้าง Account ใหม่</li>
+											<li>ซื้อ Tag ของคุณใหม่</li>
+											<li>Scan Tag ของคุณ</li>
+											<li>คลิกที่ปุ่ม CLICK HERE!</li>
+											<li>คลิกที่ข้อความ Forgot Password?</li>
+											<li>ป้อน Email ของคุณ</li>
+											<li>เช็ค Code ในอีเมล </li>
+											<li>นำ Code ที่ได้รับมาใส่ใน Code Verification </li>
+											<li>ดำเนินการสร้างรหัสผ่านใหม่ </li>
 										</ol>
 									</div>
 									</div>
@@ -189,20 +197,21 @@
 									<div class="collapse" id="collapsefive" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="card-body py-3 px-0">
 										<ol>
-											<li>ถ้าคุณมีต้นไม้มากกว่า 1 ต้น ต้องซื้อ Tag อย่างละตัว</li>
+											<li>ถ้าคุณมีต้นไม้มากกว่า 1 ต้น ต้องซื้อ Tag อย่างละต้น</li>
 											<li>Scan Tag ของคุณ</li></li>
 											<li>กรอกข้อมูลต้นไม้ โดยการคลิกข้อความ "หรือหากคุณมี Account อยู่แล้วคลิกที่นี่"</li>
+											<li>หลังจากนั้น กรอกข้อมูลต้นไม้ต้นใหม่ลงไป</li>
+											<li>ลอง Scan Tag แล้ว Login คุณจะพบว่าตอนนี้คุณมี Tag มากกว่า 1 ต้น ใน Profile </li>
+											<li>เลือกกดดู Tag ที่คุณสนใจได้เลย</li>
 										</ol>
 									</div>
 									</div>
 								</div>
 							</div>
 	        			</div>
-        </div>
-    	</div>
-    </section>
-
-	
+        			</div>
+    			</div>
+   			</section>
 	<section class="ftco-section testimony-section" style="background-image: url('images/feedback/plants.jpg');">
     	<div class="overlay"></div>
       <div class="container">

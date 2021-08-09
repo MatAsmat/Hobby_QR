@@ -26,7 +26,12 @@ extract($row);
                                     <img src="../profileimg/dtag/<?php echo $row['DogPhoto'];?>" width="250px" height="250px" alt="">
                                     </div>
                                     <div>
-                                        <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedPersonality;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedPersonality1;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedPersonality2;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedPersonality3;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedPersonality4;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedPersonality5;?></p>
+                                        <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedPersonality6;?></p>
                                     </div>
                             </div>
                          </div>
@@ -39,7 +44,12 @@ extract($row);
                             <div class="profile">
                                    
                                     <div>
-                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCharacter;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCharacter1;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCharacter2;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCharacter3;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCharacter4;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCharacter5;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCharacter6;?></p>
                                     </div>
                             </div>
                          </div>
@@ -52,7 +62,12 @@ extract($row);
                             <div class="profile">
                                    
                                     <div>
-                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCare;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCare1;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCare2;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCare3;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCare4;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCare5;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedCare6;?></p>
                                     </div>
                             </div>
                          </div>
@@ -65,7 +80,12 @@ extract($row);
                             <div class="profile">
                                    
                                     <div>
-                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHerdsman;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHerdsman1;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHerdsman2;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHerdsman3;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHerdsman4;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHerdsman5;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHerdsman6;?></p>
                                     </div>
                             </div>
                          </div>
@@ -78,7 +98,12 @@ extract($row);
                             <div class="profile">
                                    
                                     <div>
-                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHealthIssues;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHealthIssues1;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHealthIssues2;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHealthIssues3;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHealthIssues4;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHealthIssues5;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedHealthIssues6;?></p>
                                     </div>
                             </div>
                          </div>
@@ -91,7 +116,12 @@ extract($row);
                             <div class="profile">
                                    
                                     <div>
-                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedNutrients;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedNutrients1;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedNutrients2;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedNutrients3;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedNutrients4;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedNutrients5;?></p>
+                                    <p><span class="las la-chevron-circle-right"></span> <?php echo $DogBreedNutrients6;?></p>
 
                                     </div>
                             </div>

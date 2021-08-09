@@ -62,12 +62,14 @@ extract($row);
                                 <img class="img-front1" src="./../../admin/image/templates/<?php echo $row['TemplateFrontImageSample']; ?>" width="250px" alt="">
                                 <div style="text-align:left;" class="data-ft">
                                      <div class="data-ft">
-                                            <p><?php  echo $TreeName .'/'. $TreeBreedName;?></p> <br>
+                                            <p><?php  echo $TreeBreedName;?></p> <br>
                                             <img src="./../../admin/image/water_sunlight/<?php echo $row['TreeWaterImg'];?>" width="100px"> <br>
                                             <img src="./../../admin/image/water_sunlight/<?php echo $row['TreeSunLightImg'];?>" width="100px">
                                             <br>
                                             <p style="margin-top:18px;"><?php echo $age;?></p>
-                                            <p><?php echo $TreeBirthdate;?></p>
+                                            <p><?php echo date('d/m/',strtotime($row['TreeBirthdate']));
+                                     $y = date('Y',strtotime($row['TreeBirthdate']));
+                                     echo $y+543; ?></p>
                                         </div>
                                 </div>
                             </figure>
